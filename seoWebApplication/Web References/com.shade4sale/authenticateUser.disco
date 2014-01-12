@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://shade4sale.com/webservices/authenticateUser.asmx?wsdl" docRef="http://shade4sale.com/webservices/authenticateUser.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://shade4sale.com/webservices/authenticateUser.asmx" xmlns:q1="devArticles" binding="q1:Mini_x005F_x0020_PassportSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://shade4sale.com/webservices/authenticateUser.asmx" xmlns:q2="devArticles" binding="q2:Mini_x005F_x0020_PassportSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

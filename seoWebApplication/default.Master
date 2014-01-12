@@ -1,0 +1,248 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.Master.cs" Inherits="seoWebApplication._default" %>
+
+<%@ Register src="UserControls/SearchBox.ascx" tagname="SearchBox" tagprefix="uc3" %>  
+<%@ Register src="UserControls/CartSummary.ascx" tagname="CartSummary" tagprefix="uc4" %>
+<%@ Register Src="~/UserControls/DepartmentsList.ascx" TagPrefix="uc3" TagName="DepartmentsList" %>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" style="margin-top: 50px;" >
+<head id="Head1" runat="server">
+<asp:ContentPlaceHolder id="head" runat="server">
+</asp:ContentPlaceHolder> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>House of Wings San Antonio Texas</title>
+<meta id="Keywords" name="Keywords" content="House of wings, Wings, Boneless Strips, Regular Wings, Traditional Wings" />
+<meta id="Description" name="Description" content="House of Wings San Antonio Texas. Order online hot fresh made to order Wings.  Sauced and tossed in your choice of 14 flavors.  Order online!" />  
+    <script src="jscript/ga.js"></script>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body id="bd" class=" cms-index-index cms-home fs3"> 
+<form id="form1" runat="server">
+<div id="main"><!-- this encompasses the entire Web site -->
+    
+	<div class="prefix_1 suffix_1">
+		<header id="header1">
+    	<div id="top-header">
+      	  
+		      <div id="top-search">
+                  <div class="quick-access"> 
+	  <div class="shop-access">
+			<ul class="links"> 
+      
+        <% if (this.loggedIn) %>
+        <% { %>  
+         <li class="first"> Welcome!  <% = Session["UserName"] %></li> 
+        <li><asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl="~/Logout.aspx" Text="Logout" ToolTip="Go to the Logout page"/></li>
+        <% } %> 
+        <% else %>
+        <% { %> 
+         <li class="first"> You are not logged in. </li> 
+         <li><asp:HyperLink runat="server" ID="HyperLink2" NavigateUrl="~/Login.aspx" Text="Login" ToolTip="Go to the Login page"/></li>
+         <li><asp:HyperLink runat="server" ID="HyperLink3" NavigateUrl="~/Register.aspx" Text="Register" ToolTip="Go to the registration page"/></li>
+        <% } %>  
+        <li><a href="/newsletter.aspx">Newsletter</a></li>
+        <li><a href="/order_status.aspx">Order Status</a></li> 
+        <li><a href="/ShoppingCart.aspx">View Cart</a></li>
+        <li  class="last">    <uc3:SearchBox ID="SearchBox2" runat="server" /> </li>
+      </ul> 
+   
+	  </div>
+	  <div class="language-switcher">
+   
+        </div>
+	  <div class="ja-tools">
+	  	  		 
+	  		 		
+    		  		
+    			 
+			  </div>
+  </div>
+		        <form action="http://www.shade-n-net.com/" method="get">
+		          <input type="text" class="input-search" name="s"><input type="submit" id="submit" value="Search">
+		        </form>
+		      </div>  
+		          </div>
+	    <div class="logo">
+	      	        	          <a id="A1" href="http://www.shade-n-net.com/"><img title="" alt="Shade-n-net" src="http://www.shade-n-net.com/wp-content/themes/theme1472/images/logo.png"></a>
+	        	      	      <p class="tagline"></p>
+	    </div>
+	    <nav class="primary">
+	      <ul class="sf-menu sf-js-enabled" id="topnav"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2661" id="menu-item-2661"><a href="http://www.shade-n-net.com/shade-structures/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Structures" style="width: 77px; height: 14px;"><canvas width="81" height="19" style="width: 81px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Structures</cufontext></cufon></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2214" id="menu-item-2214"><a href="http://www.shade-n-net.com/shade-structures/comm/"><cufon class="cufon cufon-canvas" alt="Commercial" style="width: 78px; height: 14px;"><canvas width="84" height="19" style="width: 84px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Commercial</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2219" id="menu-item-2219"><a href="http://www.shade-n-net.com/shade-structures/comm/auto-dealerships-2/"><cufon class="cufon cufon-canvas" alt="Auto " style="width: 35px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Auto </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Dealership " style="width: 75px; height: 14px;"><canvas width="84" height="19" style="width: 84px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Dealership </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2220" id="menu-item-2220"><a href="http://www.shade-n-net.com/shade-structures/comm/car-washes/"><cufon class="cufon cufon-canvas" alt="Car " style="width: 27px; height: 14px;"><canvas width="36" height="19" style="width: 36px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Car </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Washes" style="width: 49px; height: 14px;"><canvas width="53" height="19" style="width: 53px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Washes</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2221" id="menu-item-2221"><a href="http://www.shade-n-net.com/shade-structures/comm/industrial-shade-systems/"><cufon class="cufon cufon-canvas" alt="Industrial " style="width: 73px; height: 14px;"><canvas width="82" height="19" style="width: 82px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Industrial </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Systems" style="width: 56px; height: 14px;"><canvas width="60" height="19" style="width: 60px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Systems</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2222" id="menu-item-2222"><a href="http://www.shade-n-net.com/shade-structures/comm/carports/"><cufon class="cufon cufon-canvas" alt="Carports" style="width: 62px; height: 14px;"><canvas width="67" height="19" style="width: 67px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Carports</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2223" id="menu-item-2223"><a href="http://www.shade-n-net.com/shade-structures/comm/resort-hotels/"><cufon class="cufon cufon-canvas" alt="Resort " style="width: 49px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Resort </cufontext></cufon><cufon class="cufon cufon-canvas" alt="&amp; " style="width: 13px; height: 14px;"><canvas width="22" height="19" style="width: 22px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>&amp; </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Hotels" style="width: 44px; height: 14px;"><canvas width="49" height="19" style="width: 49px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Hotels</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2224" id="menu-item-2224"><a href="http://www.shade-n-net.com/shade-structures/comm/break-area-seating/"><cufon class="cufon cufon-canvas" alt="Break " style="width: 44px; height: 14px;"><canvas width="53" height="19" style="width: 53px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Break </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Area " style="width: 36px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Area </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Seating" style="width: 49px; height: 14px;"><canvas width="54" height="19" style="width: 54px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Seating</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2208" id="menu-item-2208"><a href="http://www.shade-n-net.com/shade-structures/schools/"><cufon class="cufon cufon-canvas" alt="Schools" style="width: 54px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Schools</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2225" id="menu-item-2225"><a href="http://www.shade-n-net.com/shade-structures/schools/school-shade-structures/"><cufon class="cufon cufon-canvas" alt="School " style="width: 49px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>School </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Structures" style="width: 77px; height: 14px;"><canvas width="81" height="19" style="width: 81px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Structures</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2226" id="menu-item-2226"><a href="http://www.shade-n-net.com/shade-structures/schools/day-care-center-shade/"><cufon class="cufon cufon-canvas" alt="Day " style="width: 26px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Day </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Care " style="width: 34px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Care </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Center " style="width: 49px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Center </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2227" id="menu-item-2227"><a href="http://www.shade-n-net.com/shade-structures/schools/pick-up-drop-off/"><cufon class="cufon cufon-canvas" alt="Pick-up " style="width: 53px; height: 14px;"><canvas width="62" height="19" style="width: 62px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Pick-up </cufontext></cufon><cufon class="cufon cufon-canvas" alt="&amp; " style="width: 13px; height: 14px;"><canvas width="22" height="19" style="width: 22px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>&amp; </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Drop " style="width: 35px; height: 14px;"><canvas width="44" height="19" style="width: 44px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Drop </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Off" style="width: 22px; height: 14px;"><canvas width="27" height="19" style="width: 27px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Off</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2228" id="menu-item-2228"><a href="http://www.shade-n-net.com/shade-structures/schools/churches-synagogues/"><cufon class="cufon cufon-canvas" alt="Churches " style="width: 65px; height: 14px;"><canvas width="74" height="19" style="width: 74px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Churches </cufontext></cufon><cufon class="cufon cufon-canvas" alt="&amp; " style="width: 13px; height: 14px;"><canvas width="22" height="19" style="width: 22px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>&amp; </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Synagogues" style="width: 78px; height: 14px;"><canvas width="83" height="19" style="width: 83px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Synagogues</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2229" id="menu-item-2229"><a href="http://www.shade-n-net.com/shade-structures/schools/bleacher-shade/"><cufon class="cufon cufon-canvas" alt="Bleacher " style="width: 64px; height: 14px;"><canvas width="73" height="19" style="width: 73px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Bleacher </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2207" id="menu-item-2207"><a href="http://www.shade-n-net.com/shade-structures/military/"><cufon class="cufon cufon-canvas" alt="Military" style="width: 55px; height: 14px;"><canvas width="59" height="19" style="width: 59px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Military</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2232" id="menu-item-2232"><a href="http://www.shade-n-net.com/shade-structures/military/child-development-centers/"><cufon class="cufon cufon-canvas" alt="Child " style="width: 37px; height: 14px;"><canvas width="46" height="19" style="width: 46px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Child </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Development " style="width: 89px; height: 14px;"><canvas width="98" height="19" style="width: 98px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Development </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Centers" style="width: 53px; height: 14px;"><canvas width="57" height="19" style="width: 57px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Centers</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2231" id="menu-item-2231"><a href="http://www.shade-n-net.com/shade-structures/military/shade-for-mwr/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="for " style="width: 26px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>for </cufontext></cufon><cufon class="cufon cufon-canvas" alt="MWR" style="width: 30px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>MWR</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2230" id="menu-item-2230"><a href="http://www.shade-n-net.com/shade-structures/military/military-aircraft-shade/"><cufon class="cufon cufon-canvas" alt="Military " style="width: 58px; height: 14px;"><canvas width="67" height="19" style="width: 67px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Military </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Aircraft " style="width: 62px; height: 14px;"><canvas width="71" height="19" style="width: 71px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Aircraft </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2213" id="menu-item-2213"><a href="http://www.shade-n-net.com/shade-structures/recreational/"><cufon class="cufon cufon-canvas" alt="Recreational" style="width: 87px; height: 14px;"><canvas width="93" height="19" style="width: 93px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Recreational</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2251" id="menu-item-2251"><a href="http://www.shade-n-net.com/shade-structures/recreational/park-recreational/"><cufon class="cufon cufon-canvas" alt="Park " style="width: 35px; height: 14px;"><canvas width="44" height="19" style="width: 44px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Park </cufontext></cufon><cufon class="cufon cufon-canvas" alt="&amp; " style="width: 13px; height: 14px;"><canvas width="22" height="19" style="width: 22px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>&amp; </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Recreational" style="width: 87px; height: 14px;"><canvas width="93" height="19" style="width: 93px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Recreational</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2250" id="menu-item-2250"><a href="http://www.shade-n-net.com/shade-structures/recreational/aquatic-parks/"><cufon class="cufon cufon-canvas" alt="Aquatic " style="width: 53px; height: 14px;"><canvas width="62" height="19" style="width: 62px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Aquatic </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Parks" style="width: 39px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Parks</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2249" id="menu-item-2249"><a href="http://www.shade-n-net.com/shade-structures/recreational/outdoor-basketball-court-shade/"><cufon class="cufon cufon-canvas" alt="Outdoor " style="width: 58px; height: 14px;"><canvas width="67" height="19" style="width: 67px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Outdoor </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Basketball " style="width: 80px; height: 14px;"><canvas width="89" height="19" style="width: 89px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Basketball </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Court " style="width: 42px; height: 14px;"><canvas width="51" height="19" style="width: 51px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Court </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2248" id="menu-item-2248"><a href="http://www.shade-n-net.com/shade-structures/recreational/dog-parks/"><cufon class="cufon cufon-canvas" alt="Dog " style="width: 27px; height: 14px;"><canvas width="36" height="19" style="width: 36px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Dog </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Parks" style="width: 39px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Parks</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2247" id="menu-item-2247"><a href="http://www.shade-n-net.com/shade-structures/recreational/sports-complexes/"><cufon class="cufon cufon-canvas" alt="Sports " style="width: 50px; height: 14px;"><canvas width="59" height="19" style="width: 59px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Sports </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Complexes" style="width: 71px; height: 14px;"><canvas width="75" height="19" style="width: 75px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Complexes</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2212" id="menu-item-2212"><a href="http://www.shade-n-net.com/shade-structures/residential/"><cufon class="cufon cufon-canvas" alt="Residential" style="width: 76px; height: 14px;"><canvas width="82" height="19" style="width: 82px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Residential</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2255" id="menu-item-2255"><a href="http://www.shade-n-net.com/shade-structures/residential/shade-sails/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Sails" style="width: 34px; height: 14px;"><canvas width="39" height="19" style="width: 39px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Sails</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2254" id="menu-item-2254"><a href="http://www.shade-n-net.com/shade-structures/residential/patio-shade/"><cufon class="cufon cufon-canvas" alt="Patio " style="width: 36px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Patio </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2253" id="menu-item-2253"><a href="http://www.shade-n-net.com/shade-structures/residential/backyard-shade/"><cufon class="cufon cufon-canvas" alt="Backyard " style="width: 66px; height: 14px;"><canvas width="75" height="19" style="width: 75px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Backyard </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade" style="width: 39px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2252" id="menu-item-2252"><a href="http://www.shade-n-net.com/shade-structures/residential/residential-carports/"><cufon class="cufon cufon-canvas" alt="Residential " style="width: 79px; height: 14px;"><canvas width="88" height="19" style="width: 88px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Residential </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Carports" style="width: 62px; height: 14px;"><canvas width="67" height="19" style="width: 67px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Carports</cufontext></cufon></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2206" id="menu-item-2206"><a href="http://www.shade-n-net.com/products/"><cufon class="cufon cufon-canvas" alt="Products" style="width: 62px; height: 14px;"><canvas width="66" height="19" style="width: 66px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Products</cufontext></cufon></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2836" id="menu-item-2836"><a href="http://shade-n-net.com/products/hip/"><cufon class="cufon cufon-canvas" alt="Standard " style="width: 66px; height: 14px;"><canvas width="75" height="19" style="width: 75px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Standard </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Structures" style="width: 77px; height: 14px;"><canvas width="81" height="19" style="width: 81px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Structures</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2257" id="menu-item-2257"><a href="http://www.shade-n-net.com/products/hip/"><cufon class="cufon cufon-canvas" alt="Hip" style="width: 19px; height: 14px;"><canvas width="24" height="19" style="width: 24px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Hip</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2258" id="menu-item-2258"><a href="http://www.shade-n-net.com/products/pyramid/"><cufon class="cufon cufon-canvas" alt="Pyramid" style="width: 54px; height: 14px;"><canvas width="59" height="19" style="width: 59px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Pyramid</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2262" id="menu-item-2262"><a href="http://www.shade-n-net.com/products/t-post/"><cufon class="cufon cufon-canvas" alt="T-post" style="width: 45px; height: 14px;"><canvas width="50" height="19" style="width: 50px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>T-post</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2259" id="menu-item-2259"><a href="http://www.shade-n-net.com/products/kite/"><cufon class="cufon cufon-canvas" alt="Kite" style="width: 27px; height: 14px;"><canvas width="32" height="19" style="width: 32px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Kite</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2786" id="menu-item-2786"><a href="http://shade-n-net.com/products/cantilever-full/"><cufon class="cufon cufon-canvas" alt="Cantilever " style="width: 76px; height: 14px;"><canvas width="85" height="19" style="width: 85px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Cantilever </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shades" style="width: 47px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shades</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2260" id="menu-item-2260"><a href="http://www.shade-n-net.com/products/cantilever-full/"><cufon class="cufon cufon-canvas" alt="Cantilever-Full" style="width: 107px; height: 14px;"><canvas width="113" height="19" style="width: 113px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Cantilever-Full</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2246" id="menu-item-2246"><a href="http://www.shade-n-net.com/products/cantilever-semi/"><cufon class="cufon cufon-canvas" alt="Cantilever-Semi" style="width: 108px; height: 14px;"><canvas width="117" height="19" style="width: 117px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Cantilever-Semi</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789" id="menu-item-2789"><a href="http://shade-n-net.com/products/unbrella-cantilever/"><cufon class="cufon cufon-canvas" alt="Umbrella " style="width: 67px; height: 14px;"><canvas width="76" height="19" style="width: 76px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Umbrella </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shades" style="width: 47px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shades</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2245" id="menu-item-2245"><a href="http://www.shade-n-net.com/products/unbrella-cantilever/"><cufon class="cufon cufon-canvas" alt="Umbrella-Cantilever" style="width: 142px; height: 14px;"><canvas width="147" height="19" style="width: 147px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Umbrella-Cantilever</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2244" id="menu-item-2244"><a href="http://www.shade-n-net.com/products/unbrella-standard/"><cufon class="cufon cufon-canvas" alt="Umbrella-Standard" style="width: 132px; height: 14px;"><canvas width="137" height="19" style="width: 137px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Umbrella-Standard</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2239" id="menu-item-2239"><a href="http://www.shade-n-net.com/products/umbrella-shade-tree/"><cufon class="cufon cufon-canvas" alt="Umbrella " style="width: 67px; height: 14px;"><canvas width="76" height="19" style="width: 76px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Umbrella </cufontext></cufon><cufon class="cufon cufon-canvas" alt="&ndash; " style="width: 4px; height: 14px;"><canvas width="13" height="19" style="width: 13px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>&ndash; </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Tree" style="width: 30px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Tree</cufontext></cufon></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2243" id="menu-item-2243"><a href="http://www.shade-n-net.com/products/extreme-span/"><cufon class="cufon cufon-canvas" alt="Extreme " style="width: 59px; height: 14px;"><canvas width="68" height="19" style="width: 68px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Extreme </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Span" style="width: 31px; height: 14px;"><canvas width="36" height="19" style="width: 36px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Span</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2242" id="menu-item-2242"><a href="http://www.shade-n-net.com/products/octagon/"><cufon class="cufon cufon-canvas" alt="Octagon" style="width: 53px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Octagon</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2241" id="menu-item-2241"><a href="http://www.shade-n-net.com/products/hexagon/"><cufon class="cufon cufon-canvas" alt="Hexagon" style="width: 55px; height: 14px;"><canvas width="60" height="19" style="width: 60px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Hexagon</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2240" id="menu-item-2240"><a href="http://www.shade-n-net.com/products/shade-sails/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="sails" style="width: 34px; height: 14px;"><canvas width="39" height="19" style="width: 39px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>sails</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2238" id="menu-item-2238"><a href="http://www.shade-n-net.com/products/triangles/"><cufon class="cufon cufon-canvas" alt="Triangles" style="width: 65px; height: 14px;"><canvas width="70" height="19" style="width: 70px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Triangles</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2237" id="menu-item-2237"><a href="http://www.shade-n-net.com/products/flat-panel/"><cufon class="cufon cufon-canvas" alt="Flat " style="width: 31px; height: 14px;"><canvas width="40" height="19" style="width: 40px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Flat </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Panel" style="width: 37px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Panel</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2234" id="menu-item-2234"><a href="http://www.shade-n-net.com/products/custom/"><cufon class="cufon cufon-canvas" alt="Custom" style="width: 49px; height: 14px;"><canvas width="51" height="19" style="width: 51px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Custom</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2781" id="menu-item-2781"><a href="http://shade-n-net.com/products/safety-pole-covers/"><cufon class="cufon cufon-canvas" alt="Other" style="width: 38px; height: 14px;"><canvas width="43" height="19" style="width: 43px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Other</cufontext></cufon></a>
+	<ul class="sub-menu" style="display: none; visibility: hidden;">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2236" id="menu-item-2236"><a href="http://www.shade-n-net.com/products/safety-pole-covers/"><cufon class="cufon cufon-canvas" alt="Safety " style="width: 49px; height: 14px;"><canvas width="58" height="19" style="width: 58px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Safety </cufontext></cufon><cufon class="cufon cufon-canvas" alt="pole " style="width: 32px; height: 14px;"><canvas width="41" height="19" style="width: 41px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>pole </cufontext></cufon><cufon class="cufon cufon-canvas" alt="covers" style="width: 46px; height: 14px;"><canvas width="51" height="19" style="width: 51px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>covers</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2261" id="menu-item-2261"><a href="http://www.shade-n-net.com/products/fabric-canopy-replacements/"><cufon class="cufon cufon-canvas" alt="Fabric " style="width: 45px; height: 14px;"><canvas width="54" height="19" style="width: 54px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Fabric </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Canopy " style="width: 51px; height: 14px;"><canvas width="60" height="19" style="width: 60px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Canopy </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Replacements" style="width: 93px; height: 14px;"><canvas width="98" height="19" style="width: 98px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Replacements</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2235" id="menu-item-2235"><a href="http://www.shade-n-net.com/products/vehicle-protection/"><cufon class="cufon cufon-canvas" alt="Vehicle " style="width: 52px; height: 14px;"><canvas width="61" height="19" style="width: 61px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Vehicle </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Protection" style="width: 72px; height: 14px;"><canvas width="77" height="19" style="width: 77px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Protection</cufontext></cufon></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2233" id="menu-item-2233"><a href="http://www.shade-n-net.com/products/logos-and-advertising/"><cufon class="cufon cufon-canvas" alt="Logos " style="width: 41px; height: 14px;"><canvas width="50" height="19" style="width: 50px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Logos </cufontext></cufon><cufon class="cufon cufon-canvas" alt="and " style="width: 28px; height: 14px;"><canvas width="37" height="19" style="width: 37px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>and </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Advertising" style="width: 78px; height: 14px;"><canvas width="83" height="19" style="width: 83px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Advertising</cufontext></cufon></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2218" id="menu-item-2218"><a href="http://shade-n-net.net/default.aspx"><cufon class="cufon cufon-canvas" alt="Store" style="width: 38px; height: 14px;"><canvas width="44" height="19" style="width: 44px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Store</cufontext></cufon></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2209" id="menu-item-2209"><a href="http://www.shade-n-net.com/technical/"><cufon class="cufon cufon-canvas" alt="Technical" style="width: 65px; height: 14px;"><canvas width="71" height="19" style="width: 71px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Technical</cufontext></cufon></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2263" id="menu-item-2263"><a href="http://www.shade-n-net.com/technical/features-and-benefits/"><cufon class="cufon cufon-canvas" alt="Features " style="width: 62px; height: 14px;"><canvas width="71" height="19" style="width: 71px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Features </cufontext></cufon><cufon class="cufon cufon-canvas" alt="and " style="width: 28px; height: 14px;"><canvas width="37" height="19" style="width: 37px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>and </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Benefits" style="width: 56px; height: 14px;"><canvas width="61" height="19" style="width: 61px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Benefits</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3000" id="menu-item-3000"><a href="http://www.shade-n-net.com/technical/net-specifications/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Net " style="width: 26px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Net </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Specifications" style="width: 93px; height: 14px;"><canvas width="98" height="19" style="width: 98px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Specifications</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2999" id="menu-item-2999"><a href="http://www.shade-n-net.com/steel-specifications/"><cufon class="cufon cufon-canvas" alt="Steel " style="width: 39px; height: 14px;"><canvas width="48" height="19" style="width: 48px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Steel </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Specifications" style="width: 93px; height: 14px;"><canvas width="98" height="19" style="width: 98px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Specifications</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2264" id="menu-item-2264"><a href="http://www.shade-n-net.com/technical/shade-structure-warranty/"><cufon class="cufon cufon-canvas" alt="Shade " style="width: 43px; height: 14px;"><canvas width="52" height="19" style="width: 52px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Shade </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Structure " style="width: 72px; height: 14px;"><canvas width="81" height="19" style="width: 81px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Structure </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Warranty" style="width: 67px; height: 14px;"><canvas width="71" height="19" style="width: 71px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Warranty</cufontext></cufon></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2265" id="menu-item-2265"><a href="http://www.shade-n-net.com/technical/sun-safety/"><cufon class="cufon cufon-canvas" alt="Sun " style="width: 28px; height: 14px;"><canvas width="37" height="19" style="width: 37px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Sun </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Safety" style="width: 46px; height: 14px;"><canvas width="50" height="19" style="width: 50px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Safety</cufontext></cufon></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2204" id="menu-item-2204"><a href="http://www.shade-n-net.com/gallery/"><cufon class="cufon cufon-canvas" alt="Contact " style="width: 56px; height: 14px;"><canvas width="65" height="19" style="width: 65px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Contact </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Us" style="width: 16px; height: 14px;"><canvas width="21" height="19" style="width: 21px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Us</cufontext></cufon></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2256" id="menu-item-2256"><a href="http://www.shade-n-net.com/gallery-2/"><cufon class="cufon cufon-canvas" alt="Gallery" style="width: 52px; height: 14px;"><canvas width="56" height="19" style="width: 56px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Gallery</cufontext></cufon></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2210" id="menu-item-2210"><a href="http://www.shade-n-net.com/about/"><cufon class="cufon cufon-canvas" alt="About" style="width: 40px; height: 14px;"><canvas width="45" height="19" style="width: 45px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>About</cufontext></cufon></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2761" id="menu-item-2761"><a href="http://www.shade-n-net.com/technical/fabrication/"><cufon class="cufon cufon-canvas" alt="Fabrication" style="width: 75px; height: 14px;"><canvas width="79" height="19" style="width: 79px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Fabrication</cufontext></cufon></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2313" id="menu-item-2313"><a href="http://www.shade-n-net.com/category/blog-index/"><cufon class="cufon cufon-canvas" alt="Blog" style="width: 30px; height: 14px;"><canvas width="35" height="19" style="width: 35px; height: 19px; top: -5px; left: 1px;"></canvas><cufontext>Blog</cufontext></cufon></a></li>
+</ul>	    </nav><!--.primary-->
+	    <div id="widget-header">
+	      <!-- Wigitized Header -->	    </div><!--#widget-header-->
+		</header>
+	  	  
+ 
+</div>
+</div> 	  
+<div class="primary_content_wrap clearfix">
+  <div class="clearfix">
+<div class="inner">  
+
+<div class="block block-cart">
+        <div class="block-title">
+        <strong><span>My Cart</span></strong>
+    </div>
+    <div class="block-content">
+                      
+        <uc4:CartSummary ID="CartSummary2" runat="server" />
+                      
+        </div>
+</div>
+</div>
+    </div>
+    </div>
+<div class="primary_content_wrap clearfix">
+<div class="clearfix">
+<div class="inner">  
+<div class="inner2">
+<div id="layout-main-container">
+<div id="layout-main" class="group">
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+</div>
+
+ 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!--.container-->
+	  
+<div class="primary_content_wrap clearfix">
+<div class="clearfix">
+<div class="inner">  
+
+  
+</div>
+    </div>
+    </div>
+    <div id="footer" class="clearfix">
+ 
+ <div id="layout-footer" class="group">
+    <footer id="footer1"> 
+     © 2012 <%=storeName%> Store. All Rights Reserved..
+    </footer>
+</div>
+  </div>
+<!--#main-->
+<div id="bg-top"></div>
+</form>  
+    
+    <script src="assets/jquery_002.js"></script> 
+    <script src="assets/jquery_003.js"></script>
+    <script src="assets/jquery_004.js"></script>
+    <script src="assets/jquery_005.js"></script>
+    <script src="assets/jquery_006.js"></script>
+    <script src="assets/jquery_007.js"></script>
+    <script src="assets/jquery_008.js"></script>
+    <script src="assets/menuItem.js"></script>
+</body></html>

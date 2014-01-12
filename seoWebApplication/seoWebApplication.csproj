@@ -1,0 +1,1250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D53F71B7-424C-4382-A7E6-8B90108B349A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>seoWebApplication</RootNamespace>
+    <AssemblyName>seoWebApplication</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook %28.Net 3.5%29">
+      <HintPath>..\packages\ComputerBeacon.Facebook.4.0.427\lib\net35\Facebook (.Net 3.5).dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FBConnectAuth">
+      <HintPath>..\packages\FbConnectAuth.0.9\lib\FBConnectAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Intelligencia.UrlRewriter">
+      <HintPath>..\..\seoWebApplication2\seoWebApplication\bin\Intelligencia.UrlRewriter.dll</HintPath>
+    </Reference>
+    <Reference Include="JSON Toolkit %28.Net 3.5%29">
+      <HintPath>..\packages\ComputerBeacon.Json.4.0.507\lib\net35\JSON Toolkit (.Net 3.5).dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about_us.aspx" />
+    <Content Include="account.aspx" />
+    <Content Include="admin\admin.aspx" />
+    <Content Include="admin\AdminCategories.aspx" />
+    <Content Include="admin\AdminDepartments.aspx" />
+    <Content Include="admin\AdminLogin.aspx" />
+    <Content Include="admin\AdminOrderDetails.aspx" />
+    <Content Include="admin\AdminOrders.aspx" />
+    <Content Include="admin\AdminProductDetails.aspx" />
+    <Content Include="admin\AdminProducts.aspx" />
+    <Content Include="admin\AdminShoppingCart.aspx" />
+    <Content Include="admin\admin_parent.aspx" />
+    <Content Include="admin\catalog\attribute.aspx" />
+    <Content Include="admin\catalog\attributes.aspx" />
+    <Content Include="admin\catalog\attributeValue.aspx" />
+    <Content Include="admin\catalog\categories.aspx" />
+    <Content Include="admin\catalog\category.aspx" />
+    <Content Include="admin\catalog\deleteProductCategory.aspx" />
+    <Content Include="admin\catalog\department.aspx" />
+    <Content Include="admin\catalog\departments.aspx" />
+    <Content Include="admin\catalog\includes\images.jpg" />
+    <Content Include="admin\catalog\includes\style.css" />
+    <Content Include="admin\catalog\includes\style2.css" />
+    <Content Include="admin\catalog\includes\tabs.css" />
+    <Content Include="admin\catalog\product.aspx" />
+    <Content Include="admin\catalog\productAttributeValue.aspx" />
+    <Content Include="admin\catalog\products.aspx" />
+    <Content Include="admin\Dashboard.aspx" />
+    <Content Include="admin\default.aspx" />
+    <Content Include="admin\includes\images.jpg" />
+    <Content Include="admin\includes\style.css" />
+    <Content Include="admin\includes\style2.css" />
+    <Content Include="admin\includes\tabs.css" />
+    <Content Include="admin\Logout.aspx" />
+    <Content Include="admin\settings\addGeoMap.aspx" />
+    <Content Include="admin\settings\admin.aspx" />
+    <Content Include="admin\settings\admins.aspx" />
+    <Content Include="admin\settings\point.aspx" />
+    <Content Include="admin\settings\shippingOptions.aspx" />
+    <Content Include="admin\settings\viewDeliveryZone.aspx" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\button-bg.gif" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\button-bg2.gif" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\GSA.jpg" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\loading.gif" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\magnify.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\main-bg.gif" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\nav-bg.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\pattern.jpg" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\submenu-bg.gif" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\TXMAS_logo.jpg" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_056b93_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="App_Themes\SeoWebAppDefault\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="assets\aboutus\facebook.png" />
+    <Content Include="assets\aboutus\GSA.jpg" />
+    <Content Include="assets\aboutus\logo.png" />
+    <Content Include="assets\aboutus\s-icon.png" />
+    <Content Include="assets\aboutus\twitter.png" />
+    <Content Include="assets\aboutus\TXMAS_logo.jpg" />
+    <Content Include="assets\audio.js" />
+    <Content Include="assets\Bebas_400.font.js" />
+    <Content Include="assets\cufon-yui.js" />
+    <Content Include="assets\custom.js" />
+    <Content Include="assets\facebook.png" />
+    <Content Include="assets\GSA.jpg" />
+    <Content Include="assets\James_Fajardo_400.font.js" />
+    <Content Include="assets\jquery-1.6.4.min.js" />
+    <Content Include="assets\jquery.easing.1.3.js" />
+    <Content Include="assets\jquery.tools.min.js" />
+    <Content Include="assets\jquery_002.js" />
+    <Content Include="assets\jquery_003.js" />
+    <Content Include="assets\jquery_004.js" />
+    <Content Include="assets\jquery_005.js" />
+    <Content Include="assets\jquery_006.js" />
+    <Content Include="assets\jquery_007.js" />
+    <Content Include="assets\jquery_008.js" />
+    <Content Include="assets\logo.png" />
+    <Content Include="assets\menuItem.js" />
+    <Content Include="assets\modernizer.js" />
+    <Content Include="assets\s-icon.png" />
+    <Content Include="assets\superfish.js" />
+    <Content Include="assets\tooltip-script.js" />
+    <Content Include="assets\twitter.png" />
+    <Content Include="assets\TXMAS_logo.jpg" />
+    <Content Include="delete.gif" />
+    <Content Include="Images\1-Half-Stars.png" />
+    <Content Include="Images\1-Stars.png" />
+    <Content Include="Images\2-Half-Stars.png" />
+    <Content Include="Images\2-Stars.png" />
+    <Content Include="Images\3-Half-Stars.png" />
+    <Content Include="Images\3-Stars.png" />
+    <Content Include="Images\4-Half-Stars.png" />
+    <Content Include="Images\4-Stars.png" />
+    <Content Include="Images\5-Stars.png" />
+    <Content Include="Images\BANNER.png" />
+    <Content Include="Images\button-bg2.gif" />
+    <Content Include="Images\GSA.jpg" />
+    <Content Include="Images\houseofwings_logo.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logos2.png" />
+    <Content Include="Images\main-bg.gif" />
+    <Content Include="Images\my-dinner-2go.png" />
+    <Content Include="Images\nav-bg.png" />
+    <Content Include="Images\pattern.jpg" />
+    <Content Include="Images\TXMAS_logo.jpg" />
+    <Content Include="Images\wings.jpg" />
+    <Content Include="jscript\ga.js" />
+    <Content Include="jscript\jquery-1.4.2.min.js" />
+    <Content Include="jscript\jquery-1.8.3.js" />
+    <Content Include="jscript\jquery-ui-1.9.2.custom.js" />
+    <Content Include="jscript\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="jscript\jquery.metadata.min.js" />
+    <Content Include="jscript\jquery.ui.core.min.js" />
+    <Content Include="jscript\jquery.ui.datepicker.min.js" />
+    <Content Include="jscript\jquery.ui.widget.min.js" />
+    <Content Include="jscript\jquery.validate.js" />
+    <Content Include="jscript\jquery.validate.min.js" />
+    <Content Include="jscript\polygon.min.js" />
+    <Content Include="jscript\style.css" />
+    <Content Include="jscript\validatewebstore.js" />
+    <Content Include="myaccount.aspx" />
+    <Content Include="product_view.aspx" />
+    <Content Include="assets\ajax.css" />
+    <Content Include="assets\init_product.js" />
+    <Content Include="Checkout.aspx" />
+    <Content Include="default.Master" />
+    <Content Include="Images\angel-wings-cross-wings.jpg" />
+    <Content Include="Images\angel-wings-with-cross.jpg" />
+    <Content Include="Images\angel-wings.jpg" />
+    <Content Include="Images\angel.jpg" />
+    <Content Include="Images\angel2.jpg" />
+    <Content Include="Images\angel3.jpg" />
+    <Content Include="Images\angel4.jpg" />
+    <Content Include="Images\btnadd.gif" />
+    <Content Include="Images\button.gif" />
+    <Content Include="Images\christian-shirts-online-logo.jpg" />
+    <Content Include="Images\cross-angel-wings.jpg" />
+    <Content Include="Images\dinner2go.png" />
+    <Content Include="Images\frontShirt.jpg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\menub_bg.gif" />
+    <Content Include="Images\menub_hover_left.gif" />
+    <Content Include="Images\menub_hover_right.gif" />
+    <Content Include="Images\shirtsPromo.jpg" />
+    <Content Include="Images\shirtsPromo2.jpg" />
+    <Content Include="Images\side_background.jpg" />
+    <Content Include="Images\tamale-addiction.jpg" />
+    <Content Include="Images\tortillas.jpg" />
+    <Content Include="OrderVerify.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Images\bgTextBox.gif" />
+    <Content Include="Logout.aspx" />
+    <Content Include="OrderPlaced.aspx" />
+    <Content Include="OrderTest.aspx" />
+    <Content Include="Product.aspx" />
+    <Content Include="ProductImages\2685_Large.jpg" />
+    <Content Include="ProductImages\2698_Large.jpg" />
+    <Content Include="ProductImages\IMG_2683 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2684 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2686 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2687 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2688 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2689 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2690 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2691 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2692 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2693 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2694 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2695 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2696 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2697 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2699 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2700 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2701 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2702 %281%29.jpg" />
+    <Content Include="ProductImages\IMG_2703 %281%29.jpg" />
+    <Content Include="ProductImages\tameles.jpg" />
+    <Content Include="ProductImages\thumbnail.jpg" />
+    <Content Include="star.gif" />
+    <Content Include="UserControls\AccordianRestaurantHours.ascx" />
+    <Content Include="UserControls\CategoriesList.ascx" />
+    <Content Include="UserControls\CuisineList.ascx" />
+    <Content Include="UserControls\DeptCategoriesList.ascx" />
+    <Content Include="UserControls\MapLocation.ascx" />
+    <Content Include="UserControls\MenuList.ascx" />
+    <Content Include="UserControls\ProductRecommendations.ascx" />
+    <Content Include="UserControls\ProductsList.ascx" />
+    <Content Include="UserControls\RestaurantDeliveryMap.ascx" />
+    <Content Include="UserControls\RestaurantHours.ascx" />
+    <Content Include="UserControls\RestaurantMap.ascx" />
+    <Content Include="UserControls\RestaurantReviews.ascx" />
+    <Content Include="UserControls\RestaurantReviewStars.ascx" />
+    <Content Include="UserControls\SearchBox.ascx" />
+    <Content Include="shadeinfo.aspx" />
+    <Content Include="shippinginfo.aspx" />
+    <Content Include="ShoppingCart.aspx" />
+    <Content Include="UserControls\ProductCustomAttributes.ascx" />
+    <Content Include="UserControls\ProductAttributesRadio.ascx" />
+    <Content Include="UserControls\ProductAttributes.ascx" />
+    <Content Include="UserControls\MenuTab.ascx" />
+    <Content Include="UserControls\MenuParentList.ascx" />
+    <Content Include="UserControls\MenuSubList.ascx" />
+    <Content Include="UserControls\SearchBox2.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Link.cs" />
+    <Content Include="App_Code\CatalogAccess.cs" />
+    <Content Include="App_Code\GenericDataAccess.cs" />
+    <Compile Include="about_us.aspx.cs">
+      <DependentUpon>about_us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about_us.aspx.designer.cs">
+      <DependentUpon>about_us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminMstr.Master.cs">
+      <DependentUpon>adminMstr.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminMstr.Master.designer.cs">
+      <DependentUpon>adminMstr.Master</DependentUpon>
+    </Compile>
+    <Content Include="st.SharkTankDAL\DynamicLibrary.cs" />
+    <Compile Include="admin\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminCategories.aspx.cs">
+      <DependentUpon>AdminCategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminCategories.aspx.designer.cs">
+      <DependentUpon>AdminCategories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminDepartments.aspx.cs">
+      <DependentUpon>AdminDepartments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminDepartments.aspx.designer.cs">
+      <DependentUpon>AdminDepartments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminOrderDetails.aspx.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminOrderDetails.aspx.designer.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminOrders.aspx.cs">
+      <DependentUpon>AdminOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminOrders.aspx.designer.cs">
+      <DependentUpon>AdminOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminProductDetails.aspx.cs">
+      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminProductDetails.aspx.designer.cs">
+      <DependentUpon>AdminProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminProducts.aspx.cs">
+      <DependentUpon>AdminProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminProducts.aspx.designer.cs">
+      <DependentUpon>AdminProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminShoppingCart.aspx.cs">
+      <DependentUpon>AdminShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminShoppingCart.aspx.designer.cs">
+      <DependentUpon>AdminShoppingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_parent.aspx.cs">
+      <DependentUpon>admin_parent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_parent.aspx.designer.cs">
+      <DependentUpon>admin_parent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\attribute.aspx.cs">
+      <DependentUpon>attribute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\attribute.aspx.designer.cs">
+      <DependentUpon>attribute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\attributes.aspx.cs">
+      <DependentUpon>attributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\attributes.aspx.designer.cs">
+      <DependentUpon>attributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\attributeValue.aspx.cs">
+      <DependentUpon>attributeValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\attributeValue.aspx.designer.cs">
+      <DependentUpon>attributeValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\categories.aspx.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\categories.aspx.designer.cs">
+      <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\category.aspx.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\category.aspx.designer.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\deleteProductCategory.aspx.cs">
+      <DependentUpon>deleteProductCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\deleteProductCategory.aspx.designer.cs">
+      <DependentUpon>deleteProductCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\department.aspx.cs">
+      <DependentUpon>department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\department.aspx.designer.cs">
+      <DependentUpon>department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\departments.aspx.cs">
+      <DependentUpon>departments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\departments.aspx.designer.cs">
+      <DependentUpon>departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\productAttributeValue.aspx.cs">
+      <DependentUpon>productAttributeValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\productAttributeValue.aspx.designer.cs">
+      <DependentUpon>productAttributeValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\catalog\products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\catalog\products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\addGeoMap.aspx.cs">
+      <DependentUpon>addGeoMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\addGeoMap.aspx.designer.cs">
+      <DependentUpon>addGeoMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\admins.aspx.cs">
+      <DependentUpon>admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\admins.aspx.designer.cs">
+      <DependentUpon>admins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\point.aspx.cs">
+      <DependentUpon>point.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\point.aspx.designer.cs">
+      <DependentUpon>point.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\shippingOptions.aspx.cs">
+      <DependentUpon>shippingOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\shippingOptions.aspx.designer.cs">
+      <DependentUpon>shippingOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings\viewDeliveryZone.aspx.cs">
+      <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings\viewDeliveryZone.aspx.designer.cs">
+      <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\SEOBaseEditPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="catalogAccesor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBHandler.ashx.cs">
+      <DependentUpon>FBHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="myaccount.aspx.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myaccount.aspx.designer.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product_view.aspx.cs">
+      <DependentUpon>product_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_view.aspx.designer.cs">
+      <DependentUpon>product_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\BaseEditPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Data\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.Master.cs">
+      <DependentUpon>default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.Master.designer.cs">
+      <DependentUpon>default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="default2.master.cs">
+      <DependentUpon>default2.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default2.master.designer.cs">
+      <DependentUpon>default2.master</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seowebapp.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>seowebapp.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="seowebapp.Master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seowebapp.Master.designer.cs">
+      <DependentUpon>seowebapp.Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seoWebAppAdmin.Master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seoWebAppAdmin.Master.designer.cs">
+      <DependentUpon>seoWebAppAdmin.Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seoWebAppAdminEditGrid.master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seoWebAppAdminEditGrid.master.designer.cs">
+      <DependentUpon>seoWebAppAdminEditGrid.master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seoWebAppAdminEditPage.Master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seoWebAppAdminEditPage.Master.designer.cs">
+      <DependentUpon>seoWebAppAdminEditPage.Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\checkCoordinates.cs" />
+    <Compile Include="st.SharkTankDAL\commonClasses.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\AttributeData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\AttributeValueData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\cityData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\countryData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\cuisineData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ISEOBaseEntity.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\pointsData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ProductAttributeValueData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\reviewData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\SEOBaseBOList.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\SEOBaseData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\SEOBaseEOList.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\stateData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\UserAccountData.cs" />
+    <Compile Include="shadeinfo.aspx.cs">
+      <DependentUpon>shadeinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shadeinfo.aspx.designer.cs">
+      <DependentUpon>shadeinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shippinginfo.aspx.cs">
+      <DependentUpon>shippinginfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shippinginfo.aspx.designer.cs">
+      <DependentUpon>shippinginfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\CustomizedEntities.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ENTBaseData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ENTBaseBOList.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ENTBaseEOList.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\webstoreData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\zoneData.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\AttributeEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\AttributeValueEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\cityEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\countryEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\cuisineEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ENTBaseBO.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\IENTBaseEntity.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ENTBaseEO.cs" />
+    <Content Include="App_Code\Link2.cs" />
+    <Compile Include="App_Code\seoWebAppConfiguration.cs" />
+    <Compile Include="App_Data\StringHelpers.cs" />
+    <Compile Include="Catalog.aspx.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog.aspx.designer.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderVerify.aspx.cs">
+      <DependentUpon>OrderVerify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderVerify.aspx.designer.cs">
+      <DependentUpon>OrderVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenericDataAccessor.cs" />
+    <Compile Include="Linkor.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPlaced.aspx.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderPlaced.aspx.designer.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersAccessor.cs" />
+    <Compile Include="OrderTest.aspx.cs">
+      <DependentUpon>OrderTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderTest.aspx.designer.cs">
+      <DependentUpon>OrderTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\entObject\pointsEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\reviewEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\SEOBaseBO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\SEOBaseEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\stateEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\webstoreEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\zoneEO.cs" />
+    <Compile Include="st.SharkTankDAL\seowebappDataContext.cs">
+      <DependentUpon>seowebappDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\seowebappDataContext.designer.cs">
+      <DependentUpon>seowebappDataContext.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="template.Master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template.Master.designer.cs">
+      <DependentUpon>template.Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordianRestaurantHours.ascx.cs">
+      <DependentUpon>AccordianRestaurantHours.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordianRestaurantHours.ascx.designer.cs">
+      <DependentUpon>AccordianRestaurantHours.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CategoriesList.ascx.cs">
+      <DependentUpon>CategoriesList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CategoriesList.ascx.designer.cs">
+      <DependentUpon>CategoriesList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CuisineList.ascx.cs">
+      <DependentUpon>CuisineList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CuisineList.ascx.designer.cs">
+      <DependentUpon>CuisineList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DeptCategoriesList.ascx.cs">
+      <DependentUpon>DeptCategoriesList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DeptCategoriesList.ascx.designer.cs">
+      <DependentUpon>DeptCategoriesList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MapLocation.ascx.cs">
+      <DependentUpon>MapLocation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapLocation.ascx.designer.cs">
+      <DependentUpon>MapLocation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuList.ascx.cs">
+      <DependentUpon>MenuList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MenuList.ascx.designer.cs">
+      <DependentUpon>MenuList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductRecommendations.ascx.cs">
+      <DependentUpon>ProductRecommendations.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductRecommendations.ascx.designer.cs">
+      <DependentUpon>ProductRecommendations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductsList.ascx.cs">
+      <DependentUpon>ProductsList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductsList.ascx.designer.cs">
+      <DependentUpon>ProductsList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestaurantDeliveryMap.ascx.cs">
+      <DependentUpon>RestaurantDeliveryMap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RestaurantDeliveryMap.ascx.designer.cs">
+      <DependentUpon>RestaurantDeliveryMap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestaurantHours.ascx.cs">
+      <DependentUpon>RestaurantHours.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RestaurantHours.ascx.designer.cs">
+      <DependentUpon>RestaurantHours.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestaurantMap.ascx.cs">
+      <DependentUpon>RestaurantMap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RestaurantMap.ascx.designer.cs">
+      <DependentUpon>RestaurantMap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestaurantReviews.ascx.cs">
+      <DependentUpon>RestaurantReviews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RestaurantReviews.ascx.designer.cs">
+      <DependentUpon>RestaurantReviews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestaurantReviewStars.ascx.cs">
+      <DependentUpon>RestaurantReviewStars.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RestaurantReviewStars.ascx.designer.cs">
+      <DependentUpon>RestaurantReviewStars.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchBox.ascx.cs">
+      <DependentUpon>SearchBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchBox.ascx.designer.cs">
+      <DependentUpon>SearchBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="oops.aspx.cs">
+      <DependentUpon>oops.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="oops.aspx.designer.cs">
+      <DependentUpon>oops.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Code\ShoppingCartAccess.cs" />
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\DataCashLib\AmountClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\AuthenticationClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\CardClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\CardTxnRequestClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\CardTxnResponseClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\DataCashResponse.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\HistoricTxnClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\myWsRequest.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\myWsResponse.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\ReturnProducts.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\ReturnProductsResponseClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\ReturnProductsResult.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\TransactionClass.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\TxnDetailsClass.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\AuditData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\categoryData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\customerData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\departmentData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\OrderDetailData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\OrdersData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\productData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ShippingData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ShippingRegionData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\ShoppingCartData.cs" />
+    <Compile Include="st.SharkTankDAL\dataObject\TaxData.cs" />
+    <Compile Include="st.SharkTankDAL\dbHelper.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\AuditEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\categoryEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\customerEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\departmentEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ENTValidationError.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\OrderDetailEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\OrdersEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ProductAttributeValueEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\productEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ShippingEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ShippingRegionEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\ShoppingCartEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\TaxEO.cs" />
+    <Compile Include="st.SharkTankDAL\entObject\UserAccountEO.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\CommerceLibOrderDetailInfo.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\CommerceLibOrderInfo.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\customerAccessor.cs" />
+    <Content Include="st.SharkTankDAL\Framework\OrdersAccessor.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\CustomGridView.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\getSchema.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\LinkMaker.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\OrderProcessor.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\OrderProcessorException.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\OrderProcessorMailer.cs" />
+    <Compile Include="st.SharkTankDAL\Framework\XmlStreamSoapExtension.cs" />
+    <Compile Include="st.SharkTankDAL\DataCashLib\DataCashRequest.cs" />
+    <Compile Include="st.SharkTankDAL\IPipelineSection.cs" />
+    <Compile Include="st.SharkTankDAL\PSDummy.cs" />
+    <Compile Include="st.SharkTankDAL\SecurityLib\phasher.cs" />
+    <Compile Include="st.SharkTankDAL\SecurityLib\SecureCard.cs" />
+    <Compile Include="st.SharkTankDAL\SecurityLib\SecureCardException.cs" />
+    <Compile Include="st.SharkTankDAL\SecurityLib\StringEncryptor.cs" />
+    <Compile Include="st.SharkTankDAL\SecurityLib\StringEncryptorException.cs" />
+    <Compile Include="UserControls\CartSummary.ascx.cs">
+      <DependentUpon>CartSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CartSummary.ascx.designer.cs">
+      <DependentUpon>CartSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductCustomAttributes.ascx.cs">
+      <DependentUpon>ProductCustomAttributes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductCustomAttributes.ascx.designer.cs">
+      <DependentUpon>ProductCustomAttributes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductAttributesRadio.ascx.cs">
+      <DependentUpon>ProductAttributesRadio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductAttributesRadio.ascx.designer.cs">
+      <DependentUpon>ProductAttributesRadio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductAttributes.ascx.cs">
+      <DependentUpon>ProductAttributes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductAttributes.ascx.designer.cs">
+      <DependentUpon>ProductAttributes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuTab.ascx.cs">
+      <DependentUpon>MenuTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MenuTab.ascx.designer.cs">
+      <DependentUpon>MenuTab.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuParentList.ascx.cs">
+      <DependentUpon>MenuParentList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MenuParentList.ascx.designer.cs">
+      <DependentUpon>MenuParentList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuSubList.ascx.cs">
+      <DependentUpon>MenuSubList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MenuSubList.ascx.designer.cs">
+      <DependentUpon>MenuSubList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomerDetailsEdit.ascx.cs">
+      <DependentUpon>CustomerDetailsEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CustomerDetailsEdit.ascx.designer.cs">
+      <DependentUpon>CustomerDetailsEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DepartmentsList.ascx.cs">
+      <DependentUpon>DepartmentsList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DepartmentsList.ascx.designer.cs">
+      <DependentUpon>DepartmentsList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pager.ascx.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Pager.ascx.designer.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchBox2.ascx.cs">
+      <DependentUpon>SearchBox2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchBox2.ascx.designer.cs">
+      <DependentUpon>SearchBox2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserInfo2.ascx.cs">
+      <DependentUpon>UserInfo2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserInfo2.ascx.designer.cs">
+      <DependentUpon>UserInfo2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="st.SharkTankDAL\Framework\ValidationErrorMessages.cs" />
+    <Compile Include="Web References\com.shade4sale\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="webservices\authenticateUser.asmx.cs">
+      <DependentUpon>authenticateUser.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Catalog.aspx" />
+    <Content Include="Images\BalloonShopLogo.png" />
+    <Content Include="Images\bottom_sep1.gif" />
+    <Content Include="Images\cate_tit.gif" />
+    <Content Include="Images\left_bg.gif" />
+    <Content Include="Images\liquid_coffee_splash.jpg" />
+    <Content Include="Images\main_top1.gif" />
+    <Content Include="oops.aspx" />
+    <Content Include="UserControls\DepartmentsList.ascx" />
+    <Content Include="UserControls\Pager.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adminMstr.Master" />
+    <Content Include="default2.master" />
+    <Content Include="packages.config" />
+    <Content Include="FBHandler.ashx" />
+    <None Include="Properties\PublishProfiles\catalog.shoppersparadisezim.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ibuyusa.co - Web Deploy.pubxml" />
+    <None Include="seowebapp.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>seowebapp.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\01d.jpg" />
+    <Content Include="Images\adempiere_trainingSL.jpg" />
+    <Content Include="Images\african_mask.jpg" />
+    <Content Include="Images\arrow-more-colour.gif" />
+    <Content Include="Images\bg-body.gif" />
+    <Content Include="Images\bg-form-search.gif" />
+    <Content Include="Images\bg-header.gif" />
+    <Content Include="Images\bg-lower-banner.gif" />
+    <Content Include="Images\bg-main-area.png" />
+    <Content Include="Images\bg-main.jpg" />
+    <Content Include="Images\bg-nav-hover.gif" />
+    <Content Include="Images\bg-page.jpg" />
+    <Content Include="Images\bg-pagination.gif" />
+    <Content Include="Images\bg-slogan.gif" />
+    <Content Include="Images\bg-textarea.gif" />
+    <Content Include="Images\bg-txt.gif" />
+    <Content Include="Images\bg-visual.gif" />
+    <Content Include="Images\bg-w-main-bottom.png" />
+    <Content Include="Images\bg-w-main-content.png" />
+    <Content Include="Images\bg-w-main-top.png" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bg_forms_top_membership.png" />
+    <Content Include="Images\blank.png" />
+    <Content Include="Images\bleachers1.jpg" />
+    <Content Include="Images\body_bg.png" />
+    <Content Include="Images\btn-rss.gif" />
+    <Content Include="Images\btn-search.gif" />
+    <Content Include="Images\bullet-leftmenu.png" />
+    <Content Include="Images\button-bg-hover.gif" />
+    <Content Include="Images\button-bg-right-hover.gif" />
+    <Content Include="Images\button-bg-right.gif" />
+    <Content Include="Images\button-bg.gif" />
+    <Content Include="Images\customization.jpg" />
+    <Content Include="Images\dropdown-arrow.gif" />
+    <Content Include="Images\facebook-icon.png" />
+    <Content Include="Images\footer_bg.png" />
+    <Content Include="Images\header_bg.png" />
+    <Content Include="Images\hnav_sprite.png" />
+    <Content Include="Images\home-icon2.gif" />
+    <Content Include="Images\icon-facebook.gif" />
+    <Content Include="Images\icon-rss.gif" />
+    <Content Include="Images\icon-twitter-hover.gif" />
+    <Content Include="Images\icon-twitter.gif" />
+    <Content Include="Images\implementation.jpg" />
+    <Content Include="Images\menu_bg_trans.png" />
+    <Content Include="Images\nav_active.png" />
+    <Content Include="Images\nav_active_sub.png" />
+    <Content Include="Images\nav_hover.png" />
+    <Content Include="Images\new-hc-cart.png" />
+    <Content Include="Images\outdoorshade1.jpg" />
+    <Content Include="Images\powersearch-go.png" />
+    <Content Include="Images\rss-icon.png" />
+    <Content Include="Images\S1.png" />
+    <Content Include="Images\search-bg.png" />
+    <Content Include="Images\sec_nav_bg.png" />
+    <Content Include="Images\separator02.gif" />
+    <Content Include="Images\separator03.gif" />
+    <Content Include="Images\separator04.gif" />
+    <Content Include="Images\shade.jpg" />
+    <Content Include="Images\shade4sale2.jpg" />
+    <Content Include="Images\stonesculpture.jpg" />
+    <Content Include="Images\swimmingpool0.jpg" />
+    <Content Include="Images\tob-bar-bg.png" />
+    <Content Include="Images\top-link-divider.png" />
+    <Content Include="Images\top-nav-divider.png" />
+    <Content Include="Images\top-tag-line.png" />
+    <Content Include="Images\top_corners.png" />
+    <Content Include="Images\twitter-icon.png" />
+    <Content Include="Images\wooden.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Search.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="seowebapp.dbml.layout">
+      <DependentUpon>seowebapp.dbml</DependentUpon>
+    </None>
+    <Content Include="NotFound.aspx" />
+    <Content Include="style.css" />
+    <Content Include="Images\shade4sale.jpg" />
+    <Content Include="st.SharkTankDAL\app.config" />
+    <Content Include="UserControls\CartSummary.ascx" />
+    <Content Include="UserControls\CustomerDetailsEdit.ascx" />
+    <Content Include="UserControls\UserInfo2.ascx" />
+    <None Include="st.SharkTankDAL\seowebappDataContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>seowebappDataContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\com.shade4sale\authenticateUser.disco" />
+    <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
+    <None Include="Web References\com.shade4sale\Product.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.shade4sale\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="webservices\authenticateUser.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://shade4sale.com/webservices/authenticateUser.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.shade4sale\</RelPath>
+      <UpdateFromURL>http://shade4sale.com/webservices/authenticateUser.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>seoWebApplication_com_shade4sale_Mini_x0020_Passport</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\ajax\" />
+    <Folder Include="factoryClasses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">
+      <DependentUpon>seowebappDataContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24581</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

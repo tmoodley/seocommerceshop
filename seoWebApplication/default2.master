@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default2.master.cs" Inherits="seoWebApplication._default2" %>
+<%@ Register src="UserControls/SearchBox.ascx" tagname="SearchBox" tagprefix="uc3" %>  
+<%@ Register src="UserControls/CartSummary.ascx" tagname="CartSummary" tagprefix="uc4" %>
+<%@ Register Src="~/UserControls/DepartmentsList.ascx" TagPrefix="uc3" TagName="DepartmentsList" %>
+<%@ Register Src="~/UserControls/SearchBox.ascx" TagPrefix="uc4" TagName="SearchBox" %>
+<%@ Register Src="~/UserControls/CartSummary.ascx" TagPrefix="uc3" TagName="CartSummary" %>
+<%@ Register Src="~/UserControls/CategoriesList.ascx" TagPrefix="uc3" TagName="CategoriesList" %>
+<%@ Register Src="~/UserControls/DeptCategoriesList.ascx" TagPrefix="uc3" TagName="DeptCategoriesList" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head id="Head1" runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Shopping Paradise Zim">
+<meta name="keywords" content="Shopping Paradise Zim">
+<meta name="robots" content="INDEX,FOLLOW">
+ 
+
+    <link rel="stylesheet" href="http://www.kule.tw/css/kule.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-addons.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-widgets.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-collector-fonts.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-collector-iconfonts.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-grid.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-responsive.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-jquery-ui.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/kule-jquery-plugins.css" />
+        <link rel="stylesheet" href="http://www.kule.tw/css/layout.css" />
+		<link rel="stylesheet" href="http://www.kule.tw/css/kule-hacks.css" />
+		<link rel="stylesheet" href="http://www.kule.tw/css/prism.css" />
+        <link href="style.css" rel="stylesheet" />
+        <script type="text/javascript" src="http://www.kule.tw/js/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="http://www.kule.tw/js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://www.kule.tw/js/prism.js"></script>
+ <asp:ContentPlaceHolder id="head" runat="server">
+</asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server"> 
+    <div id="wrap" class="column12">
+    <div class="row-fluid">
+        <header class="span12">  
+            <div class="column12">
+            <div class="row-mix">
+            <div class="span4">
+            <div class="logo">
+	            <a href="http://www.Shoppersparadisezim.com/" id="logo">LOGO</a> 
+            </div>
+            </div>
+            <div class="span3">
+            <div id="top-commerce"> 
+           
+             </div>
+            </div>
+            <div class="span5">
+            <div id="top-search">
+                    <uc4:SearchBox runat="server" id="SearchBox1" />
+                </div>   
+            </div>
+                </div>
+            </div>
+        </header>
+        <aside class="span3">
+            <div id="leftbox">
+            <ul id="topnav" class="sf-menu">  
+                <uc3:DepartmentsList runat="server" ID="DepartmentsList1" />         
+                <uc3:CategoriesList runat="server" id="CategoriesList2" />
+            </ul>
+            </div> 
+        </aside>
+        <div class="span9 cleargutter">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder> 
+        </div>
+     </div>
+        
+           <!--.container-->
+		<footer id="footer">
+                <div id="wrap" class="column12">
+                <div class="row-fluid">
+                <div class="span3">  
+			    <h3>Contact</h3>
+
+<!-- 123ContactForm.com script begins here -->
+        
+<script type="text/javascript">var servicedomain = "www.123contactform.com"; var frmRef = window.top.location.href; var cfJsHost = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/includes/easyXDM.min.js' type='text/javascript'%3E%3C/script%3E")); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/jsform-318838.js?ref=" + frmRef + "' type='text/javascript'%3E%3C/script%3E")); </script>
+<!-- 123ContactForm.com script ends here -->
+
+                </div>
+                <div class="span3">
+                    <h3>Address</h3> 
+                    <dl class="address">
+                    <dt>Location:</dt>  
+                    <dt>Bloemendal Shoppers Paradise<br />
+                        310 Woodlands Drive<br />
+                        Msasa<br />
+                        Harare<br /></dt>
+                     <dt><a href="mailto:info@shoppersparadisezim.com">info@shoppersparadisezim.com</a><br />
+                     <span>Tel: Phone: 04-487250-9</span><br />
+                     <span>Cel: Geri: 0772 991 941</span><br />                       
+                    </dt>
+                    </dl>
+                </div>
+ 
+                <div class="span3">
+	             <h3>About Us</h3>
+                 Shoppersparadisezim is a Zimbabwean company that specializes in Sourcing the best products for consumption in Zimbabwe.
+                </div>
+                <div class="span3">
+		        <h3>Locations</h3>
+                Shoppersparadisezim.co can supply to the following countries: Zimbabwe, Zambia, Botswana, South Africa, Mozambique, Angola, Kenya, Tanzania, Uganda, and Nigeria.&nbsp; Contact us if you would like to be our representative in your country. 
+		        </div>
+                </div>
+                </div>
+                <div id="wrap" class="column12">
+                <div class="row-fluid">
+                <div class="span12">  
+	            <div id="copyright" class="prefix_1 suffix_1">
+        	        		        
+		      		        <a href="http://Shoppersparadisezim.com/#">Home</a> |<a href="http://Shoppersparadisezim.com/site-map/">Site Map</a> | <a href="/terms-and-conditions/">Terms and Conditions</a> | <a href="http://SEO-Zimbabwe.com">Designed By SEO-Zimbabwe</a> | <a href="http://SeoCommerceShop.com">Powered By SeoCommerceShop</a> 		      		      		      		      
+        </div>
+	            </div>
+
+			</div>
+                </div> 
+        </footer>
+    </div> 
+</form>
+
+</body>
+</html>

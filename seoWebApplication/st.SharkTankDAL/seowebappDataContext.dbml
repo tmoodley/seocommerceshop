@@ -1,0 +1,2245 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="seowebapp" Class="seowebappDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TY-LT\SQLSVRTY;Initial Catalog=seowebapp;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="seowebappConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.OrderDetail" Member="OrderDetails">
+    <Type Name="OrderDetail" Id="ID1">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Subtotal" Type="System.Decimal" DbType="Money" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="product_OrderDetail" Member="product" ThisKey="product_id" OtherKey="product_id" Type="product" IsForeignKey="true" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="OrderID" OtherKey="OrderID" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shipping" Member="Shippings">
+    <Type Name="Shipping" Id="ID2">
+      <Column Name="ShippingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShippingType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingRegionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Shipping_Order" Member="Orders" ThisKey="ShippingID" OtherKey="ShippingID" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tax" Member="Taxes">
+    <Type Name="Tax" Id="ID3">
+      <Column Name="TaxID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TaxType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxPercentage" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Tax_Order" Member="Orders" ThisKey="TaxID" OtherKey="TaxID" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShoppingCart" Member="ShoppingCarts">
+    <Type Name="ShoppingCart" Id="ID4">
+      <Column Name="cart_id" Type="System.String" DbType="Char(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="attributes" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateadded" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="product_ShoppingCart" Member="product" ThisKey="product_id" OtherKey="product_id" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShippingRegion" Member="ShippingRegions">
+    <Type Name="ShippingRegion" Id="ID5">
+      <Column Name="ShippingRegionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShippingRegion" Member="ShippingRegion1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingRegionSmall" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Audit" Member="Audits">
+    <Type Name="Audit" Id="ID6">
+      <Column Name="AuditID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="MessageNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_Audit" Member="Order" ThisKey="OrderID" OtherKey="OrderID" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuItem" Member="MenuItems">
+    <Type Name="MenuItem">
+      <Column Name="MenuItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.department" Member="departments">
+    <Type Name="department" Id="ID7">
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="department_category" Member="categories" ThisKey="department_id" OtherKey="department_id" Type="category" />
+    </Type>
+  </Table>
+  <Table Name="dbo.category" Member="categories">
+    <Type Name="category" Id="ID8">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="department_category" Member="department" ThisKey="department_id" OtherKey="department_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAccount" Member="UserAccounts">
+    <Type Name="UserAccount" Id="ID9">
+      <Column Name="UserAccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.controlType" Member="controlTypes">
+    <Type Name="controlType">
+      <Column Name="controlType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="controlName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="controlType_Attribute" Member="Attributes" ThisKey="controlType_id" OtherKey="controlType_id" Type="Attribute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attribute" Member="Attributes">
+    <Type Name="Attribute" Id="ID10">
+      <Column Name="AttributeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="controlType_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="applyToAllProducts" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="applyToCategory" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="Attribute_AttributeValue" Member="AttributeValues" ThisKey="AttributeID" OtherKey="AttributeID" Type="AttributeValue" />
+      <Association Name="controlType_Attribute" Member="controlType" ThisKey="controlType_id" OtherKey="controlType_id" Type="controlType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttributeValue" Member="AttributeValues">
+    <Type Name="AttributeValue" Id="ID11">
+      <Column Name="AttributeValueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttributeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="AttributeValue_ProductAttributeValue" Member="ProductAttributeValues" ThisKey="AttributeValueID" OtherKey="AttributeValueID" Type="ProductAttributeValue" />
+      <Association Name="Attribute_AttributeValue" Member="Attribute" ThisKey="AttributeID" OtherKey="AttributeID" Type="Attribute" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductAttributeValue" Member="ProductAttributeValues">
+    <Type Name="ProductAttributeValue" Id="ID12">
+      <Column Name="ProductAttributeValueId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="AttributeValue_ProductAttributeValue" Member="AttributeValue" ThisKey="AttributeValueID" OtherKey="AttributeValueID" Type="AttributeValue" IsForeignKey="true" />
+      <Association Name="product_ProductAttributeValue" Member="product" ThisKey="product_id" OtherKey="product_id" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_product_attribute" Member="vw_product_attributes">
+    <Type Name="vw_product_attribute">
+      <Column Name="Value" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductAttributeValueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AttName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="products">
+    <Type Name="product" Id="ID13">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="defaultAttribute" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="defaultAttCat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="product_OrderDetail" Member="OrderDetails" ThisKey="product_id" OtherKey="product_id" Type="OrderDetail" />
+      <Association Name="product_ShoppingCart" Member="ShoppingCarts" ThisKey="product_id" OtherKey="product_id" Type="ShoppingCart" />
+      <Association Name="product_ProductAttributeValue" Member="ProductAttributeValues" ThisKey="product_id" OtherKey="product_id" Type="ProductAttributeValue" />
+      <Association Name="product_menuReview" Member="menuReviews" ThisKey="product_id" OtherKey="product_id" Type="menuReview" />
+    </Type>
+  </Table>
+  <Table Name="dbo.webstore" Member="webstores">
+    <Type Name="webstore" Id="ID14">
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstoreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstoreUrl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="locationx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="locationy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polygonArray" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zip" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="zone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parentWebstoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerFName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="managerFname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="storeNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="apiKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="monday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tuesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tueBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wednesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thursday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="saturday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoKeywords" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoMeta" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="webstore_ReviewField" Member="ReviewFields" ThisKey="webstore_id" OtherKey="webstore_id" Type="ReviewField" />
+      <Association Name="webstore_menuReview" Member="menuReviews" ThisKey="webstore_id" OtherKey="webstore_id" Type="menuReview" />
+      <Association Name="webstore_points" Member="points" ThisKey="webstore_id" OtherKey="webstore_id" Type="points" />
+      <Association Name="zone_webstore" Member="zone1" ThisKey="zone" OtherKey="idZone" Type="zone" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.city" Member="cities">
+    <Type Name="city" Id="ID15">
+      <Column Name="idCity" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="city" Member="city1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="city_zone" Member="zones" ThisKey="idCity" OtherKey="idCity" Type="zone" />
+      <Association Name="state_city" Member="state" ThisKey="idState" OtherKey="idState" Type="state" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.country" Member="countries">
+    <Type Name="country" Id="ID16">
+      <Column Name="idCountry" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="countrySname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="countryLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.state" Member="states">
+    <Type Name="state" Id="ID17">
+      <Column Name="idState" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="stateSname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stateLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="state_city" Member="cities" ThisKey="idState" OtherKey="idState" Type="city" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zone" Member="zones">
+    <Type Name="zone" Id="ID18">
+      <Column Name="idZone" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="zoneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="zone_webstore" Member="webstores" ThisKey="idZone" OtherKey="zone" Type="webstore" />
+      <Association Name="city_zone" Member="city" ThisKey="idCity" OtherKey="idCity" Type="city" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.review" Member="reviews">
+    <Type Name="review" Id="ID19">
+      <Column Name="review_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ipaddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MainRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="review_storeReview" Member="storeReviews" ThisKey="review_id" OtherKey="review_id" Type="storeReview" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReviewFields" Member="ReviewFields">
+    <Type Name="ReviewField" Id="ID20">
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="required" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ReviewField_storeReview" Member="storeReviews" ThisKey="ReviewFields_id" OtherKey="ReviewFields_id" Type="storeReview" />
+      <Association Name="ReviewField_menuReview" Member="menuReviews" ThisKey="ReviewFields_id" OtherKey="ReviewFields_id" Type="menuReview" />
+      <Association Name="webstore_ReviewField" Member="webstore" ThisKey="webstore_id" OtherKey="webstore_id" Type="webstore" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.storeReviews" Member="storeReviews">
+    <Type Name="storeReview" Id="ID21">
+      <Column Name="review_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="feel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="review_storeReview" Member="review" ThisKey="review_id" OtherKey="review_id" Type="review" IsForeignKey="true" />
+      <Association Name="ReviewField_storeReview" Member="ReviewField" ThisKey="ReviewFields_id" OtherKey="ReviewFields_id" Type="ReviewField" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.menuReviews" Member="menuReviews">
+    <Type Name="menuReview" Id="ID22">
+      <Column Name="menuReviews_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="feel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="product_menuReview" Member="product" ThisKey="product_id" OtherKey="product_id" Type="product" IsForeignKey="true" />
+      <Association Name="ReviewField_menuReview" Member="ReviewField" ThisKey="ReviewFields_id" OtherKey="ReviewFields_id" Type="ReviewField" IsForeignKey="true" />
+      <Association Name="webstore_menuReview" Member="webstore" ThisKey="webstore_id" OtherKey="webstore_id" Type="webstore" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customers">
+    <Type Name="customer" Id="ID23">
+      <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shippingRegion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dayPhone" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="cellPhone" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="evePhone" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="creditCard" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="squestion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sanswer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sendEmail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fbId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rewardPoints" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.points" Member="points">
+    <Type Name="points" Id="ID24">
+      <Column Name="points_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConversionRate" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Point" Member="Point1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Percentage" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="webstore_points" Member="webstore" ThisKey="webstore_id" OtherKey="webstore_id" Type="webstore" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order" Id="ID25">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateShipped" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Verified" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Completed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Canceled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TaxID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShippingID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="cart_id" Type="System.String" DbType="Char(36)" CanBeNull="true" />
+      <Column Name="points" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="OrderID" OtherKey="OrderID" Type="OrderDetail" />
+      <Association Name="Order_Audit" Member="Audits" ThisKey="OrderID" OtherKey="OrderID" Type="Audit" />
+      <Association Name="Shipping_Order" Member="Shipping" ThisKey="ShippingID" OtherKey="ShippingID" Type="Shipping" IsForeignKey="true" />
+      <Association Name="Tax_Order" Member="Tax" ThisKey="TaxID" OtherKey="TaxID" Type="Tax" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cuisine" Member="cuisines">
+    <Type Name="cuisine" Id="ID26">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.departmentDelete" Method="departmentDelete">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.categorySelectByDWId" Method="categorySelectByDWId">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="categorySelectByDWIdResult">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.OrderDetailDelete" Method="OrderDetailDelete">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrderDetailSelectAll" Method="OrderDetailSelectAll">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.OrderDetailSelectByPId" Method="OrderDetailSelectByPId">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.OrderDetailUpdate" Method="OrderDetailUpdate">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductName" Parameter="productName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnitCost" Parameter="unitCost" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrderDetailInsert" Method="OrderDetailInsert">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductName" Parameter="productName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnitCost" Parameter="unitCost" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingDelete" Method="ShippingDelete">
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingInsert" Method="ShippingInsert">
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingType" Parameter="shippingType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ShippingCost" Parameter="shippingCost" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingSelectAll" Method="ShippingSelectAll">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ShippingSelectById" Method="ShippingSelectById">
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ShippingSelectAllByWId" Method="ShippingSelectAllByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ShippingUpdate" Method="ShippingUpdate">
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingType" Parameter="shippingType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ShippingCost" Parameter="shippingCost" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TaxDelete" Method="TaxDelete">
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TaxInsert" Method="TaxInsert">
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TaxType" Parameter="taxType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TaxPercentage" Parameter="taxPercentage" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TaxSelectAll" Method="TaxSelectAll">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.TaxSelectById" Method="TaxSelectById">
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.TaxSelectByWId" Method="TaxSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.TaxUpdate" Method="TaxUpdate">
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TaxType" Parameter="taxType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TaxPercentage" Parameter="taxPercentage" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrderDetailSelectByWId" Method="OrderDetailSelectByWId">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.getShippingRegionByUsername" Method="getShippingRegionByUsername">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getShippingRegionByUsernameResult">
+      <Column Name="region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shippingRegion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingRegionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ShippingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShoppingCartSelectAll" Method="ShoppingCartSelectAll">
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ShoppingCartSelectById" Method="ShoppingCartSelectById">
+    <Parameter Name="cart_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ShoppingCartSelectByWId" Method="ShoppingCartSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ShoppingCartUpdate" Method="ShoppingCartUpdate">
+    <Parameter Name="cart_id" Type="System.String" DbType="VarChar(36)" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="attributes" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateadded" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartUpdateItem" Method="ShoppingCartUpdateItem">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="quantity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartRemoveItem" Method="ShoppingCartRemoveItem">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartGetTotalAmount" Method="ShoppingCartGetTotalAmount">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ShoppingCartGetTotalAmountResult">
+      <Column Name="" Member="Column1" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShoppingCartGetItems" Method="ShoppingCartGetItems">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ShoppingCartGetItemsResult">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="attributes" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Subtotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShoppingCartDeleteOldCarts" Method="ShoppingCartDeleteOldCarts">
+    <Parameter Name="Days" Parameter="days" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartDelete" Method="ShoppingCartDelete">
+    <Parameter Name="cart_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartCountOldCarts" Method="ShoppingCartCountOldCarts">
+    <Parameter Name="Days" Parameter="days" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="ShoppingCartCountOldCartsResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShoppingCartAddItem" Method="ShoppingCartAddItem">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="attributes" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartInsert" Method="ShoppingCartInsert">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="attributes" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingRegionDelete" Method="ShippingRegionDelete">
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingRegionInsert" Method="ShippingRegionInsert">
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ShippingRegion" Parameter="shippingRegion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ShippingRegionSmall" Parameter="shippingRegionSmall" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingRegionUpdate" Method="ShippingRegionUpdate">
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingRegion" Parameter="shippingRegion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ShippingRegionSmall" Parameter="shippingRegionSmall" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShippingRegionSelectAll" Method="ShippingRegionSelectAll">
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ShippingRegionSelectById" Method="ShippingRegionSelectById">
+    <Parameter Name="ShippingRegionID" Parameter="shippingRegionID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ShippingRegionSelectByDesc" Method="ShippingRegionSelectByDesc">
+    <Parameter Name="ShippingRegionSmall" Parameter="shippingRegionSmall" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.UpdateCustomerOrderPaid" Method="UpdateCustomerOrderPaid">
+    <Parameter Name="CartID" Parameter="cartID" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CustomerName" Parameter="customerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CustomerEmail" Parameter="customerEmail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ShippingAddress" Parameter="shippingAddress" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AuthCode" Parameter="authCode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Reference" Parameter="reference" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AuditDelete" Method="AuditDelete">
+    <Parameter Name="AuditID" Parameter="auditID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AuditInsert" Method="AuditInsert">
+    <Parameter Name="AuditID" Parameter="auditID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateStamp" Parameter="dateStamp" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="VarChar(512)" />
+    <Parameter Name="MessageNumber" Parameter="messageNumber" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AuditUpdate" Method="AuditUpdate">
+    <Parameter Name="AuditID" Parameter="auditID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateStamp" Parameter="dateStamp" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="VarChar(512)" />
+    <Parameter Name="MessageNumber" Parameter="messageNumber" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AuditSelectById" Method="AuditSelectById">
+    <Parameter Name="AuditID" Parameter="auditID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.AuditSelectByWId" Method="AuditSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.AuditSelectByWOId" Method="AuditSelectByWOId">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.AuditSelectAll" Method="AuditSelectAll">
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.MenuItemSelectByWId" Method="MenuItemSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MenuItemSelectByWIdResult">
+      <Column Name="MenuItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryExistsInWId" Method="CategoryExistsInWId">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DepartmentExistsInWId" Method="DepartmentExistsInWId">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MenuItemSelectAll" Method="MenuItemSelectAll">
+    <ElementType Name="MenuItemSelectAllResult">
+      <Column Name="MenuItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MenuItemSelectById" Method="MenuItemSelectById">
+    <Parameter Name="MenuItemId" Parameter="menuItemId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MenuItemSelectByIdResult">
+      <Column Name="MenuItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MenuItemSelectByPWId" Method="MenuItemSelectByPWId">
+    <Parameter Name="ParentMenuItemId" Parameter="parentMenuItemId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MenuItemSelectByPWIdResult">
+      <Column Name="MenuItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.productImageUpdate" Method="productImageUpdate">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="thumbnail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="imageType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="user_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentInsert" Method="departmentInsert">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentSelectById" Method="departmentSelectById">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.departmentUpdate" Method="departmentUpdate">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.categoryDelete" Method="categoryDelete">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.categoryInsert" Method="categoryInsert">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.categorySelectAll" Method="categorySelectAll">
+    <ElementType IdRef="ID8" />
+  </Function>
+  <Function Name="dbo.categorySelectById" Method="categorySelectById">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID8" />
+  </Function>
+  <Function Name="dbo.categoryUpdate" Method="categoryUpdate">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentSelectAll" Method="departmentSelectAll">
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.UserAccountDelete" Method="UserAccountDelete">
+    <Parameter Name="UserAccountId" Parameter="userAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UserAccountSelectById" Method="UserAccountSelectById">
+    <Parameter Name="UserAccountId" Parameter="userAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID9" />
+  </Function>
+  <Function Name="dbo.UserAccountUpdate" Method="UserAccountUpdate">
+    <Parameter Name="UserAccountId" Parameter="userAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AccountName" Parameter="accountName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UserAccountSelectByWId" Method="UserAccountSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="UserAccountSelectByWIdResult">
+      <Column Name="UserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UserAccountInsert" Method="UserAccountInsert">
+    <Parameter Name="UserAccountId" Parameter="userAccountId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AccountName" Parameter="accountName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.controlTypeSelectAll" Method="controlTypeSelectAll">
+    <ElementType Name="controlTypeSelectAllResult">
+      <Column Name="controlType_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="controlName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.controlTypeSelectById" Method="controlTypeSelectById">
+    <Parameter Name="controlType_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="controlTypeSelectByIdResult">
+      <Column Name="controlType_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="controlName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AttributeDelete" Method="AttributeDelete">
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeInsert" Method="AttributeInsert">
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="controlType_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="applyToAllProducts" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="applyToCategory" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeSelectAll" Method="AttributeSelectAll">
+    <ElementType IdRef="ID10" />
+  </Function>
+  <Function Name="dbo.AttributeUpdate" Method="AttributeUpdate">
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="controlType_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="applyToAllProducts" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="applyToCategory" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeSelectById" Method="AttributeSelectById">
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID10" />
+  </Function>
+  <Function Name="dbo.AttributeSelectByWId" Method="AttributeSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AttributeSelectByWIdResult">
+      <Column Name="AttributeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="controlType_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="controlName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="applyToAllProducts" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="applyToCategory" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AttributeValueDelete" Method="AttributeValueDelete">
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeValueInsert" Method="AttributeValueInsert">
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeValueSelectAll" Method="AttributeValueSelectAll">
+    <ElementType IdRef="ID11" />
+  </Function>
+  <Function Name="dbo.AttributeValueSelectById" Method="AttributeValueSelectById">
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID11" />
+  </Function>
+  <Function Name="dbo.AttributeValueUpdate" Method="AttributeValueUpdate">
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeValueSelectByAId" Method="AttributeValueSelectByAId">
+    <Parameter Name="AttributeID" Parameter="attributeID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AttributeValueSelectByAIdResult">
+      <Column Name="AttributeValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductAttributeValueDelete" Method="ProductAttributeValueDelete">
+    <Parameter Name="ProductAttributeValueId" Parameter="productAttributeValueId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductAttributeValueInsert" Method="ProductAttributeValueInsert">
+    <Parameter Name="ProductAttributeValueId" Parameter="productAttributeValueId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductAttributeValueSelectAll" Method="ProductAttributeValueSelectAll">
+    <ElementType IdRef="ID12" />
+  </Function>
+  <Function Name="dbo.ProductAttributeValueSelectByPId" Method="ProductAttributeValueSelectByPId">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductAttributeValueSelectByPIdResult">
+      <Column Name="ProductAttributeValueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductAttributeValueUpdate" Method="ProductAttributeValueUpdate">
+    <Parameter Name="ProductAttributeValueId" Parameter="productAttributeValueId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeValueID" Parameter="attributeValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductAttributeValueSelectById" Method="ProductAttributeValueSelectById">
+    <Parameter Name="ProductAttributeValueId" Parameter="productAttributeValueId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID12" />
+  </Function>
+  <Function Name="dbo.vw_product_attributeSelectAll" Method="vw_product_attributeSelectAll">
+    <ElementType Name="vw_product_attributeSelectAllResult">
+      <Column Name="Value" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductAttributeValueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AttName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.vw_product_attributeSelectByPId" Method="vw_product_attributeSelectByPId">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="vw_product_attributeSelectByPIdResult">
+      <Column Name="Value" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductAttributeValueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AttName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.productDelete" Method="productDelete">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.productInsert" Method="productInsert">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="thumbnail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="promofront" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="promodept" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="defaultAttribute" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="defaultAttCat" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.productUpdate" Method="productUpdate">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="thumbnail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="promofront" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="promodept" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="defaultAttribute" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="defaultAttCat" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.productSelectAll" Method="productSelectAll">
+    <ElementType IdRef="ID13" />
+  </Function>
+  <Function Name="dbo.productSelectByWId" Method="productSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="productSelectByWIdResult">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.productSelectById" Method="productSelectById">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID13" />
+  </Function>
+  <Function Name="dbo.productCheckAttById" Method="productCheckAttById">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.productCustomAttById" Method="productCustomAttById">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartSelectByPId" Method="ShoppingCartSelectByPId">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShoppingCartRemoveProductById" Method="ShoppingCartRemoveProductById">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProductAttributeValueCountByPId" Method="ProductAttributeValueCountByPId">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetProductCategories" Method="GetProductCategories">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetProductCategoriesResult">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.productcategoryDelete" Method="productcategoryDelete">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.productcategoryInsert" Method="productcategoryInsert">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UserAccountSelectAll" Method="UserAccountSelectAll">
+    <ElementType IdRef="ID9" />
+  </Function>
+  <Function Name="dbo.departmentSelectByWId" Method="departmentSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="departmentSelectByWIdResult">
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.departmentSelectByWIdWs" Method="departmentSelectByWIdWs">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.categorySelectByWId" Method="categorySelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="categorySelectByWIdResult">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.categorySelectByWIdws" Method="categorySelectByWIdws">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID8" />
+  </Function>
+  <Function Name="dbo.CreateCustomerOrder" Method="CreateCustomerOrder">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="CartID" Parameter="cartID" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UserAccountSelectByWIdEmail" Method="UserAccountSelectByWIdEmail">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <ElementType IdRef="ID9" />
+  </Function>
+  <Function Name="dbo.productcategorySelect" Method="productcategorySelect">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="productcategorySelectResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CatalogGetAllproductsInCategory" Method="CatalogGetAllproductsInCategory">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CatalogGetAllproductsInCategoryResult">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.webstoreDelete" Method="webstoreDelete">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.webstoreInsert" Method="webstoreInsert">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstoreName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstoreUrl" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="locationx" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="locationy" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="polygonArray" Type="System.String" DbType="VarChar(4000)" />
+    <Parameter Name="address" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="city" Type="System.Int32" DbType="Int" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Parameter Name="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="zip" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="zone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="parentWebstoreId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerFName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="managerFname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="managerLname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="managerNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="storeNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="apiKey" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="monday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tuesday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tueBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wednesday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thursday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="saturday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thumbnail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoKeywords" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoMeta" Type="System.String" DbType="VarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.webstoreUpdate" Method="webstoreUpdate">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstoreName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstoreUrl" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="locationx" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="locationy" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="polygonArray" Type="System.String" DbType="VarChar(4000)" />
+    <Parameter Name="address" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="city" Type="System.Int32" DbType="Int" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Parameter Name="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="zip" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="zone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="parentWebstoreId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerFName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ownerNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="managerFname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="managerLname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="managerNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="storeNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="apiKey" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="monday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="monBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="monDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tuesday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tuesDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tueBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="tueDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wednesday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="wedBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="wedDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thursday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="thrBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thrDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="friBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="friDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="saturday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="satBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="satDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunBreakfast" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunLunch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunDinner" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sunBreakfastStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunBreakfastEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunLunchStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunLunchEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunDinnerStart" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="sunDinnerEnd" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="thumbnail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="image" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoKeywords" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="seoMeta" Type="System.String" DbType="VarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.webstoreSelectByWId" Method="webstoreSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="webstoreSelectByWIdResult">
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstoreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstoreUrl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="locationx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="locationy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polygonArray" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zip" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="zone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parentWebstoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerFName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="managerFname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="storeNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="apiKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="monday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tuesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tueBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wednesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thursday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="saturday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoKeywords" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoMeta" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.webstoreSelectByCId" Method="webstoreSelectByCId">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="webstoreSelectByCIdResult">
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="webstoreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="webstoreUrl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="locationx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="locationy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="polygonArray" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parentWebstoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerFName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ownerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="managerFname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="managerNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="storeNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="apiKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="monday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="monDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tuesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tuesDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tueBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="tueDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wednesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="wedBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="wedDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thursday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="thrBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thrDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="friBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="friDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="saturday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="satBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="satDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunDinner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sunBreakfastStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunBreakfastEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunLunchEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerStart" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="sunDinnerEnd" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoKeywords" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seoMeta" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.webstoreSelectAll" Method="webstoreSelectAll">
+    <ElementType IdRef="ID14" />
+  </Function>
+  <Function Name="dbo.webstoreSelectById" Method="webstoreSelectById">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID14" />
+  </Function>
+  <Function Name="dbo.cityDelete" Method="cityDelete">
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cityInsert" Method="cityInsert">
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" />
+    <Parameter Name="city" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cityUpdate" Method="cityUpdate">
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" />
+    <Parameter Name="city" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.citySelectAll" Method="citySelectAll">
+    <ElementType IdRef="ID15" />
+  </Function>
+  <Function Name="dbo.citySelectById" Method="citySelectById">
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID15" />
+  </Function>
+  <Function Name="dbo.citySelectAllGrid" Method="citySelectAllGrid">
+    <ElementType Name="citySelectAllGridResult">
+      <Column Name="idCity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="stateSname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.countryDelete" Method="countryDelete">
+    <Parameter Name="idCountry" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.countryInsert" Method="countryInsert">
+    <Parameter Name="idCountry" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="countrySname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="countryLname" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.countryUpdate" Method="countryUpdate">
+    <Parameter Name="idCountry" Type="System.Int32" DbType="Int" />
+    <Parameter Name="countrySname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="countryLname" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.countrySelectAllGrid" Method="countrySelectAllGrid">
+    <ElementType Name="countrySelectAllGridResult">
+      <Column Name="idCountry" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="countrySname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="countryLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.countrySelectAll" Method="countrySelectAll">
+    <ElementType IdRef="ID16" />
+  </Function>
+  <Function Name="dbo.countrySelectById" Method="countrySelectById">
+    <Parameter Name="idCountry" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID16" />
+  </Function>
+  <Function Name="dbo.stateDelete" Method="stateDelete">
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.stateInsert" Method="stateInsert">
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="stateSname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="stateLname" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.stateUpdate" Method="stateUpdate">
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" />
+    <Parameter Name="stateSname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="stateLname" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.stateSelectAllGrid" Method="stateSelectAllGrid">
+    <ElementType Name="stateSelectAllGridResult">
+      <Column Name="idState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stateSname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stateLname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.stateSelectById" Method="stateSelectById">
+    <Parameter Name="idState" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID17" />
+  </Function>
+  <Function Name="dbo.stateSelectAll" Method="stateSelectAll">
+    <ElementType IdRef="ID17" />
+  </Function>
+  <Function Name="dbo.zoneDelete" Method="zoneDelete">
+    <Parameter Name="idZone" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.zoneInsert" Method="zoneInsert">
+    <Parameter Name="idZone" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="zoneName" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.zoneUpdate" Method="zoneUpdate">
+    <Parameter Name="idZone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="zoneName" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.zoneSelectAllGrid" Method="zoneSelectAllGrid">
+    <ElementType Name="zoneSelectAllGridResult">
+      <Column Name="idZone" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="zoneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.zoneSelectAll" Method="zoneSelectAll">
+    <ElementType IdRef="ID18" />
+  </Function>
+  <Function Name="dbo.zoneSelectById" Method="zoneSelectById">
+    <Parameter Name="idZone" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID18" />
+  </Function>
+  <Function Name="dbo.reviewDelete" Method="reviewDelete">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.reviewInsert" Method="reviewInsert">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ipaddress" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dateAdded" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MainRate" Parameter="mainRate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.reviewSelectAllInActive" Method="reviewSelectAllInActive">
+    <ElementType Name="reviewSelectAllInActiveResult">
+      <Column Name="review_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ipaddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MainRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.reviewSelectByPId" Method="reviewSelectByPId">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="reviewSelectByPIdResult">
+      <Column Name="review_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ipaddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MainRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.reviewSelectByWId" Method="reviewSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="reviewSelectByWIdResult">
+      <Column Name="review_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ipaddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MainRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.reviewUpdate" Method="reviewUpdate">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ipaddress" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dateAdded" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MainRate" Parameter="mainRate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.reviewSelectAll" Method="reviewSelectAll">
+    <ElementType IdRef="ID19" />
+  </Function>
+  <Function Name="dbo.reviewSelectById" Method="reviewSelectById">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID19" />
+  </Function>
+  <Function Name="dbo.ReviewFieldsUpdate" Method="ReviewFieldsUpdate">
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DisplaySequence" Parameter="displaySequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="required" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReviewFieldsInsert" Method="ReviewFieldsInsert">
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DisplaySequence" Parameter="displaySequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="required" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReviewFieldsDelete" Method="ReviewFieldsDelete">
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.reviewDelete" Method="reviewDelete1">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReviewFieldsSelectByWId" Method="ReviewFieldsSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ReviewFieldsSelectByWIdResult">
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="required" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ReviewFieldsSelectById" Method="ReviewFieldsSelectById">
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID20" />
+  </Function>
+  <Function Name="dbo.ReviewFieldsSelectAll" Method="ReviewFieldsSelectAll">
+    <ElementType IdRef="ID20" />
+  </Function>
+  <Function Name="dbo.storeReviewsDelete" Method="storeReviewsDelete">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.storeReviewsInsert" Method="storeReviewsInsert">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="feel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="comment" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.storeReviewsUpdate" Method="storeReviewsUpdate">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="feel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="comment" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.storeReviewsSelectAll" Method="storeReviewsSelectAll">
+    <ElementType IdRef="ID21" />
+  </Function>
+  <Function Name="dbo.storeReviewsSelectById" Method="storeReviewsSelectById">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID21" />
+  </Function>
+  <Function Name="dbo.menuReviewsDelete" Method="menuReviewsDelete">
+    <Parameter Name="menuReviews_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.menuReviewsInsert" Method="menuReviewsInsert">
+    <Parameter Name="menuReviews_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="feel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="comment" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.menuReviewsSelectByWId" Method="menuReviewsSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="menuReviewsSelectByWIdResult">
+      <Column Name="menuReviews_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="feel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.menuReviewsUpdate" Method="menuReviewsUpdate">
+    <Parameter Name="menuReviews_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReviewFields_id" Parameter="reviewFields_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="feel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="comment" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.menuReviewsSelectAll" Method="menuReviewsSelectAll">
+    <ElementType IdRef="ID22" />
+  </Function>
+  <Function Name="dbo.menuReviewsSelectById" Method="menuReviewsSelectById">
+    <Parameter Name="menuReviews_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID22" />
+  </Function>
+  <Function Name="dbo.storeReviewsSelectByRId" Method="storeReviewsSelectByRId">
+    <Parameter Name="review_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="storeReviewsSelectByRIdResult">
+      <Column Name="review_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReviewFields_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="feel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.customerDelete" Method="customerDelete">
+    <Parameter Name="customer_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.customerInsert" Method="customerInsert">
+    <Parameter Name="customer_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="city" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="zip" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="shippingRegion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dayPhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="cellPhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="evePhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="creditCard" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="squestion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sanswer" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sendEmail" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="fbId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rewardPoints" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.customerSelectAll" Method="customerSelectAll">
+    <ElementType IdRef="ID23" />
+  </Function>
+  <Function Name="dbo.customerSelectById" Method="customerSelectById">
+    <Parameter Name="customer_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID23" />
+  </Function>
+  <Function Name="dbo.customerSelectByUsername" Method="customerSelectByUsername">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.customerUpdate" Method="customerUpdate">
+    <Parameter Name="customer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="city" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="region" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="zip" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="shippingRegion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dayPhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="cellPhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="evePhone" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="creditCard" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="squestion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sanswer" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sendEmail" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="fbId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rewardPoints" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.customerLogin" Method="customerLogin">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID23" />
+  </Function>
+  <Function Name="dbo.customerSelectByFbId" Method="customerSelectByFbId">
+    <Parameter Name="fbId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID23" />
+  </Function>
+  <Function Name="dbo.pointsDelete" Method="pointsDelete">
+    <Parameter Name="points_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pointsInsert" Method="pointsInsert">
+    <Parameter Name="points_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ConversionRate" Parameter="conversionRate" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Point" Parameter="point" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Percentage" Parameter="percentage" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pointsUpdate" Method="pointsUpdate">
+    <Parameter Name="points_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ConversionRate" Parameter="conversionRate" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Point" Parameter="point" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Percentage" Parameter="percentage" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pointsSelectAll" Method="pointsSelectAll">
+    <ElementType IdRef="ID24" />
+  </Function>
+  <Function Name="dbo.pointsSelectById" Method="pointsSelectById">
+    <Parameter Name="points_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID24" />
+  </Function>
+  <Function Name="dbo.pointsSelectByWId" Method="pointsSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID24" />
+  </Function>
+  <Function Name="dbo.customerUpdatePoints" Method="customerUpdatePoints">
+    <Parameter Name="customer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rewardPoints" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrdersInsert" Method="OrdersInsert">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DateShipped" Parameter="dateShipped" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Verified" Parameter="verified" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Canceled" Parameter="canceled" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Comments" Parameter="comments" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="CustomerName" Parameter="customerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CustomerEmail" Parameter="customerEmail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ShippingAddress" Parameter="shippingAddress" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AuthCode" Parameter="authCode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Reference" Parameter="reference" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="cart_id" Type="System.String" DbType="VarChar(36)" />
+    <Parameter Name="points" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrdersSelectAll" Method="OrdersSelectAll">
+    <ElementType IdRef="ID25" />
+  </Function>
+  <Function Name="dbo.OrdersSelectByCId" Method="OrdersSelectByCId">
+    <Parameter Name="cart_id" Type="System.String" DbType="Char(36)" />
+    <ElementType IdRef="ID25" />
+  </Function>
+  <Function Name="dbo.OrdersSelectById" Method="OrdersSelectById">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID25" />
+  </Function>
+  <Function Name="dbo.OrdersSelectByWId" Method="OrdersSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID25" />
+  </Function>
+  <Function Name="dbo.OrdersUpdate" Method="OrdersUpdate">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DateShipped" Parameter="dateShipped" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Verified" Parameter="verified" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Canceled" Parameter="canceled" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Comments" Parameter="comments" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="CustomerName" Parameter="customerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CustomerEmail" Parameter="customerEmail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ShippingAddress" Parameter="shippingAddress" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AuthCode" Parameter="authCode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Reference" Parameter="reference" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TaxID" Parameter="taxID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ShippingID" Parameter="shippingID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="cart_id" Type="System.String" DbType="VarChar(36)" />
+    <Parameter Name="points" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrdersVerifiedSelectByWId" Method="OrdersVerifiedSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID25" />
+  </Function>
+  <Function Name="dbo.OrdersUpdatePoints" Method="OrdersUpdatePoints">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="points" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.OrdersDelete" Method="OrdersDelete">
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineSelectByWId" Method="cuisineSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cuisineSelectByWIdResult">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cuisineInsert" Method="cuisineInsert">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoDescription" Parameter="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="SeoTitle" Parameter="seoTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoKeywords" Parameter="seoKeywords" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineDelete" Method="cuisineDelete">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineUpdate" Method="cuisineUpdate">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoDescription" Parameter="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="SeoTitle" Parameter="seoTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoKeywords" Parameter="seoKeywords" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineSelectById" Method="cuisineSelectById">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID26" />
+  </Function>
+  <Function Name="dbo.cuisineSelectAll" Method="cuisineSelectAll">
+    <ElementType IdRef="ID26" />
+  </Function>
+</Database>

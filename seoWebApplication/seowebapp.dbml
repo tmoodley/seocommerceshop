@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="seowebapp" Class="seowebappDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TY-LT\SQLSVRTY;Initial Catalog=seowebapp;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="seowebappConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.department" Member="departments">
+    <Type Name="department" Id="ID1">
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Association Name="department_category" Member="categories" ThisKey="department_id" OtherKey="department_id" Type="category" />
+    </Type>
+  </Table>
+  <Table Name="dbo.category" Member="categories">
+    <Type Name="category">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="category_product_category" Member="product_categories" ThisKey="category_id" OtherKey="category_id" Type="product_category" />
+      <Association Name="department_category" Member="department" ThisKey="department_id" OtherKey="department_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="products">
+    <Type Name="product">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="product_product_category" Member="product_categories" ThisKey="product_id" OtherKey="product_id" Type="product_category" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product_category" Member="product_categories">
+    <Type Name="product_category">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="category_product_category" Member="category" ThisKey="category_id" OtherKey="category_id" Type="category" IsForeignKey="true" />
+      <Association Name="product_product_category" Member="product" ThisKey="product_id" OtherKey="product_id" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attribute" Member="Attributes">
+    <Type Name="Attribute">
+      <Column Name="AttributeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cuisine" Member="cuisines">
+    <Type Name="cuisine">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.departmentDelete" Method="departmentDelete">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentInsert" Method="departmentInsert">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(1000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentUpdate" Method="departmentUpdate">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(1000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.departmentSelectAll" Method="departmentSelectAll">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.departmentSelectById" Method="departmentSelectById">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.CatalogGetCategoriesIndepartment" Method="CatalogGetCategoriesIndepartment">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CatalogGetCategoriesIndepartmentResult">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CatalogGetcategoryDetails" Method="CatalogGetcategoryDetails">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CatalogGetcategoryDetailsResult">
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CatalogGetdepartmentDetails" Method="CatalogGetdepartmentDetails">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CatalogGetdepartmentDetailsResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CatalogGetproductDetails" Method="CatalogGetproductDetails">
+    <Parameter Name="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CatalogGetproductDetailsResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CatalogGetproductsIncategory" Method="CatalogGetproductsIncategory">
+    <Parameter Name="category_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descriptionLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="productsPerPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HowManyproducts" Parameter="howManyproducts" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CatalogGetproductsOnDeptPromo" Method="CatalogGetproductsOnDeptPromo">
+    <Parameter Name="department_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descriptionLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="productsPerPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HowManyproducts" Parameter="howManyproducts" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CatalogGetproductsOnFrontPromo" Method="CatalogGetproductsOnFrontPromo">
+    <Parameter Name="descriptionLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="productsPerPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HowManyproducts" Parameter="howManyproducts" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="CatalogGetproductsOnFrontPromoResult">
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="thumbnail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="promofront" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="promodept" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cuisineDelete" Method="cuisineDelete">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineInsert" Method="cuisineInsert">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoDescription" Parameter="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="SeoTitle" Parameter="seoTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoKeywords" Parameter="seoKeywords" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cuisineSelectAll" Method="cuisineSelectAll">
+    <ElementType Name="cuisineSelectAllResult">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cuisineSelectById" Method="cuisineSelectById">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cuisineSelectByIdResult">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cuisineSelectByWId" Method="cuisineSelectByWId">
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cuisineSelectByWIdResult">
+      <Column Name="cuisine_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeoKeywords" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="webstore_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cuisineUpdate" Method="cuisineUpdate">
+    <Parameter Name="cuisine_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoDescription" Parameter="seoDescription" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="SeoTitle" Parameter="seoTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SeoKeywords" Parameter="seoKeywords" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="webstore_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
