@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ComputerBeacon.Facebook</id>
+    <version>4.0.427</version>
+    <title>Facebook Graph Toolkit</title>
+    <authors>Kayson Wong</authors>
+    <owners>Kayson Wong</owners>
+    <licenseUrl>http://fgt.codeplex.com/license</licenseUrl>
+    <projectUrl>http://computerbeacon.net/library/960n60e000000</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A robust C# library for implementing Facebook Graph Api in .NET framework, especially ASP.NET. Strongly typed models, Intellisense support and many built-in features means developers don't have to lookup the Facebook Developers page and implement the Api themselves.</description>
+    <releaseNotes>Facebook Page management on behalf of admins
+New authorization model, support for ASP.NET MVC
+Supports Silverlight 4, Windows Phone 7, Windows 8
+More built-in Graph Api objects and connections
+Better support for custom API calls
+Async methods for all POST and DELETE commands
+Available on NuGet</releaseNotes>
+    <dependencies>
+      <dependency id="ComputerBeacon.Json" version="4.0.507" />
+    </dependencies>
+  </metadata>
+</package>

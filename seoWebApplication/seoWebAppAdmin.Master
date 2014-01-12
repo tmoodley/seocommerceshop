@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="seoWebAppAdmin.Master.cs" Inherits="seoWebApplication.seoWebAppAdmin" %>
+
+  
+
+<%@ Register src="../UserControls/MenuSubList.ascx" tagname="MenuSubList" tagprefix="uc1" %>
+ 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="sharktank.css" rel="stylesheet" type="text/css" /> 
+    <link href="includes/style.css" rel="stylesheet" type="text/css" />
+    <link href="includes/style2.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/seowebadmin.css" rel="stylesheet" />
+     
+    <style type="text/css">
+        .style1
+        {
+            padding-left: 3px;
+            width: 738px;
+        }
+    </style>
+ 
+     
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table width="100%" id="mainContainer" class="mainContainer">
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/shade4sale.jpg"/>
+                        </td>
+                        <td class="title">
+                            <asp:Label ID="lblHeader" runat="server" Text="Hookah-Shisha"></asp:Label><br />                            
+                            <asp:Label ID="lblSubHeader" runat="server" Text="Warehouse"></asp:Label>
+                        </td>        
+                        <td class="user">
+                            <asp:Label ID="Label1" runat="server" Text="Current User: "></asp:Label>
+                            <asp:Label ID="lblCurrentUser" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblCurrentDateTime" runat="server" Text=""></asp:Label><br />
+                            <asp:HyperLink id="hlLogout" runat="server" 
+NavigateUrl="logout.aspx">Logout</asp:HyperLink>
+                        </td>  
+                    </tr>
+                </table>      
+            </td>
+        </tr>
+        <tr>        
+            <td>
+                 </td>
+        </tr>    
+        <tr>
+            <td valign="top">
+                <table>
+                    <tr valign="top">
+                        <td class="sideMenu">
+                            <uc1:MenuSubList ID="MenuSubList1" runat="server" />
+                            </td>
+                        <td class="style1">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            Content
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="footer">
+            <td>
+                <asp:Label ID="lblCopyright" runat="server">Copyright &copy 2011 Tysada Inc | </asp:Label><asp:Label ID="lblVersion" runat="server"></asp:Label>                
+            </td>
+        </tr>    
+    </table>
+    </form>
+</body>
+</html>
+

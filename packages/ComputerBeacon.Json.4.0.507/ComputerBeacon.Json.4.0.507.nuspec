@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ComputerBeacon.Json</id>
+    <version>4.0.507</version>
+    <title>Json Toolkit</title>
+    <authors>Kayson Wong</authors>
+    <owners>Kayson Wong</owners>
+    <licenseUrl>http://msdn.microsoft.com/en-us/library/ff649118.aspx</licenseUrl>
+    <projectUrl>http://computerbeacon.net/library/6q8kq8e000000</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JSON Toolkit is a .NET library written in C# for parsing JSON strings, creating JSON objects in runtime and serializing the data.</description>
+    <releaseNotes>- fixed incorrect char values when parsing '\u' characters</releaseNotes>
+    <tags>Json C# .Net</tags>
+  </metadata>
+</package>

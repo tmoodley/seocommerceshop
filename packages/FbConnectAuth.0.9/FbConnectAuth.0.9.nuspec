@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>FbConnectAuth</id>
+    <version>0.9</version>
+    <title>FbConnectAuth</title>
+    <authors>Adam Creeger</authors>
+    <owners>Adam Creeger</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Facebook Connect Authentication for ASP.NET is a component that allows ASP.NET web developers to identify and validate users accessing their website or web services using Facebook Connect.</description>
+    <summary>Facebook Connect Authentication for ASP.NET is a component that allows ASP.NET web developers to identify and validate users accessing their website or web services using Facebook Connect.</summary>
+  </metadata>
+</package>

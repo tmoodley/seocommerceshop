@@ -1,0 +1,186 @@
+﻿/*
+Template Specific Styles
+====================================================
+Table of Contents:
+Ctrl/Cmd + F to find the @groups named below
+
+@group Header
+@group Structure
+@group Interior Content Columns
+
+*/
+
+/* @group Header */
+
+/* Graphic Header */
+
+#header span#graphic,#header h1#graphic {
+	margin: 0;
+	padding: 0;
+	text-indent: -9999em;
+	float: left;
+	z-index: 1000;
+	background-image: none;
+	border: none;
+}
+
+#header span#graphic a,#header h1#graphic a {
+	display: block;
+	background-repeat: no-repeat;
+}
+
+/* Text Header */
+
+#header span#text-header,#header h1#text-header {
+	letter-spacing: -2px;
+	font-weight: bold;
+	line-height: 100%;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	text-indent: 8px;
+}
+
+#header h1#text-header a,#header span#text-header a {
+	text-decoration: none;
+	line-height: 100%;
+}
+
+/* Text Header Tagline */
+
+#header span#text-slogan,#header h2#text-slogan {
+	font-size: 18px;
+	letter-spacing: -1px;
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+	font-weight: bold;
+	display: block;
+	text-indent: 10px;
+}
+
+/* @end */
+
+
+/* @group Structure */
+
+#container {
+	width: 960px;
+	margin: 0px auto;
+	min-height: 400px;
+	padding: 15px 0 12px 0;
+	position: relative;
+	top: -18px;
+}
+
+#wrap {
+	background-color: #fff;
+	width: 960px;
+	margin: 0px auto;
+}
+
+/* Frontpage Inline Module Wrapper */
+
+.homepage {
+	float: left;
+	width: 340px;
+	margin-right: 10px;
+}
+
+div.homepage div.moduleS3 div div div,
+div.homepage div.moduleS1 div div div,
+div.homepage div.moduleS2 div div div,
+div.homepage div.moduleS3 div div div,
+div.homepage div.moduleS4 div div div {
+	padding: 10px;
+}
+
+
+.footerband {
+	width: 990px;
+	height: 76px;
+	margin: 0px auto;
+	font-size: 12px;
+	line-height: 60px;
+	text-align: center;
+	position: relative;
+	top: -18px;
+}
+.footerband .custom {
+	line-height: 60px;	
+}
+
+
+#footer,#footer a {
+	color: inherit;
+}
+
+.bottomgrid {
+	position: relative;
+	top: -16px;
+}
+/* @end */
+
+/* @group Interior Content Columns */
+
+/* Layout Shortcodes */
+
+/* 940 */
+.grid_12 .one_half {width:464px;}
+.grid_12 .one_third {width:306px;}
+.grid_12 .one_fourth {width:227px;}
+.grid_12 .two_thirds {width:620px;}
+.grid_12 .three_fourths {width:695px;}
+
+/* 860 */
+.grid_11 .one_half {width:420px;}
+.grid_11 .one_third {width:266px;}
+.grid_11 .one_fourth {width:185px;}
+.grid_11 .two_thirds {width:485px;}
+.grid_11 .three_fourths {width:575.5px;}
+
+/* 780 */
+.grid_10 .one_half {width:380px;}
+.grid_10 .one_third {width:245px;}
+.grid_10 .one_fourth {width:180px;}
+.grid_10 .two_thirds {width:485px;}
+.grid_10 .three_fourths {width:575.5px;}
+
+/* 700 */
+.grid_9 .one_half {width:342.5px;}
+.grid_9 .one_third {width:224.5px;}
+.grid_9 .one_fourth {width:165px;}
+.grid_9 .two_thirds {width:465.5px;}
+.grid_9 .three_fourths {width:510.5px;}
+
+/* 620 */
+.grid_8 .one_half {width:300px;}
+.grid_8 .one_third {width:196px;}
+.grid_8 .one_fourth {width:144px;}
+.grid_8 .two_thirds {width:396px;}
+.grid_8 .three_fourths {width:456px;}
+
+/* 540 */
+.grid_7 .one_half {width:260px;}
+.grid_7 .one_third {width:144px;}
+.grid_7 .one_fourth {width:106px;}
+.grid_7 .two_thirds {width:330px;}
+.grid_7 .three_fourths {width:336px;}
+
+/* 460 */
+.grid_7 .one_half {width:260px;}
+.grid_7 .one_third {width:144px;}
+.grid_7 .one_fourth {width:106px;}
+.grid_7 .two_thirds {width:330px;}
+.grid_7 .three_fourths {width:336px;}
+
+
+.one_half, .one_third, .one_fourth, .two_thirds, .three_fourths {
+	float:left; margin-right:10px; height:auto; overflow:hidden; margin-bottom:10px;
+}
+
+.last {margin-right:0 !important;}
+
+
+/* @end */
+

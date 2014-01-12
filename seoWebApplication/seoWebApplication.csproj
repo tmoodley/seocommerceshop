@@ -618,21 +618,24 @@
     </Compile>
     <Compile Include="seoWebAppAdmin.Master.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>seoWebAppAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdmin.Master.designer.cs">
-      <DependentUpon>seoWebAppAdmin.Master.cs</DependentUpon>
+      <DependentUpon>seoWebAppAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditGrid.master.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>seoWebAppAdminEditGrid.master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditGrid.master.designer.cs">
-      <DependentUpon>seoWebAppAdminEditGrid.master.cs</DependentUpon>
+      <DependentUpon>seoWebAppAdminEditGrid.master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditPage.Master.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>seoWebAppAdminEditPage.Master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditPage.Master.designer.cs">
-      <DependentUpon>seoWebAppAdminEditPage.Master.cs</DependentUpon>
+      <DependentUpon>seoWebAppAdminEditPage.Master</DependentUpon>
     </Compile>
     <Compile Include="st.SharkTankDAL\checkCoordinates.cs" />
     <Compile Include="st.SharkTankDAL\commonClasses.cs" />
@@ -1170,6 +1173,9 @@
     <Content Include="UserControls\CartSummary.ascx" />
     <Content Include="UserControls\CustomerDetailsEdit.ascx" />
     <Content Include="UserControls\UserInfo2.ascx" />
+    <Content Include="seoWebAppAdmin.Master" />
+    <Content Include="seoWebAppAdminEditGrid.master" />
+    <Content Include="seoWebAppAdminEditPage.Master" />
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>seowebappDataContext.designer.cs</LastGenOutput>

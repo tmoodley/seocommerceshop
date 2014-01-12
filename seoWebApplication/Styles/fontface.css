@@ -1,0 +1,79 @@
+﻿@font-face {
+	font-family: 'ArvoRegular';
+	src: url('../fonts/arvo_std_rg-webfont-webfont.eot');
+	src: local('â˜º'),
+		url('../fonts/arvo_std_rg-webfont-webfont.woff') format('woff'),
+		url('../fonts/arvo_std_rg-webfont-webfont.ttf') format('truetype'),
+		url('../fonts/arvo_std_rg-webfont-webfont.svg#webfontAMyBHcX1') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ArvoBold';
+	src: url('../fonts/arvo_std_bd-webfont-webfont.eot');
+	src: local('â˜º'),
+		url('../fonts/arvo_std_bd-webfont-webfont.woff') format('woff'),
+		url('../fonts/arvo_std_bd-webfont-webfont.ttf') format('truetype'),
+		url('../fonts/arvo_std_bd-webfont-webfont.svg#webfont03C31Lsc') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'VegurExtraLight';
+	src: url('../fonts/Vegur-EL_0500.eot');
+	src: local('â˜º'),
+		 url('../fonts/Vegur-EL_0500.ttf') format('truetype'),
+		 url('../fonts/Vegur-EL_0500.svg#font') format('svg'); 
+}
+
+
+@font-face {
+	font-family: 'VegurRegular';
+	src: url('../fonts/Vegur-R_0500.eot');
+	src: local('â˜º'),
+		 url('../fonts/Vegur-R_0500.ttf') format('truetype'),
+		 url('../fonts/Vegur-R_0500.svg#font') format('svg'); 
+}
+
+
+@font-face {
+	font-family: 'VegurBold';
+	src: url('../fonts/Vegur-B_0500.eot');
+	src: local('â˜º'),
+		 url('../fonts/Vegur-B_0500.ttf') format('truetype'),
+		 url('../fonts/Vegur-B_0500.svg#font') format('svg');
+}
+
+
+@font-face {
+	font-family: 'MyriadPro';
+	src: url('../fonts/MyriadPro-Regular.eot');
+	src: local('â˜º'),
+		 url('../fonts/MyriadPro-Regular.ttf') format('truetype'),
+		 url('../fonts/MyriadPro-Regular.svg#font') format('svg'); 
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body span#text-header,
+body span#text-slogan {
+	font-weight: normal;
+	font-style: normal;
+	line-height:normal;
+	font-family: ArvoBold, Cambria, Georgia, serif;
+	letter-spacing:-1px;
+}
+body #menu li a span.title {font-family: ArvoRegular, Cambria, Georgia, serif;font-weight: 400;}
+
+
+body {
+	font-family: Myriad Pro, MyriadPro, Arial, Helvetica, sans-serif;
+}
+
