@@ -25,9 +25,7 @@ namespace seoWebApplication
                 Response.Redirect("Adminlogin.aspx");
             }
             else
-            {
-                lblCurrentUser.Text = Session["AdminUserName"].ToString();
-                lblCurrentDateTime.Text = DateTime.Now.ToString();
+            {  
                 //Set the version
                 lblVersion.Text = ConfigurationManager.AppSettings["version"].ToString();
             }

@@ -6,8 +6,8 @@
     <asp:Menu
         id="menuTabs"
         CssClass="menuTabs"
-        StaticMenuItemStyle-CssClass="tab"
-        StaticSelectedStyle-CssClass="selectedTab"
+        StaticMenuItemStyle-CssClass="tab btn"
+        StaticSelectedStyle-CssClass="selected btn"
         Orientation="Horizontal"
         OnMenuItemClick="menuTabs_MenuItemClick"
         Runat="server">

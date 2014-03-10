@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication", "seoWebApplication\seoWebApplication.csproj", "{D53F71B7-424C-4382-A7E6-8B90108B349A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2484CEF6-B252-4370-A0EC-48F5FEA427E9}"
@@ -9,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		seoWebApplication\SearchBox.ascx.cs = seoWebApplication\SearchBox.ascx.cs
 		seoWebApplication\SearchBox.ascx.designer.cs = seoWebApplication\SearchBox.ascx.designer.cs
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Data", "..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\seoWebApplication.Data.csproj", "{A3F31D77-389E-4259-9CE1-58B484573CBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +24,10 @@ Global
 		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D53F71B7-424C-4382-A7E6-8B90108B349A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F31D77-389E-4259-9CE1-58B484573CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

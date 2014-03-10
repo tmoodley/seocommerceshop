@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using seoWebApplication.st.SharkTankDAL;
 using seoWebApplication.st.SharkTankDAL.dataObject;
 using seoWebApplication.st.SharkTankDAL.Framework; 
-
+using seoWebApplication.Data;
 namespace seoWebApplication.UserControls
 {
     public partial class MenuTab : System.Web.UI.UserControl
@@ -30,13 +30,9 @@ namespace seoWebApplication.UserControls
             {
                 Session["MenuItemId"] = Request.QueryString["MenuItemId"];
             }
-            
- 
 
-            
+             
 
-            // CatalogAccess.GetDepartments returns a DataTable object containing
-            // department data, which is read in the ItemTemplate of the DataList
             using (seowebappDataContextDataContext db = new seowebappDataContextDataContext(dBHelper.GetSeoWebAppConnectionString()))
             {
                 list.DataSource = db.MenuItemSelectAll();
@@ -51,56 +47,20 @@ namespace seoWebApplication.UserControls
                 MenuItemSelectAllResult obj = (MenuItemSelectAllResult)(e.Item.DataItem);
 
                 HyperLink deptHyper = (HyperLink)e.Item.FindControl("deptHyperLink");
-
-                Label lblTop = (Label)e.Item.FindControl("lblTop");
-                Label lblBottom = (Label)e.Item.FindControl("lblBottom");
-
+ 
                 requestId = Convert.ToInt32(Request.QueryString["MenuItemId"]);
 
                 if (obj.Url == null)
                 {
                     deptHyper.NavigateUrl = LinkMaker.ToParentMenu(obj.MenuItemId.ToString());
+                    deptHyper.Text = obj.MenuItemName.ToString();
                 }
                 else
                 {
                     deptHyper.NavigateUrl = LinkMaker.ToLink(obj.Url.ToString());
+                    deptHyper.Text = obj.MenuItemName.ToString();
                 }
-
-
-
-
-                if (obj.MenuItemId == Convert.ToInt32(Session["MenuItemId"]))
-                {
-                    lblTop.Text = "<li class=\"current\">"; 
-                }
-                else
-                {
-                    lblTop.Text = "<li>"; 
-                }
-
-                if (obj.Url != null)
-                {
-                    if (LinkMaker.ToLink(obj.Url) == Request.Url.ToString())
-                    {
-                        lblTop.Text = "<li class=\"current\">";
-                    }
-                }
-                deptHyper.Text += "<b>";  
-                deptHyper.Text += HttpUtility.HtmlEncode(obj.MenuItemName.ToString());
-                deptHyper.Text += "</b>";
-                lblBottom.Text = "</li>"; 
-                deptHyper.ToolTip = HttpUtility.HtmlEncode(obj.Description.ToString());
-
-               
-                if (obj.MenuItemId == requestId)
-                {
-                    deptHyper.CssClass = "current";
-                    //this.showCurrent = true;
-                }
-                else
-                {
-                    deptHyper.CssClass = "";
-                }
+                 
 
             }
         }

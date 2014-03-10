@@ -72,45 +72,32 @@ namespace seoWebApplication.UserControls
             {
                 MenuItemSelectByPWIdResult obj = (MenuItemSelectByPWIdResult)(e.Item.DataItem);
 
-                HyperLink deptHyper = (HyperLink)e.Item.FindControl("deptHyperLink");
-
-                deptHyper.CssClass = "mainmenu";
+                Literal litText = (Literal)e.Item.FindControl("litText");
+                 
                 if (obj.Url == null)
-                {
-                    deptHyper.NavigateUrl = LinkMaker.ToSubMenu(obj.ParentMenuItemId.ToString(), obj.MenuItemId.ToString());
+                { 
+                    litText.Text = obj.MenuItemName.ToString();
                 }
                 else
                 {
-                    deptHyper.NavigateUrl = LinkMaker.ToLink(obj.Url);
+                     litText.Text = obj.MenuItemName.ToString();
                 }
-                deptHyper.Text = HttpUtility.HtmlEncode(obj.MenuItemName.ToString()); 
-                deptHyper.ToolTip= HttpUtility.HtmlEncode(obj.Description.ToString());
+                litText.Text = HttpUtility.HtmlEncode(obj.MenuItemName.ToString()); 
+                
 
 
-                if (obj.MenuItemId == Convert.ToInt32(Session["MenuItemId"]))
-                {
-                    deptHyper.CssClass = "selectedmenu";
-                } 
-                else
-                {
-                    deptHyper.CssClass = "nosubmenu";
-                }
+             
 
                
                     Repeater innerRep = e.Item.FindControl("innerRep") as Repeater;
-                 Literal litUL1 = e.Item.FindControl("litUL") as Literal;
-                 Literal litUL2 = e.Item.FindControl("litUL2") as Literal;
+             
 
                     using (seowebappDataContextDataContext db = new seowebappDataContextDataContext(dBHelper.GetSeoWebAppConnectionString()))
                     {
                         innerRep.DataSource = db.MenuItemSelectByPWId(Convert.ToInt32(obj.MenuItemId));
                         innerRep.DataBind();
 
-                        if (innerRep.Items.Count > 0)
-                        {
-                            litUL1.Text = "<UL>";
-                            litUL2.Text = "</UL>";
-                        }
+                       
                     }
                  
  

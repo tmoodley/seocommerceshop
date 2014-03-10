@@ -11,50 +11,36 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server"> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="paperShadow shadow-bottom">
-<h1>Welcome to ShoppersParadiseZim.Com</h1>
-<p>ShoppersParadiseZim.Com is grocery supply store based in Harare Zimbabwe, our goal is to provide you with quality products.</p>
+<div class="paperShadow"> 
 <asp:Label ID="catalogTitleLabel" CssClass="CatalogTitle" runat="server" />
 </div>
-<div class="paperShadow shadow-bottom">
-<asp:Label ID="catalogDescriptionLabel" CssClass="CatalogDescription" runat="server" />
-<div class="column12">
-<div class="row-mix">
-     
-    <asp:Repeater ID="list" runat="server">  
-     <itemtemplate>  
-     <div class="span3">
-     
-     <div class="image_block">
-     <a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
-     <img width="225" border="0"
-     src="<%# Link.ToProductImage(Eval("thumbnail").ToString()) %>"
-     alt='<%# HttpUtility.HtmlEncode(Eval("name").ToString())%>' class="product-image" />
-     </a>
-     </div>
-     <div class="header_block">
-    <h2><a href="<%# Link.ToProduct(Eval("product_id").ToString()) %>">
-    <%# HttpUtility.HtmlEncode(Eval("name").ToString()) %>
-    </a></h2> 
-    </div>
 
-     <div class="price-block">
-         <%# Eval("price", "{0:c}") %>
-     </div> 
-
-    <div class="description-block">
-    <%# HttpUtility.HtmlEncode(Eval("description").ToString()) %>         
-    </div> 
-    <div class="details-block">
-    <a href='<%# Link.ToProduct(Eval("product_id").ToString()) %>' class="button">Details</a>
-    </div>
-
-    </div>         
+<asp:Label ID="catalogDescriptionLabel" CssClass="CatalogDescription" runat="server" /> 
+    <asp:Repeater ID="list" runat="server" OnItemCreated="R1_ItemCreated">   
+     <itemtemplate>   
+         <asp:Literal ID="lblDivStart" runat="server"></asp:Literal>
+     <li class="span3">
+		<div class="thumbnail dark"> 
+				<span class="label label-info price"><%# Eval("price", "{0:c}") %></span> 
+					<a href="<%# seoWebApplication.Linkor.ToProduct(Eval("product_id").ToString()) %>">
+                    <img width="225" border="0"
+                    src="<%# seoWebApplication.Linkor.ToProductImage(Eval("thumbnail").ToString()) %>"
+                    alt='<%# HttpUtility.HtmlEncode(Eval("name").ToString())%>' class="product-image" />
+                    </a>
+			 
+			<div class="caption">
+				<a href="<%# seoWebApplication.Linkor.ToProduct(Eval("product_id").ToString()) %>">
+                <%# HttpUtility.HtmlEncode(Eval("name").ToString()) %>
+                </a>
+                <div class="description-block">
+                <%# HttpUtility.HtmlEncode(Eval("description").ToString()) %>         
+                </div> 
+			</div>
+                <a href='<%# seoWebApplication.Linkor.ToProduct(Eval("product_id").ToString()) %>' class="btn btn-block">Details</a>
+		</div>
+	</li>  
+         <asp:Literal ID="lblDivEnd" runat="server"></asp:Literal>
     </itemtemplate>
-    </asp:Repeater>
-  
-</div>
-</div>
-</div>
- 
+        
+    </asp:Repeater> 
 </asp:Content>

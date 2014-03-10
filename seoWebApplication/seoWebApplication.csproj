@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>seoWebApplication</RootNamespace>
     <AssemblyName>seoWebApplication</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -22,7 +22,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -51,6 +51,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\bin\Release\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\bin\Release\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Facebook %28.Net 3.5%29">
       <HintPath>..\packages\ComputerBeacon.Facebook.4.0.427\lib\net35\Facebook (.Net 3.5).dll</HintPath>
     </Reference>
@@ -66,6 +72,9 @@
     </Reference>
     <Reference Include="JSON Toolkit %28.Net 3.5%29">
       <HintPath>..\packages\ComputerBeacon.Json.4.0.507\lib\net35\JSON Toolkit (.Net 3.5).dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\..\..\Visual Studio 2012\Projects\Telliformer\Telliformer\bin\Kendo.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -86,6 +95,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Drawing" />
@@ -196,7 +206,41 @@
     <Content Include="assets\tooltip-script.js" />
     <Content Include="assets\twitter.png" />
     <Content Include="assets\TXMAS_logo.jpg" />
+    <Content Include="content\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="css\base-admin-2-responsive.css" />
+    <Content Include="css\base-admin-2.css" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\pages\dashboard.css" />
+    <Content Include="css\pages\plans.css" />
+    <Content Include="css\pages\pricing.css" />
+    <Content Include="css\pages\reports.css" />
+    <Content Include="css\pages\signin.css" />
+    <Content Include="css\ui-lightness\images\animated-overlay.gif" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\ui-lightness\jquery-ui-1.10.0.custom.css" />
+    <Content Include="css\ui-lightness\jquery-ui-1.10.0.custom.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Default2.aspx" />
+    <Content Include="default2.master" />
     <Content Include="delete.gif" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="Images\1-Half-Stars.png" />
     <Content Include="Images\1-Stars.png" />
     <Content Include="Images\2-Half-Stars.png" />
@@ -216,6 +260,7 @@
     <Content Include="Images\my-dinner-2go.png" />
     <Content Include="Images\nav-bg.png" />
     <Content Include="Images\pattern.jpg" />
+    <Content Include="Images\shoppersZimLogo.png" />
     <Content Include="Images\TXMAS_logo.jpg" />
     <Content Include="Images\wings.jpg" />
     <Content Include="jscript\ga.js" />
@@ -232,6 +277,112 @@
     <Content Include="jscript\polygon.min.js" />
     <Content Include="jscript\style.css" />
     <Content Include="jscript\validatewebstore.js" />
+    <Content Include="js\Application.js" />
+    <Content Include="js\charts\area.js" />
+    <Content Include="js\charts\bar.js" />
+    <Content Include="js\charts\donut.js" />
+    <Content Include="js\charts\line.js" />
+    <Content Include="js\charts\pie.js" />
+    <Content Include="js\demo\faq.js" />
+    <Content Include="js\demo\gallery.js" />
+    <Content Include="js\demo\notifications.js" />
+    <Content Include="js\demo\signin.js" />
+    <Content Include="js\demo\sliders.js" />
+    <Content Include="js\demo\validation.js" />
+    <Content Include="js\jquery.ui.bmap.js" />
+    <Content Include="js\libs\bootstrap.min.js" />
+    <Content Include="js\libs\jquery-1.8.3.min.js" />
+    <Content Include="js\libs\jquery-1.9.1.min.js" />
+    <Content Include="js\libs\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="js\libs\jquery.ui.touch-punch.min.js" />
+    <Content Include="js\libs\less-1.3.0.min.js" />
+    <Content Include="js\plugins\cirque\cirque.css" />
+    <Content Include="js\plugins\cirque\cirque.js" />
+    <Content Include="js\plugins\easing\jquery.easing.js" />
+    <Content Include="js\plugins\faq\faq.css" />
+    <Content Include="js\plugins\faq\faq.js" />
+    <Content Include="js\plugins\flot\jquery.flot.js" />
+    <Content Include="js\plugins\flot\jquery.flot.orderBars.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="js\plugins\hoverIntent\jquery.hoverIntent.minified.js" />
+    <Content Include="js\plugins\lightbox\jquery.lightbox.min.js" />
+    <Content Include="js\plugins\lightbox\themes\carbono\images\jquery-lightbox-theme-mobile.png" />
+    <Content Include="js\plugins\lightbox\themes\carbono\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\carbono\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\carbono\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\carbono\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\carbono\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\classic-dark\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\classic-dark\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\classic-dark\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\classic-dark\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\classic\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\classic\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\classic\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\classic\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\default\images\jquery-lightbox-theme-mobile.png" />
+    <Content Include="js\plugins\lightbox\themes\default\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\default\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\default\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\default\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\default\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\images\jquery-lightbox-theme-mobile.png" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\evolution-dark\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\evolution\images\jquery-lightbox-theme-mobile.png" />
+    <Content Include="js\plugins\lightbox\themes\evolution\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\evolution\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\evolution\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\evolution\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\evolution\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\facebook\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\facebook\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\facebook\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\facebook\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\facebook\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\minimalist-dark\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\minimalist-dark\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\minimalist-dark\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\minimalist-dark\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\minimalist\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\minimalist\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\minimalist\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\minimalist\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\lightbox\themes\white-green\images\jquery-lightbox-theme-mobile.png" />
+    <Content Include="js\plugins\lightbox\themes\white-green\images\jquery-lightbox-theme.gif" />
+    <Content Include="js\plugins\lightbox\themes\white-green\images\jquery-lightbox-theme.png" />
+    <Content Include="js\plugins\lightbox\themes\white-green\images\loading.gif" />
+    <Content Include="js\plugins\lightbox\themes\white-green\jquery.lightbox.css" />
+    <Content Include="js\plugins\lightbox\themes\white-green\jquery.lightbox.ie6.css" />
+    <Content Include="js\plugins\msgbox\images\alert.png" />
+    <Content Include="js\plugins\msgbox\images\background.png" />
+    <Content Include="js\plugins\msgbox\images\confirm.png" />
+    <Content Include="js\plugins\msgbox\images\error.png" />
+    <Content Include="js\plugins\msgbox\images\info.png" />
+    <Content Include="js\plugins\msgbox\images\question.png" />
+    <Content Include="js\plugins\msgbox\jquery.msgbox.css" />
+    <Content Include="js\plugins\msgbox\jquery.msgbox.js" />
+    <Content Include="js\plugins\msgbox\jquery.msgbox.min.js" />
+    <Content Include="js\plugins\msgGrowl\css\msgGrowl.css" />
+    <Content Include="js\plugins\msgGrowl\example_files\grab.png" />
+    <Content Include="js\plugins\msgGrowl\example_files\logo.png" />
+    <Content Include="js\plugins\msgGrowl\example_files\style.css" />
+    <Content Include="js\plugins\msgGrowl\images\msgGrowl_close.png" />
+    <Content Include="js\plugins\msgGrowl\images\msgGrowl_error.png" />
+    <Content Include="js\plugins\msgGrowl\images\msgGrowl_info.png" />
+    <Content Include="js\plugins\msgGrowl\images\msgGrowl_success.png" />
+    <Content Include="js\plugins\msgGrowl\images\msgGrowl_warning.png" />
+    <Content Include="js\plugins\msgGrowl\index.html" />
+    <Content Include="js\plugins\msgGrowl\js\jquery-1.6.1.min.js" />
+    <Content Include="js\plugins\msgGrowl\js\msgGrowl.js" />
+    <Content Include="js\plugins\msgGrowl\js\msgGrowl.min.js" />
+    <Content Include="js\plugins\msgGrowl\js\msgGrowl.pack.js" />
+    <Content Include="js\plugins\uiToTop\jquery.ui.totop.js" />
+    <Content Include="js\plugins\validate\jquery.validate.js" />
     <Content Include="myaccount.aspx" />
     <Content Include="product_view.aspx" />
     <Content Include="assets\ajax.css" />
@@ -261,7 +412,6 @@
     <Content Include="Images\tamale-addiction.jpg" />
     <Content Include="Images\tortillas.jpg" />
     <Content Include="OrderVerify.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="Images\bgTextBox.gif" />
     <Content Include="Logout.aspx" />
     <Content Include="OrderPlaced.aspx" />
@@ -291,6 +441,21 @@
     <Content Include="ProductImages\tameles.jpg" />
     <Content Include="ProductImages\thumbnail.jpg" />
     <Content Include="star.gif" />
+    <Content Include="Styles\boostrap.css" />
+    <Content Include="Styles\bootstrap-responsive.css" />
+    <Content Include="Styles\bootstrap.min.js" />
+    <Content Include="Styles\fontface.css" />
+    <Content Include="Styles\joomla15.css" />
+    <Content Include="Styles\jquery-1.8.1.min.js" />
+    <Content Include="Styles\layout.css" />
+    <Content Include="Styles\menus.css" />
+    <Content Include="Styles\modernizr-2.6.2.min.js" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\respond.min.js" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Styles\StyleSheet1.css" />
+    <Content Include="Styles\template.css" />
+    <Content Include="Styles\typography.css" />
     <Content Include="UserControls\AccordianRestaurantHours.ascx" />
     <Content Include="UserControls\CategoriesList.ascx" />
     <Content Include="UserControls\CuisineList.ascx" />
@@ -298,6 +463,7 @@
     <Content Include="UserControls\MapLocation.ascx" />
     <Content Include="UserControls\MenuList.ascx" />
     <Content Include="UserControls\ProductRecommendations.ascx" />
+    <Content Include="UserControls\ProductSpecials.ascx" />
     <Content Include="UserControls\ProductsList.ascx" />
     <Content Include="UserControls\RestaurantDeliveryMap.ascx" />
     <Content Include="UserControls\RestaurantHours.ascx" />
@@ -561,6 +727,27 @@
     <Compile Include="catalogAccesor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default2.aspx.designer.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default2.master.cs">
+      <DependentUpon>default2.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default2.master.designer.cs">
+      <DependentUpon>default2.master</DependentUpon>
+    </Compile>
     <Compile Include="FBHandler.ashx.cs">
       <DependentUpon>FBHandler.ashx</DependentUpon>
     </Compile>
@@ -590,13 +777,6 @@
     </Compile>
     <Compile Include="default.Master.designer.cs">
       <DependentUpon>default.Master</DependentUpon>
-    </Compile>
-    <Compile Include="default2.master.cs">
-      <DependentUpon>default2.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default2.master.designer.cs">
-      <DependentUpon>default2.master</DependentUpon>
     </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
@@ -704,13 +884,6 @@
     </Compile>
     <Compile Include="OrderVerify.aspx.designer.cs">
       <DependentUpon>OrderVerify.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenericDataAccessor.cs" />
     <Compile Include="Linkor.cs" />
@@ -831,6 +1004,13 @@
     </Compile>
     <Compile Include="UserControls\ProductRecommendations.ascx.designer.cs">
       <DependentUpon>ProductRecommendations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductSpecials.ascx.cs">
+      <DependentUpon>ProductSpecials.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductSpecials.ascx.designer.cs">
+      <DependentUpon>ProductSpecials.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProductsList.ascx.cs">
       <DependentUpon>ProductsList.ascx</DependentUpon>
@@ -1072,11 +1252,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminMstr.Master" />
-    <Content Include="default2.master" />
     <Content Include="packages.config" />
     <Content Include="FBHandler.ashx" />
+    <Content Include="content\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="content\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="content\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="content\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\catalog.shoppersparadisezim.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\dgelectronicsuppliers.shoppersparadisezim.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\godrol.shoppersparadisezim.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ibuyusa.co - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\squiggles.shoppersparadisezim.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\topcarauto.asp-fanatics.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\topcarauto.shoppersparadisezim.com - Web Deploy.pubxml" />
     <None Include="seowebapp.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>seowebapp.designer.cs</LastGenOutput>
@@ -1214,11 +1409,18 @@
   <ItemGroup>
     <Folder Include="admin\ajax\" />
     <Folder Include="factoryClasses\" />
+    <Folder Include="js\libs\bootstrap\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">
       <DependentUpon>seowebappDataContext.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\seoWebApplication.Data.csproj">
+      <Project>{a3f31d77-389e-4259-9ce1-58b484573cba}</Project>
+      <Name>seoWebApplication.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
