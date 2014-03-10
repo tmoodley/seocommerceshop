@@ -1,0 +1,30 @@
+﻿@model IEnumerable<seoWebApplication.Data.MenuItem>
+
+
+
+<div role="banner" class="navbar bs-docs-nav">
+
+    <div class="container">
+        <div class="navbar-header">
+            <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+            <!-- Navigation links starts here -->
+            <ul class="nav navbar-nav">
+                <!-- Main menu -->
+                @foreach (var item in Model)
+                    {
+                        <li><a href="@Html.DisplayFor(modelItem => item.Url)" title="@Html.DisplayFor(modelItem => item.Description)">@Html.DisplayFor(modelItem => item.MenuItemName)</a></li>
+
+                    }
+            </ul>
+        </nav>
+    </div>
+</div>
+
+

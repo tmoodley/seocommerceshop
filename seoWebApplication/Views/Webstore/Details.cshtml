@@ -1,0 +1,795 @@
+﻿@model seoWebApplication.Data.webstore
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>webstore</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.webstoreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstoreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.webstoreUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstoreUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locationx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locationx)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locationy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locationy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.polygonArray)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.polygonArray)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parentWebstoreId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parentWebstoreId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ownerFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ownerFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ownerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ownerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ownerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ownerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.managerFname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.managerFname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.managerLname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.managerLname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.managerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.managerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.storeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.storeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apiKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apiKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tuesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tuesday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tuesBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tuesBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tuesLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tuesLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tuesDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tuesDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tueDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tueDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wednesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wednesday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wedDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wedDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thursday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thursday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thrDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thrDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.friDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.friDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.saturday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.saturday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunBreakfast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunBreakfast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunLunch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunLunch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunDinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunDinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunBreakfastStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunBreakfastStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunBreakfastEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunBreakfastEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunLunchStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunLunchStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunLunchEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunLunchEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunDinnerStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunDinnerStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sunDinnerEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sunDinnerEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thumbnail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thumbnail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seoDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seoDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seoTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seoTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seoKeywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seoKeywords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seoMeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seoMeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zone1.zoneName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zone1.zoneName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.webstore_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>@mvcConfig.SiteName Dashboard :: @ViewBag.Title</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">        
+    
+    <link href="/css/ui-lightness/jquery-ui-1.10.0.custom.min.css" rel="stylesheet">
+    
+    <link href="/css/base-admin-2.css" rel="stylesheet">
+    <link href="/css/base-admin-2-responsive.css" rel="stylesheet">
+    
+    <link href="/css/pages/dashboard.css" rel="stylesheet">   
+
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.common.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.metro.min.css")"> 
+      @Scripts.Render("~/bundles/jquery")
+      
+      @Scripts.Render("~/bundles/bootstrap")
+     
+      @Styles.Render("~/Content/kendo") 
+      @Scripts.Render("~/bundles/kendo")
+    
+    @*<script src="/Scripts/kendo.all.min.js"></script>
+    <script src="/Scripts/kendo.aspnetmvc.min.js"></script>*@  
+  
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	
+	<div class="navbar-inner">
+		
+		<div class="container">
+			
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<i class="icon-cog"></i>
+			</a>
+			
+			<a class="brand" href="./index.html">
+				@mvcConfig.SiteName Admin <sup>@mvcConfig.AppVersion</sup>
+			</a>		
+			
+			<div class="nav-collapse collapse">
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-cog"></i>
+							Settings
+							<b class="caret"></b>
+						</a>
+						
+						<ul class="dropdown-menu">
+                         	<li><a href="javascript:;">Privacy Settings</a></li>
+							<li class="divider"></li>
+							<li><a href="javascript:;">Help</a></li> 
+						</ul>
+						
+					</li>
+			
+					<li class="dropdown">
+						@Html.Partial("_LoginPartial")
+												
+					</li>
+				</ul>
+			
+				<form class="navbar-search pull-right">
+					<input type="text" class="search-query" placeholder="Search">
+				</form>
+				
+			</div><!--/.nav-collapse -->	
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+    
+
+
+
+    
+<div class="subnavbar">
+
+	@Html.Partial("~/Views/Shared/_PartialMenu.cshtml");
+
+</div> <!-- /subnavbar -->
+    
+
+
+
+    
+
+<div class="main">
+
+    <div class="container">
+
+      <div class="row">
+      	
+      	<div class="span12">      		
+      		
+      		<div class="widget stacked ">
+      			
+      			<div class="widget-header"> 
+      				<h3>@mvcConfig.SiteName</h3>
+  				</div> <!-- /widget-header --> 
+				<div class="widget-content"> 
+				@RenderSection("featured", required: false) 
+                @RenderBody()	
+				 
+				</div> <!-- /widget-content -->
+					
+			</div> <!-- /widget -->
+      		
+	    </div> <!-- /span12 -->
+      	
+      </div> <!-- /row -->
+
+    </div> <!-- /container -->
+    
+</div> <!-- /main -->
+
+
+<div class="extra">
+
+	<div class="container">
+
+		<div class="row">
+			
+			<div class="span3">
+				
+				<h4>About</h4>
+				
+				<ul>
+					<li><a href="javascript:;">About Us</a></li>
+					<li><a href="javascript:;">Twitter</a></li>
+					<li><a href="javascript:;">Facebook</a></li>
+					<li><a href="javascript:;">Google+</a></li>
+				</ul>
+				
+			</div> <!-- /span3 -->
+			
+			<div class="span3">
+				
+				@*<h4>Support</h4>
+				
+				<ul>
+					<li><a href="javascript:;">Frequently Asked Questions</a></li>
+					<li><a href="javascript:;">Ask a Question</a></li>
+					<li><a href="javascript:;">Video Tutorial</a></li>
+					<li><a href="javascript:;">Feedback</a></li>
+				</ul>*@
+				
+			</div> <!-- /span3 -->
+			
+			<div class="span3">
+				
+				@*<h4>Legal</h4>
+				
+				<ul>
+					<li><a href="javascript:;">License</a></li>
+					<li><a href="javascript:;">Terms of Use</a></li>
+					<li><a href="javascript:;">Privacy Policy</a></li>
+					<li><a href="javascript:;">Security</a></li>
+				</ul>*@
+				
+			</div> <!-- /span3 -->
+			
+			<div class="span3">
+				
+				@*<h4>Settings</h4>
+				
+				<ul>
+					<li><a href="javascript:;">Consectetur adipisicing</a></li>
+					<li><a href="javascript:;">Eiusmod tempor </a></li>
+					<li><a href="javascript:;">Fugiat nulla pariatur</a></li>
+					<li><a href="javascript:;">Officia deserunt</a></li>
+				</ul>*@
+				
+			</div> <!-- /span3 -->
+			
+		</div> <!-- /row -->
+
+	</div> <!-- /container -->
+
+</div> <!-- /extra -->
+
+
+    
+    
+<div class="footer">
+		
+	<div class="container">
+		
+		<div class="row">
+			
+			<div id="footer-copyright" class="span6">
+				 <p>&copy; @DateTime.Now.Year - @mvcConfig.SiteName</p>
+			</div> <!-- /span6 -->
+			
+			<div id="footer-terms" class="span6">
+				 
+			</div> <!-- /.span6 -->
+			
+		</div> <!-- /row -->
+		
+	</div> <!-- /container -->
+	
+</div> <!-- /footer -->
+    
+
+ 
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+ 
+ 
+<script src="/js/Application.js"></script>  
+
+@*<script src="@Url.Content("~/Scripts/kendo.all.min.js")"></script> 
+<script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>*@ 
+@RenderSection("scripts", required: false)
+</body>
+</html>

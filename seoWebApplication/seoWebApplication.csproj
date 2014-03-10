@@ -85,6 +85,7 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -189,6 +190,14 @@
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.1.1\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.1.1\lib\net45\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="about_us.aspx" />
@@ -288,6 +297,10 @@
     <Content Include="assets\tooltip-script.js" />
     <Content Include="assets\twitter.png" />
     <Content Include="assets\TXMAS_logo.jpg" />
+    <Content Include="content\bootstrap-theme.css" />
+    <Content Include="content\bootstrap-theme.min.css" />
+    <Content Include="content\bootstrap.css" />
+    <Content Include="content\bootstrap.min.css" />
     <Content Include="content\fonts\font-awesome\fontawesome-webfont.svg" />
     <Content Include="content\themes\base\images\animated-overlay.gif" />
     <Content Include="content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -585,7 +598,11 @@
     <Content Include="ProductImages\IMG_2703 %281%29.jpg" />
     <Content Include="ProductImages\tameles.jpg" />
     <Content Include="ProductImages\thumbnail.jpg" />
+    <Content Include="content\bootstrap-theme.css.map" />
+    <Content Include="content\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -595,6 +612,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\viewbinder.js" />
+    <Content Include="Scripts\viewbinder.min.js" />
     <Content Include="star.gif" />
     <Content Include="Styles\boostrap.css" />
     <Content Include="Styles\bootstrap-responsive.css" />
@@ -876,6 +895,7 @@
     <Compile Include="admin\settings\viewDeliveryZone.aspx.designer.cs">
       <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\mvcConfig.cs" />
     <Compile Include="App_Data\SEOBaseEditPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -887,6 +907,12 @@
     <Compile Include="catalogAccesor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Content Include="Common\mvcConfig.cs" />
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuItemController.cs" />
+    <Compile Include="Controllers\ViewBindRouteController.cs" />
+    <Compile Include="Controllers\WebstoreController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1540,6 +1566,27 @@
       <LastGenOutput>seowebappDataContext.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Webstore\Details.cshtml" />
+    <Content Include="Views\Webstore\Edit.cshtml" />
+    <Content Include="Views\Webstore\Index.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\ShowMenu.cshtml" />
+    <Content Include="Views\Shared\_BaseAdminSingle.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_PartialMenu.cshtml" />
+    <Content Include="Views\Shared\_PartialMenuItem.cshtml" />
+    <Content Include="Views\MenuItem\Create.cshtml" />
+    <Content Include="Views\MenuItem\Delete.cshtml" />
+    <Content Include="Views\MenuItem\Details.cshtml" />
+    <Content Include="Views\MenuItem\Edit.cshtml" />
+    <Content Include="Views\MenuItem\Index.cshtml" />
+    <Content Include="Views\MenuItem\_PartialMenuItem.cshtml" />
+    <Content Include="Views\MenuItem\_PartialSubMenuItem.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
@@ -1572,11 +1619,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\ajax\" />
-    <Folder Include="Controllers\" />
     <Folder Include="factoryClasses\" />
     <Folder Include="js\libs\bootstrap\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">

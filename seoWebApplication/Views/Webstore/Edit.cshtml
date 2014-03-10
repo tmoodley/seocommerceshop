@@ -1,0 +1,811 @@
+﻿@model seoWebApplication.Data.webstore
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>webstore</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.webstore_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.webstoreName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.webstoreName)
+                @Html.ValidationMessageFor(model => model.webstoreName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.webstoreUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.webstoreUrl)
+                @Html.ValidationMessageFor(model => model.webstoreUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.locationx, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.locationx)
+                @Html.ValidationMessageFor(model => model.locationx)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.locationy, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.locationy)
+                @Html.ValidationMessageFor(model => model.locationy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.polygonArray, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.polygonArray)
+                @Html.ValidationMessageFor(model => model.polygonArray)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address)
+                @Html.ValidationMessageFor(model => model.address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.city, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.city)
+                @Html.ValidationMessageFor(model => model.city)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.state, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.state)
+                @Html.ValidationMessageFor(model => model.state)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.country, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.country)
+                @Html.ValidationMessageFor(model => model.country)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.zip, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.zip)
+                @Html.ValidationMessageFor(model => model.zip)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.zone, "zone", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("zone", String.Empty)
+                @Html.ValidationMessageFor(model => model.zone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.parentWebstoreId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.parentWebstoreId)
+                @Html.ValidationMessageFor(model => model.parentWebstoreId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ownerFName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ownerFName)
+                @Html.ValidationMessageFor(model => model.ownerFName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ownerName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ownerName)
+                @Html.ValidationMessageFor(model => model.ownerName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ownerNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ownerNumber)
+                @Html.ValidationMessageFor(model => model.ownerNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.managerFname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.managerFname)
+                @Html.ValidationMessageFor(model => model.managerFname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.managerLname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.managerLname)
+                @Html.ValidationMessageFor(model => model.managerLname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.managerNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.managerNumber)
+                @Html.ValidationMessageFor(model => model.managerNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.storeNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.storeNumber)
+                @Html.ValidationMessageFor(model => model.storeNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.apiKey, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.apiKey)
+                @Html.ValidationMessageFor(model => model.apiKey)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monday)
+                @Html.ValidationMessageFor(model => model.monday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monBreakfast)
+                @Html.ValidationMessageFor(model => model.monBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monLunch)
+                @Html.ValidationMessageFor(model => model.monLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monDinner)
+                @Html.ValidationMessageFor(model => model.monDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monBreakfastStart)
+                @Html.ValidationMessageFor(model => model.monBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.monBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monLunchStart)
+                @Html.ValidationMessageFor(model => model.monLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monLunchEnd)
+                @Html.ValidationMessageFor(model => model.monLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monDinnerStart)
+                @Html.ValidationMessageFor(model => model.monDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.monDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.monDinnerEnd)
+                @Html.ValidationMessageFor(model => model.monDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tuesday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tuesday)
+                @Html.ValidationMessageFor(model => model.tuesday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tuesBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tuesBreakfast)
+                @Html.ValidationMessageFor(model => model.tuesBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tuesLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tuesLunch)
+                @Html.ValidationMessageFor(model => model.tuesLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tuesDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tuesDinner)
+                @Html.ValidationMessageFor(model => model.tuesDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueBreakfastStart)
+                @Html.ValidationMessageFor(model => model.tueBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.tueBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueLunchStart)
+                @Html.ValidationMessageFor(model => model.tueLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueLunchEnd)
+                @Html.ValidationMessageFor(model => model.tueLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueDinnerStart)
+                @Html.ValidationMessageFor(model => model.tueDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tueDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tueDinnerEnd)
+                @Html.ValidationMessageFor(model => model.tueDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wednesday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wednesday)
+                @Html.ValidationMessageFor(model => model.wednesday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedBreakfast)
+                @Html.ValidationMessageFor(model => model.wedBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedLunch)
+                @Html.ValidationMessageFor(model => model.wedLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedDinner)
+                @Html.ValidationMessageFor(model => model.wedDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedBreakfastStart)
+                @Html.ValidationMessageFor(model => model.wedBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.wedBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedLunchStart)
+                @Html.ValidationMessageFor(model => model.wedLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedLunchEnd)
+                @Html.ValidationMessageFor(model => model.wedLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedDinnerStart)
+                @Html.ValidationMessageFor(model => model.wedDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wedDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wedDinnerEnd)
+                @Html.ValidationMessageFor(model => model.wedDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thursday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thursday)
+                @Html.ValidationMessageFor(model => model.thursday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrBreakfast)
+                @Html.ValidationMessageFor(model => model.thrBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrLunch)
+                @Html.ValidationMessageFor(model => model.thrLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrDinner)
+                @Html.ValidationMessageFor(model => model.thrDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrBreakfastStart)
+                @Html.ValidationMessageFor(model => model.thrBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.thrBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrLunchStart)
+                @Html.ValidationMessageFor(model => model.thrLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrLunchEnd)
+                @Html.ValidationMessageFor(model => model.thrLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrDinnerStart)
+                @Html.ValidationMessageFor(model => model.thrDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thrDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thrDinnerEnd)
+                @Html.ValidationMessageFor(model => model.thrDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friday)
+                @Html.ValidationMessageFor(model => model.friday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friBreakfast)
+                @Html.ValidationMessageFor(model => model.friBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friLunch)
+                @Html.ValidationMessageFor(model => model.friLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friDinner)
+                @Html.ValidationMessageFor(model => model.friDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friBreakfastStart)
+                @Html.ValidationMessageFor(model => model.friBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.friBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friLunchStart)
+                @Html.ValidationMessageFor(model => model.friLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friLunchEnd)
+                @Html.ValidationMessageFor(model => model.friLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friDinnerStart)
+                @Html.ValidationMessageFor(model => model.friDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.friDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.friDinnerEnd)
+                @Html.ValidationMessageFor(model => model.friDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.saturday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.saturday)
+                @Html.ValidationMessageFor(model => model.saturday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satBreakfast)
+                @Html.ValidationMessageFor(model => model.satBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satLunch)
+                @Html.ValidationMessageFor(model => model.satLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satDinner)
+                @Html.ValidationMessageFor(model => model.satDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satBreakfastStart)
+                @Html.ValidationMessageFor(model => model.satBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.satBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satLunchStart)
+                @Html.ValidationMessageFor(model => model.satLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satLunchEnd)
+                @Html.ValidationMessageFor(model => model.satLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satDinnerStart)
+                @Html.ValidationMessageFor(model => model.satDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.satDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.satDinnerEnd)
+                @Html.ValidationMessageFor(model => model.satDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunday, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunday)
+                @Html.ValidationMessageFor(model => model.sunday)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunBreakfast, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunBreakfast)
+                @Html.ValidationMessageFor(model => model.sunBreakfast)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunLunch, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunLunch)
+                @Html.ValidationMessageFor(model => model.sunLunch)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunDinner, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunDinner)
+                @Html.ValidationMessageFor(model => model.sunDinner)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunBreakfastStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunBreakfastStart)
+                @Html.ValidationMessageFor(model => model.sunBreakfastStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunBreakfastEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunBreakfastEnd)
+                @Html.ValidationMessageFor(model => model.sunBreakfastEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunLunchStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunLunchStart)
+                @Html.ValidationMessageFor(model => model.sunLunchStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunLunchEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunLunchEnd)
+                @Html.ValidationMessageFor(model => model.sunLunchEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunDinnerStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunDinnerStart)
+                @Html.ValidationMessageFor(model => model.sunDinnerStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sunDinnerEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sunDinnerEnd)
+                @Html.ValidationMessageFor(model => model.sunDinnerEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thumbnail, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thumbnail)
+                @Html.ValidationMessageFor(model => model.thumbnail)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.image)
+                @Html.ValidationMessageFor(model => model.image)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.seoDescription, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seoDescription)
+                @Html.ValidationMessageFor(model => model.seoDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.seoTitle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seoTitle)
+                @Html.ValidationMessageFor(model => model.seoTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.seoKeywords, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seoKeywords)
+                @Html.ValidationMessageFor(model => model.seoKeywords)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.seoMeta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seoMeta)
+                @Html.ValidationMessageFor(model => model.seoMeta)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

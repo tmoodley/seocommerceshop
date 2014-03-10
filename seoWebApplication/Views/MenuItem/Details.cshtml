@@ -1,0 +1,83 @@
+﻿@model seoWebApplication.Data.MenuItem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MenuItem</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentMenuItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentMenuItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplaySequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplaySequence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAlwaysEnabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAlwaysEnabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webstore_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MenuItemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

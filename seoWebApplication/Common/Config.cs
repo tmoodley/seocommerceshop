@@ -1,16 +1,14 @@
-﻿using System.Configuration;
-/// <summary>
-/// Repository for configuration settings
-/// </summary>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Configuration;
 
- 
-    public static class seoWebAppConfiguration
+namespace seoWebApplication.Common
+{
+    public static class Config
     {
-        // Caches the connection string
-        private static string dbConnectionString;
-        // Caches the data provider name
-        private static string dbProviderName;
-        // Store the number of products per page
+         // Store the number of products per page
         private readonly static int productsPerPage;
         // Store the product description length for product lists
         private readonly static int productDescriptionLength;
@@ -18,15 +16,26 @@
         private readonly static int idWebstore;
         // Store the name of your shop
         private readonly static string siteName;
-        static seoWebAppConfiguration()
+        // Store the product description length for product lists
+        private readonly static string appVersion;
+        static Config()
         {
+            appVersion = ConfigurationManager.AppSettings["Version"];
             idWebstore = System.Int32.Parse(ConfigurationManager.AppSettings["idSeoWebstore"]);
-            dbConnectionString = ConfigurationManager.ConnectionStrings["SeoWebAppConnString"].ConnectionString;
-            dbProviderName = ConfigurationManager.ConnectionStrings["SeoWebAppConnString"].ProviderName;
             productsPerPage = System.Int32.Parse(ConfigurationManager.AppSettings["ProductsPerPage"]);
             productDescriptionLength = System.Int32.Parse(ConfigurationManager.AppSettings["ProductDescriptionLength"]);
             siteName = ConfigurationManager.AppSettings["SiteName"];
         }
+
+        // Returns the appVersion
+        public static string AppVersion
+        {
+            get
+            {
+                return appVersion;
+            }
+        }
+
         // Returns the connection string for the BalloonShop database
         public static int IdWebstore
         {
@@ -36,21 +45,6 @@
             }
         }
 
-        public static string DbConnectionString
-        {
-            get
-            {
-                return dbConnectionString;
-            }
-        }
-        // Returns the data provider name
-        public static string DbProviderName
-        {
-            get
-            {
-                return dbProviderName;
-            }
-        }
         // Returns the maximum number of products to be displayed on a page
         public static int ProductsPerPage
         {
@@ -204,4 +198,4 @@
             }
         }
     }
- 
+}

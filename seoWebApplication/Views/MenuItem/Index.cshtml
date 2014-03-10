@@ -1,0 +1,76 @@
+﻿@model IEnumerable<seoWebApplication.Data.MenuItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BaseAdminSingle.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentMenuItemId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplaySequence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAlwaysEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentMenuItemId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplaySequence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAlwaysEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.webstore_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MenuItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MenuItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MenuItemId })
+        </td>
+    </tr>
+}
+
+</table>
