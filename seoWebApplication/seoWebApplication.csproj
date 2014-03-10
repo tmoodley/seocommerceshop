@@ -73,9 +73,6 @@
     <Reference Include="FBConnectAuth">
       <HintPath>..\packages\FbConnectAuth.0.9\lib\FBConnectAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Intelligencia.UrlRewriter">
-      <HintPath>..\..\seoWebApplication2\seoWebApplication\bin\Intelligencia.UrlRewriter.dll</HintPath>
-    </Reference>
     <Reference Include="JSON Toolkit %28.Net 3.5%29">
       <HintPath>..\packages\ComputerBeacon.Json.4.0.507\lib\net35\JSON Toolkit (.Net 3.5).dll</HintPath>
     </Reference>
