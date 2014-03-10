@@ -17,12 +17,12 @@ namespace seoWebApplication
     {
         public bool loggedIn;
         public string storeName;
-
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             storeName = seoWebAppConfiguration.SiteName;
-
+            
             if (Session["User"] == null)
             {
                 loggedIn = false;
@@ -31,8 +31,8 @@ namespace seoWebApplication
             {
                 loggedIn = true;
             }
-
-
+ 
+            
 
 
         }
