@@ -5,8 +5,8 @@
     <title>@mvcConfig.SiteName Dashboard :: @ViewBag.Title</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <link href="~/content/bootstrap.datatables.css" rel="stylesheet" />
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
     
@@ -235,9 +235,13 @@
  
  
 <script src="/js/Application.js"></script>  
-
 @*<script src="@Url.Content("~/Scripts/kendo.all.min.js")"></script> 
 <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>*@ 
 @RenderSection("scripts", required: false)
-</body>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/TableTools.js"></script> 
+    <script src="~/Scripts/jquery.dataTables.columnFilter.js"></script>
+    
+
+    </body>
 </html>

@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		seoWebApplication\SearchBox.ascx.designer.cs = seoWebApplication\SearchBox.ascx.designer.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Data", "..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\seoWebApplication.Data.csproj", "{A3F31D77-389E-4259-9CE1-58B484573CBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seoWebApplication.Data", "seoWebApplication.Data\seoWebApplication.Data.csproj", "{A3F31D77-389E-4259-9CE1-58B484573CBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

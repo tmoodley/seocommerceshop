@@ -1,0 +1,159 @@
+﻿@model IEnumerable<seoWebApplication.Data.customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.webstore_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shippingRegion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dayPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.evePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creditCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.squestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sanswer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sendEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fbId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rewardPoints)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.webstore_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shippingRegion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dayPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.evePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creditCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.squestion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sanswer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sendEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fbId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rewardPoints)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.customer_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.customer_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.customer_id })
+        </td>
+    </tr>
+}
+
+</table>

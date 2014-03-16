@@ -55,6 +55,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="ChameleonForms">
+      <HintPath>..\packages\ChameleonForms.1.0.1.3\lib\NET40\ChameleonForms.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
@@ -72,6 +75,9 @@
     </Reference>
     <Reference Include="FBConnectAuth">
       <HintPath>..\packages\FbConnectAuth.0.9\lib\FBConnectAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.1.0.29\lib\portable-win+net40+sl50+wp8\Humanizer.dll</HintPath>
     </Reference>
     <Reference Include="JSON Toolkit %28.Net 3.5%29">
       <HintPath>..\packages\ComputerBeacon.Json.4.0.507\lib\net35\JSON Toolkit (.Net 3.5).dll</HintPath>
@@ -98,9 +104,15 @@
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.1.1\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.Bootstrap.Datatables.MVC5">
+      <HintPath>..\packages\Mvc.Bootstrap.Datatables.MVC5.1.0.4\lib\Mvc.Bootstrap.Datatables.MVC5.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -187,6 +199,9 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -300,7 +315,88 @@
     <Content Include="content\bootstrap-theme.css" />
     <Content Include="content\bootstrap-theme.min.css" />
     <Content Include="content\bootstrap.css" />
+    <Content Include="content\bootstrap.datatables.css" />
     <Content Include="content\bootstrap.min.css" />
+    <Content Include="content\chameleonforms-twitterbootstrap.css" />
+    <Content Include="content\DataTables-1.9.4\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\css\AutoFill.css" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\AutoFill\media\images\filler.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\css\ColReorder.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColReorder\media\images\insert.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\css\ColVis.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\css\ColVisAlt.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\ColVis\media\images\button.png" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\extras\FixedColumns\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\css\dataTables.scroller.css" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\css\doc.css" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\css\shCore.css" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\images\arrow.jpg" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\images\arrow.png" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\docs\media\images\extended.png" />
+    <Content Include="content\DataTables-1.9.4\extras\Scroller\media\images\loading-background.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\css\TableTools.css" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\css\TableTools_JUI.css" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\background.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\collection.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\collection_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\copy.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\copy_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\csv.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\csv_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\pdf.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\pdf_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\print.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\print_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\xls.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\xls_hover.png" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\swf\copy_csv_xls.swf" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="content\DataTables-1.9.4\media\css\demo_page.css" />
+    <Content Include="content\DataTables-1.9.4\media\css\demo_table.css" />
+    <Content Include="content\DataTables-1.9.4\media\css\demo_table_jui.css" />
+    <Content Include="content\DataTables-1.9.4\media\css\jquery.dataTables.css" />
+    <Content Include="content\DataTables-1.9.4\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="content\DataTables-1.9.4\media\images\back_disabled.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\back_enabled.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\back_enabled_hover.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\favicon.ico" />
+    <Content Include="content\DataTables-1.9.4\media\images\forward_disabled.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\forward_enabled.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\forward_enabled_hover.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\sort_asc.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\sort_asc_disabled.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\sort_both.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\sort_desc.png" />
+    <Content Include="content\DataTables-1.9.4\media\images\sort_desc_disabled.png" />
     <Content Include="content\fonts\font-awesome\fontawesome-webfont.svg" />
     <Content Include="content\themes\base\images\animated-overlay.gif" />
     <Content Include="content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -600,18 +696,79 @@
     <Content Include="ProductImages\thumbnail.jpg" />
     <Content Include="content\bootstrap-theme.css.map" />
     <Content Include="content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap.datatables.js" />
+    <Content Include="Scripts\DataTables-1.9.4\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\js\AutoFill.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\js\AutoFill.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\js\ColReorder.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\js\ColReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\js\ColVis.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\js\ColVis.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\media\js\FixedColumns.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\media\js\FixedColumns.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\docs\media\js\doc.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\docs\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\docs\media\js\shCore.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\js\ColVis.min.js.gz" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\js\ColReorder.min.js.gz" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\js\AutoFill.min.js.gz" />
+    <Content Include="content\DataTables-1.9.4\media\images\Sorting icons.psd" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\printer.psd" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
+    <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\ZeroClipboard.js" />
+    <Content Include="Scripts\DataTables-1.9.4\media\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables-1.9.4\media\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables-1.9.4\media\js\jquery.js" />
+    <Content Include="Scripts\dataTables.editor.bootstrap.js" />
+    <Content Include="Scripts\dataTables.editor.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery.dataTables.columnFilter.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.ext.dataTables.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.chameleon.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.twitterbootstrap.js" />
+    <Content Include="Scripts\TableTools.js" />
     <Content Include="Scripts\viewbinder.js" />
     <Content Include="Scripts\viewbinder.min.js" />
     <Content Include="star.gif" />
@@ -900,7 +1057,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ConfigureChameleonTwitterBootstrap.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RegisterChameleonFormsComponents.cs" />
+    <Compile Include="App_Start\RegisterDatatablesModelBinder.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -909,8 +1069,12 @@
     </Compile>
     <Content Include="Common\mvcConfig.cs" />
     <Compile Include="Common\Config.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
+    <Compile Include="Controllers\PCategoryController.cs" />
+    <Compile Include="Controllers\PCategoryProductController.cs" />
     <Compile Include="Controllers\ViewBindRouteController.cs" />
     <Compile Include="Controllers\WebstoreController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -986,22 +1150,22 @@
       <DependentUpon>seowebapp.Master.cs</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdmin.Master.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>seoWebAppAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="seoWebAppAdmin.Master.designer.cs">
       <DependentUpon>seoWebAppAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditGrid.master.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>seoWebAppAdminEditGrid.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="seoWebAppAdminEditGrid.master.designer.cs">
       <DependentUpon>seoWebAppAdminEditGrid.master</DependentUpon>
     </Compile>
     <Compile Include="seoWebAppAdminEditPage.Master.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>seoWebAppAdminEditPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="seoWebAppAdminEditPage.Master.designer.cs">
       <DependentUpon>seoWebAppAdminEditPage.Master</DependentUpon>
@@ -1587,6 +1751,28 @@
     <Content Include="Views\MenuItem\Index.cshtml" />
     <Content Include="Views\MenuItem\_PartialMenuItem.cshtml" />
     <Content Include="Views\MenuItem\_PartialSubMenuItem.cshtml" />
+    <Content Include="Views\PCategory\Create.cshtml" />
+    <Content Include="Views\PCategory\Delete.cshtml" />
+    <Content Include="Views\PCategory\Details.cshtml" />
+    <Content Include="Views\PCategory\Edit.cshtml" />
+    <Content Include="Views\PCategory\Index.cshtml" />
+    <Content Include="Views\PCategoryProduct\Create.cshtml" />
+    <Content Include="Views\PCategoryProduct\Delete.cshtml" />
+    <Content Include="Views\PCategoryProduct\Details.cshtml" />
+    <Content Include="Views\PCategoryProduct\Edit.cshtml" />
+    <Content Include="Views\PCategoryProduct\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
@@ -1622,7 +1808,6 @@
     <Folder Include="factoryClasses\" />
     <Folder Include="js\libs\bootstrap\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">
@@ -1630,7 +1815,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\seoWebApplication - shoppersparadisezim - MVC\seoWebApplication.Data\seoWebApplication.Data.csproj">
+    <ProjectReference Include="..\seoWebApplication.Data\seoWebApplication.Data.csproj">
       <Project>{a3f31d77-389e-4259-9ce1-58b484573cba}</Project>
       <Name>seoWebApplication.Data</Name>
     </ProjectReference>
