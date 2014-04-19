@@ -27,6 +27,8 @@ namespace seoWebApplication
         public string address;
         public string city2;
         public int phone;
+        public string url;
+        public string host;
 
         protected void Page_Load(object sender, EventArgs e)
         {  
@@ -44,6 +46,12 @@ namespace seoWebApplication
             city2 = city.city1;
             phone = Convert.ToInt32(store.ownerNumber);
             imgLogo = store.image;
+            url = HttpContext.Current.Request.Url.AbsoluteUri;
+            host = HttpContext.Current.Request.Url.Host;
+
+            if (imgLogo == null) {
+                imgLogo = "";
+            }
             if (Session["User"] == null)
             {
                 loggedIn = false;

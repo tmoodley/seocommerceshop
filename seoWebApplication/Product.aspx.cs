@@ -12,16 +12,41 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using seoWebApplication.st.SharkTankDAL;
 using seoWebApplication.st.SharkTankDAL.dataObject;
-using seoWebApplication.st.SharkTankDAL.Framework; 
+using seoWebApplication.st.SharkTankDAL.Framework;
+using seoWebApplication.Data; 
 
 namespace seoWebApplication
 {
     public partial class Product : System.Web.UI.Page
     {
+        public bool loggedIn;
+        public string storeName;
+        public string seoDesc;
+        public string seoKeywords;
+        public string seoTitle;
+        public string imgLogo;
+        public int webstoreId;
+
+        public string address;
+        public string city2;
+        public int phone;
+        public string url;
+        public string host;
+        public string price;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Retrieve product_id from the query string
             string product_id = Request.QueryString["product_id"];
+            webstoreId = seoWebAppConfiguration.IdWebstore;
+            url = seoWebApplication.Linkor.ToProduct(product_id).ToString();
+            host = HttpContext.Current.Request.Url.Host;
+
+            SeoWebAppEntities db = new SeoWebAppEntities();
+            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+            var idCity = store.city;
+            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+            storeName = store.webstoreName;
            
             // Retrieves product details
             ProductDetails pd = catalogAccesor.GetProductDetails(product_id);
@@ -52,9 +77,22 @@ namespace seoWebApplication
         titleLabel.Text = pd.name;
         descriptionLabel.Text = pd.description;
         priceLabel.Text += String.Format("{0:c}", pd.price);
-        productImage.ImageUrl = "ProductImages/" + pd.image;
+        price = String.Format("{0:c}", pd.price);
+
+        string fileName = pd.image;
+        if (fileName.Length <= 0)
+        {
+            fileName = "Coming-Soon.gif";
+        }
+
+        productImage.ImageUrl = "ProductImages/" + fileName;
         // Set the title of the page
         this.Title = seoWebAppConfiguration.SiteName + " " + pd.name;
+             
+        seoDesc = seoWebAppConfiguration.SiteName + " " + pd.name;
+        seoKeywords = seoWebAppConfiguration.SiteName + " " + pd.name;
+        seoTitle = seoWebAppConfiguration.SiteName + " " + pd.name;
+        imgLogo = "/ProductImages/" + fileName; 
 
         using (var dc = new seowebappDataContextDataContext())
         {

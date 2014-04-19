@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/seowebapp.Master" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="seoWebApplication.Logout" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/adminMstr.Master" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="seoWebApplication.Logout" %>
 
 
  <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1"

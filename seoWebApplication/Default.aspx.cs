@@ -14,15 +14,47 @@ using System.Xml.Linq;
 using seoWebApplication.st.SharkTankDAL;
 using seoWebApplication.st.SharkTankDAL.dataObject;
 using seoWebApplication.st.SharkTankDAL.Framework;
+using seoWebApplication.Data;
 
 
 namespace seoWebApplication
 {
     public partial class _Default : System.Web.UI.Page
     {
+        public string storeName;
+        public string seoDesc;
+        public string seoKeywords;
+        public string seoTitle;
+        public string imgLogo;
+        public int webstoreId;
+
+        public string address;
+        public string city2;
+        public int phone;
+        public string url;
+        public string host;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Title = seoWebAppConfiguration.SiteName;
+
+            webstoreId = seoWebAppConfiguration.IdWebstore;
+
+            SeoWebAppEntities db = new SeoWebAppEntities();
+            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+            var idCity = store.city;
+            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+            storeName = store.webstoreName;
+
+            storeName = store.webstoreName;
+            seoDesc = store.seoDescription + " at " + storeName;
+            seoKeywords = store.seoKeywords + " at " + storeName;
+            seoTitle = store.seoTitle;
+            address = store.address;
+            city2 = city.city1;
+            phone = Convert.ToInt32(store.ownerNumber);
+            imgLogo = store.image;
+            url = HttpContext.Current.Request.Url.AbsoluteUri;
+            host = HttpContext.Current.Request.Url.Host;
 
             // Retrieve Page from the query string
             string page = Request.QueryString["Page"];
@@ -33,6 +65,7 @@ namespace seoWebApplication
             string firstPageUrl = "";
             string pagerFormat = "";
             // If browsing a category...
+
 
             // Retrieve list of products on department promotion             
             list.DataSource = catalogAccesor.GetProductsOnFrontPromo(page, out howManyPages);

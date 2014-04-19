@@ -9,6 +9,11 @@
 <%@ Register Src="~/UserControls/ProductsList.ascx" TagPrefix="uc2" TagName="ProductsList" %>
  
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server"> 
+<meta property="og:title" content="<%=seoTitle + " at " + storeName%>"/>
+<meta property="og:image" content="<%= "" + host + imgLogo%>"/>
+<meta property="og:site_name" content="<%= "" + storeName %>"/>
+<meta property="og:url" content="<%= "" + url %>" />
+<meta property="og:description" content="<%= "" + seoDesc %>"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="paperShadow"> 
@@ -43,4 +48,5 @@
     </itemtemplate>
         
     </asp:Repeater> 
+    
 </asp:Content>

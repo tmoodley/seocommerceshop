@@ -19,7 +19,7 @@ namespace sharktank
         {
             // Put user code to initialize the page here
             Session.Abandon();
-            FormsAuthentication.SignOut();
+            FormsAuthentication.SignOut(); 
         }
     }
 }

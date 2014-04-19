@@ -13,8 +13,10 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><%=seoTitle + " at " + storeName%></title>
-    <meta name="description" content="<%=seoDesc%>">
-    <meta name="keywords" content="<%=seoKeywords%>">
+    <meta name="description" content="<%= "" + seoDesc %>">
+    <meta name="keywords" content="<%= "" + seoKeywords %>">
+    
+	
     <meta name="robots" content="INDEX,FOLLOW">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=McLaren">
@@ -26,7 +28,14 @@
     <script src="Styles/jquery-1.8.1.min.js"></script>
     <script src="Styles/bootstrap.min.js"></script>
     <script src="Styles/respond.min.js"></script>
-
+     <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.mobile.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.timezones.min.js"></script>
     <link href="http://www.shoppersparadisezim.com/Themes/Bootstrap/Styles/overwrite.css" rel="stylesheet" type="text/css" />
     <link href="http://www.shoppersparadisezim.com/Themes/Bootstrap/Styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!--[if IE 7]>
@@ -46,7 +55,17 @@
     <form id="form1" runat="server">
 
         <!-- Facebook div for like button -->
-        <div id="fb-root"></div>
+         
+            <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+            
+       
 
         <!-- Div for shade line -->
         <div class="header-shadow"></div>
@@ -68,12 +87,8 @@
                 </div>
                 <div class="span8"> 
                             <div class="social-icons pull-right">
-                                <a href="#">
-                                    <img src="images/facebook-icon.png" alt="facebook"></a>
-                                <a href="#">
-                                    <img src="images/twitter-icon.png" alt="twitter"></a> 
-                                <a href="#">
-                                    <img src="images/rss-icon.png" alt="rss"></a>
+                              <div class="fb-like" data-href="https://www.facebook.com/pages/Squiggles-Stationery-and-Gift-Shop/806017082743684" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                                
                             </div> 
                 </div>
             </div>
@@ -168,14 +183,14 @@
                 <div class="span12 well well-small">
                     &copy;
                     <script>document.write(new Date().getFullYear());</script>
-                    - Powered By - <a href="http://www.Shoppersparadisezim.com">Shoppersparadisezim.com <i class="icon-chevron-right"></i></a>
+                    - Powered By - <a href="http://www.Shoppersparadise.co.zw">Shoppersparadise.co.zw <i class="icon-chevron-right"></i></a>
                 </div>
             </div>
 
             <div class="footer">
 
                 <div class="row-fluid print-hide">
-
+<div class="fb-comments" data-href="<%= "" + url %>" data-numposts="5" data-colorscheme="light"></div>
                   <%--  <div class="span2">
                         <ul class="unstyled">
                             <li class="footer-title"><a href="category.html">Category 1</a></li>

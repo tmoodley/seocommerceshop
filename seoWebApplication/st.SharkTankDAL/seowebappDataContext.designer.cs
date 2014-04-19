@@ -111,7 +111,7 @@ namespace seoWebApplication.st.SharkTankDAL
     #endregion
 		
 		public seowebappDataContextDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["seowebappConnectionString"].ConnectionString, mappingSource)
+				base(global::seoWebApplication.Properties.Settings.Default.seowebappConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

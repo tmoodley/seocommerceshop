@@ -9,6 +9,17 @@
 <%@ Register src="UserControls/ProductCustomAttributes.ascx" tagname="ProductCustomAttributes" tagprefix="uc4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
+
+    <!-- Open Graph data --> 
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<%=seoTitle + " at " + storeName%>"/>
+<meta property="og:image" content="<%= "" + host + imgLogo%>"/>
+<meta property="og:site_name" content="<%= "" + storeName %>"/>
+<meta property="og:url" content="<%= "" + url %>" />
+<meta property="og:description" content="<%= "" + seoDesc %>"/>
+<meta property="og:price:amount" content="<%= "" + price %>" />
+<meta property="og:price:currency" content="USD" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server"> 
@@ -28,6 +39,7 @@
             <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label> <br />
                 <br />
                 <br />
+                   
             <right><asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text=""></asp:Label></right>
             <br />  
             <uc4:ProductCustomAttributes ID="ProductCustomAttributes1" runat="server" />
@@ -36,6 +48,7 @@
             <br />
             <uc3:ProductAttributesRadio ID="ProductAttributesRadio1" runat="server" /> 
             </div>
+            <div class="fb-like" data-href="<%= "" + url %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         </div> 
     </div>
 </div>

@@ -32,5 +32,16 @@ namespace seoWebApplication.Properties {
                 return ((string)(this["seoWebApplication_com_shade4sale_Mini_x0020_Passport"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TY-LT\\SQLSVRTY;Initial Catalog=seowebapp;Persist Security Info=True;U" +
+            "ser ID=sa")]
+        public string seowebappConnectionString {
+            get {
+                return ((string)(this["seowebappConnectionString"]));
+            }
+        }
     }
 }

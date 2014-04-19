@@ -744,6 +744,9 @@
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
+    <None Include="Properties\PublishProfiles\dancliveelectrical.shoppersparadise.co.zw - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\gentlemensmarttechnology.shoppersparadise.co.zw - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\racecoursemotorcity.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1053,6 +1056,8 @@
       <DependentUpon>viewDeliveryZone.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\mvcConfig.cs" />
+    <Compile Include="api\SocialMediaController.cs" />
+    <Compile Include="api\WidgetController.cs" />
     <Compile Include="App_Data\SEOBaseEditPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1773,6 +1778,16 @@
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\SocialMedia\Create.cshtml" />
+    <Content Include="Views\SocialMedia\Delete.cshtml" />
+    <Content Include="Views\SocialMedia\Details.cshtml" />
+    <Content Include="Views\SocialMedia\Edit.cshtml" />
+    <Content Include="Views\SocialMedia\Index.cshtml" />
+    <Content Include="Views\Widget\Create.cshtml" />
+    <Content Include="Views\Widget\Delete.cshtml" />
+    <Content Include="Views\Widget\Details.cshtml" />
+    <Content Include="Views\Widget\Edit.cshtml" />
+    <Content Include="Views\Widget\Index.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
@@ -1808,6 +1823,7 @@
     <Folder Include="factoryClasses\" />
     <Folder Include="js\libs\bootstrap\" />
     <Folder Include="Models\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">

@@ -91,12 +91,23 @@ using System.Text.RegularExpressions;
         {
             // prepare product URL name
             ProductDetails p = CatalogAccess.GetProductDetails(product_id.ToString());
-            string prodUrlName = PrepareUrlText(p.name);
+
+            string fileName = p.name;
+            if (fileName.Length <= 0)
+            {
+                fileName = "Coming-Soon.gif";
+            }
+
+            string prodUrlName = PrepareUrlText(fileName);
             // build product URL
             return BuildAbsolute(String.Format("{0}-p{1}.html", prodUrlName, product_id));
         }
         public static string ToProductImage(string fileName)
         {
+            if (fileName.Length <= 0)
+            {
+                fileName = "Coming-Soon.gif";
+            }
             // build product URL
             return BuildAbsolute("/ProductImages/" + fileName);
         }

@@ -97,6 +97,9 @@ namespace seoWebApplication
         public static string ToProductImage(string fileName)
         {
             // build product URL
+            if (fileName.Length <= 0) {
+                fileName = "Coming-Soon.gif";
+            }
             return BuildAbsolute("/ProductImages/" + fileName);
         }
 

@@ -142,8 +142,7 @@ namespace seoWebApplication
 
             // Display pager controls
             Pager1.Show(int.Parse(page), howManyPages, firstPageUrl, pagerFormat, true);
-            Pager2.Show(int.Parse(page), howManyPages, firstPageUrl, pagerFormat, true);
-
+            
         }
 
         protected void list_SelectedIndexChanged(object sender, EventArgs e)

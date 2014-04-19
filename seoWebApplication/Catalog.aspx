@@ -64,25 +64,7 @@
         
     </asp:Repeater>
     
-               <div class="row-fluid print-hide">
-				<div class="span3"> 
-				</div>
-				<div class="span4">
-					<div class="row-fluid print-hide">
-						<div class="span12">
-							 <uc2:Pager ID="Pager2" runat="server" /> 
-						</div>
-					</div>
-					<div class="row-fluid print-hide">
-						<div class="span12">
-							 
-						</div>
-					</div>
-					<br>
-				</div>
-				<div class="span5"> 
-				</div>
-			</div>       
+          
             
         </div>
     </div>
