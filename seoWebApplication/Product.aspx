@@ -21,7 +21,9 @@
 <meta property="og:price:amount" content="<%= "" + price %>" />
 <meta property="og:price:currency" content="USD" />
 </asp:Content>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderSoMed" runat="Server"> 
+<div class="fb-like" data-href="<%= "" + fbUrl %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server"> 
 
 <div class="column5">

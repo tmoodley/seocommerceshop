@@ -15,6 +15,9 @@
 <meta property="og:url" content="<%= "" + url %>" />
 <meta property="og:description" content="<%= "" + seoDesc %>"/>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderSoMed" runat="Server"> 
+<div class="fb-like" data-href="<%= "" + fbUrl %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="paperShadow"> 
 <asp:Label ID="catalogTitleLabel" CssClass="CatalogTitle" runat="server" />

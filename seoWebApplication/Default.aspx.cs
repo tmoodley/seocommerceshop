@@ -33,6 +33,7 @@ namespace seoWebApplication
         public int phone;
         public string url;
         public string host;
+        public string fbUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Title = seoWebAppConfiguration.SiteName;
@@ -44,7 +45,8 @@ namespace seoWebApplication
             var idCity = store.city;
             var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
             storeName = store.webstoreName;
-
+            var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
+            fbUrl = socialMedia.Facebook;
             storeName = store.webstoreName;
             seoDesc = store.seoDescription + " at " + storeName;
             seoKeywords = store.seoKeywords + " at " + storeName;

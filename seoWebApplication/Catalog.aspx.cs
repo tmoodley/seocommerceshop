@@ -10,14 +10,37 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq; 
+using System.Xml.Linq;
+using seoWebApplication.Data; 
 
 namespace seoWebApplication
 {
     public partial class Catalog : System.Web.UI.Page
     {
+
+        public string fbUrl;
+        public string storeName;
+        public string seoDesc;
+        public string seoKeywords;
+        public string seoTitle;
+        public string imgLogo;
+        public int webstoreId;
+        public string url;
+        public string host;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Retrieve product_id from the query string
+             webstoreId = seoWebAppConfiguration.IdWebstore;
+             host = HttpContext.Current.Request.Url.Host;
+
+            SeoWebAppEntities db = new SeoWebAppEntities();
+            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+            var idCity = store.city;
+            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+            storeName = store.webstoreName;
+
+            var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
+            fbUrl = socialMedia.Facebook;
             // don't reload data during postbacks
             if (!IsPostBack)
             {

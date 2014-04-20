@@ -47,14 +47,5 @@ namespace seoWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater list;
-        
-        /// <summary>
-        /// Pager2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::seoWebApplication.UserControls.Pager Pager2;
     }
 }
