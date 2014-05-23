@@ -7,6 +7,8 @@
 <%@ Register src="UserControls/ProductAttributesRadio.ascx" tagname="ProductAttributesRadio" tagprefix="uc3" %>
 
 <%@ Register src="UserControls/ProductCustomAttributes.ascx" tagname="ProductCustomAttributes" tagprefix="uc4" %>
+<%@ Register Src="~/UserControls/contact.ascx" TagPrefix="uc1" TagName="contact" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
@@ -35,7 +37,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span2"><div class="paperShadow shadow-left"><asp:Image ID="productImage" runat="server" Height="75%" Width="100%" /></div></div>
+        <div class="span2" style="width: 362px"><div class="paperShadow shadow-left"><asp:Image ID="productImage" runat="server" Height="75%" Width="100%" /></div></div>
         <div class="span3">
             <div class="paperShadow shadow-right">
             <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label> <br />
@@ -52,6 +54,7 @@
             </div>
             <div class="fb-like" data-href="<%= "" + url %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         </div> 
+         
     </div>
 </div>
   

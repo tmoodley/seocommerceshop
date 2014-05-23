@@ -746,6 +746,7 @@
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
     <None Include="Properties\PublishProfiles\dancliveelectrical.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\gentlemensmarttechnology.shoppersparadise.co.zw - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ocasalesmotors.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\racecoursemotorcity.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -791,6 +792,7 @@
     <Content Include="Styles\template.css" />
     <Content Include="Styles\typography.css" />
     <Content Include="UserControls\AccordianRestaurantHours.ascx" />
+    <Content Include="UserControls\contact.ascx" />
     <Content Include="UserControls\CategoriesList.ascx" />
     <Content Include="UserControls\CuisineList.ascx" />
     <Content Include="UserControls\DeptCategoriesList.ascx" />
@@ -1080,6 +1082,7 @@
     <Compile Include="Controllers\MenuItemController.cs" />
     <Compile Include="Controllers\PCategoryController.cs" />
     <Compile Include="Controllers\PCategoryProductController.cs" />
+    <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ViewBindRouteController.cs" />
     <Compile Include="Controllers\WebstoreController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -1320,6 +1323,13 @@
     </Compile>
     <Compile Include="UserControls\AccordianRestaurantHours.ascx.designer.cs">
       <DependentUpon>AccordianRestaurantHours.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\contact.ascx.cs">
+      <DependentUpon>contact.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\contact.ascx.designer.cs">
+      <DependentUpon>contact.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CategoriesList.ascx.cs">
       <DependentUpon>CategoriesList.ascx</DependentUpon>
@@ -1788,6 +1798,12 @@
     <Content Include="Views\Widget\Details.cshtml" />
     <Content Include="Views\Widget\Edit.cshtml" />
     <Content Include="Views\Widget\Index.cshtml" />
+    <Content Include="Views\Picture\Partial1.cshtml" />
+    <Content Include="Views\Picture\Create.cshtml" />
+    <Content Include="Views\Picture\Delete.cshtml" />
+    <Content Include="Views\Picture\Details.cshtml" />
+    <Content Include="Views\Picture\Edit.cshtml" />
+    <Content Include="Views\Picture\Index.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">

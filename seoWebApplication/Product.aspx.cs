@@ -36,34 +36,43 @@ namespace seoWebApplication
         public string fbUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             // Retrieve product_id from the query string
             string product_id = Request.QueryString["product_id"];
-            webstoreId = seoWebAppConfiguration.IdWebstore;
-            url = seoWebApplication.Linkor.ToProduct(product_id).ToString();
-            host = HttpContext.Current.Request.Url.Host;
 
-            SeoWebAppEntities db = new SeoWebAppEntities();
-            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
-            var idCity = store.city;
-            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
-            storeName = store.webstoreName;
+            try
+            {
+                webstoreId = seoWebAppConfiguration.IdWebstore;
+                url = seoWebApplication.Linkor.ToProduct(product_id).ToString();
+                host = HttpContext.Current.Request.Url.Host;
 
-            var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
-            fbUrl = socialMedia.Facebook;
+                SeoWebAppEntities db = new SeoWebAppEntities();
+                var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+                var idCity = store.city;
+                var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+                storeName = store.webstoreName;
 
-            // Retrieves product details
+                var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
+                fbUrl = socialMedia.Facebook;
+              
+                // 301 redirect to the proper URL if necessary
+                //Linkor.CheckProductUrl(Request.QueryString["product_id"]);
+            }
+            catch { 
+            
+            }
             ProductDetails pd = catalogAccesor.GetProductDetails(product_id);
             // Does the product exist?
             if (pd.name != null)
             {
-            PopulateControls(pd);
+                PopulateControls(pd);
             }
             else
             {
                 Server.Transfer("~/NotFound.aspx");
             }
-            // 301 redirect to the proper URL if necessary
-            //Linkor.CheckProductUrl(Request.QueryString["product_id"]);
+            // Retrieves product details
+          
         }
         // Fill the control with data
         private void PopulateControls(ProductDetails pd)

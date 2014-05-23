@@ -40,24 +40,30 @@ namespace seoWebApplication
 
             webstoreId = seoWebAppConfiguration.IdWebstore;
 
-            SeoWebAppEntities db = new SeoWebAppEntities();
-            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
-            var idCity = store.city;
-            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
-            storeName = store.webstoreName;
-            var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
-            fbUrl = socialMedia.Facebook;
-            storeName = store.webstoreName;
-            seoDesc = store.seoDescription + " at " + storeName;
-            seoKeywords = store.seoKeywords + " at " + storeName;
-            seoTitle = store.seoTitle;
-            address = store.address;
-            city2 = city.city1;
-            phone = Convert.ToInt32(store.ownerNumber);
-            imgLogo = store.image;
-            url = HttpContext.Current.Request.Url.AbsoluteUri;
-            host = HttpContext.Current.Request.Url.Host;
+            try
+            {
+                SeoWebAppEntities db = new SeoWebAppEntities();
+                var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+                var idCity = store.city;
+                var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+                storeName = store.webstoreName;
+                var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
+                fbUrl = socialMedia.Facebook;
+                storeName = store.webstoreName;
+                seoDesc = store.seoDescription + " at " + storeName;
+                seoKeywords = store.seoKeywords + " at " + storeName;
+                seoTitle = store.seoTitle;
+                address = store.address;
+                city2 = city.city1;
+                phone = Convert.ToInt32(store.ownerNumber);
+                imgLogo = store.image;
+                url = HttpContext.Current.Request.Url.AbsoluteUri;
+                host = HttpContext.Current.Request.Url.Host;
 
+            }
+            catch { 
+            
+            }
             // Retrieve Page from the query string
             string page = Request.QueryString["Page"];
             if (page == null) page = "1";

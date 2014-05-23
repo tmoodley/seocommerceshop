@@ -33,14 +33,21 @@ namespace seoWebApplication
              webstoreId = seoWebAppConfiguration.IdWebstore;
              host = HttpContext.Current.Request.Url.Host;
 
-            SeoWebAppEntities db = new SeoWebAppEntities();
-            var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
-            var idCity = store.city;
-            var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
-            storeName = store.webstoreName;
+             try
+             {
+                 SeoWebAppEntities db = new SeoWebAppEntities();
+                 var store = (from ws in db.webstores where ws.webstore_id == webstoreId select ws).FirstOrDefault();
+                 var idCity = store.city;
+                 var city = (from ws in db.cities where ws.idCity == idCity select ws).FirstOrDefault();
+                 storeName = store.webstoreName;
 
-            var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
-            fbUrl = socialMedia.Facebook;
+                 var socialMedia = (from ws in db.SocialMedias where ws.WebstoreId == webstoreId select ws).FirstOrDefault();
+                 fbUrl = socialMedia.Facebook;
+
+             }
+             catch { 
+             
+             }
             // don't reload data during postbacks
             if (!IsPostBack)
             {
