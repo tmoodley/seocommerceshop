@@ -24,7 +24,8 @@
 </div>
 
 <asp:Label ID="catalogDescriptionLabel" CssClass="CatalogDescription" runat="server" /> 
-    <asp:Repeater ID="list" runat="server" OnItemCreated="R1_ItemCreated">   
+<div class='row-fluid'><div class='span12'><ul class='thumbnails product-list-inline-large'>
+    <asp:Repeater ID="list" runat="server">   
      <itemtemplate>   
          <asp:Literal ID="lblDivStart" runat="server"></asp:Literal>
      <li class="span3">
@@ -51,5 +52,5 @@
     </itemtemplate>
         
     </asp:Repeater> 
-    
+ </ul></div></div>   
 </asp:Content>

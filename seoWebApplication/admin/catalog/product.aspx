@@ -1,7 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/seoWebAppAdminEditPage.Master" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="seoWebApplication.admin.product" %>
 <%@ MasterType virtualPath="~/seoWebAppAdminEditPage.master"%>
- 
+<%@ Register Src="~/UserControls/Pictures.ascx" TagPrefix="uc1" TagName="Pictures" %>
+<%@ Register Src="~/UserControls/AdminPictures.ascx" TagPrefix="uc1" TagName="AdminPictures" %>
+
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+   
  <div id="adminwrapper">
     <asp:Menu
         id="menuTabs"
@@ -197,5 +202,26 @@ Image2 file name:
    </asp:View>
     </asp:MultiView> 
     
-    </div> 
+    </div>  
+       
+     <!-- sample modal content -->
+ 
+<div class="modal fade bs-example-modal-lg bs-<%=Id %>" tabindex="-1" id="myModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <uc1:AdminPictures runat="server" id="AdminPictures" /> 
 </asp:Content>

@@ -28,11 +28,12 @@
       
       @Scripts.Render("~/bundles/bootstrap")
      
-      @Styles.Render("~/Content/kendo") 
-      @Scripts.Render("~/bundles/kendo")
-    
-    @*<script src="/Scripts/kendo.all.min.js"></script>
-    <script src="/Scripts/kendo.aspnetmvc.min.js"></script>*@  
+      <link rel="stylesheet" href="@Url.Content("~/Content/kendo.common.min.css")">
+      <link rel="stylesheet" href="@Url.Content("~/Content/kendo.default.min.css")">
+
+      <script src="http://cdn.kendostatic.com/2014.1.416/js/jquery.min.js"></script>
+      <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js"></script>
+      <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>
   
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

@@ -5,7 +5,7 @@
 <%@ MasterType virtualPath="~/seoWebAppAdminEditGrid.master"%>
  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
- 
+    <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
  <asp:GridView ID="cgvProducts" runat="server"  BorderColor="#CCCCCC" 
         onrowdatabound="cgvProducts_RowDataBound" CssClass="wrapper">
     <AlternatingRowStyle BackColor="#CCCCCC" />

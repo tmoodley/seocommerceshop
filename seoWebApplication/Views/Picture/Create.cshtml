@@ -1,68 +1,102 @@
 ﻿@model seoWebApplication.Data.Picture
-
+@using Kendo.Mvc.UI
 @{
     ViewBag.Title = "Create";
-}
 
-<h2>Create</h2>
+} 
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+<script src="~/Scripts/kendo/2014.1.318/kendo.all.min.js"></script> 
+<script src="/Scripts/kendo.aspnetmvc.min.js"></script> 
+ 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Picture</h4>
-        <hr />
-        @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Url)
-                @Html.ValidationMessageFor(model => model.Url)
-            </div>
-        </div>
+                <div class="form-horizontal">
+                    <h4>Picture</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Alt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Alt)
-                @Html.ValidationMessageFor(model => model.Alt)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
-                @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
+                    <div class="form-group"> 
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.Url)
+                            @Html.ValidationMessageFor(model => model.Url)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductFK, "ProductFK", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ProductFK", String.Empty)
-                @Html.ValidationMessageFor(model => model.ProductFK)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Alt, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Alt)
+                            @Html.ValidationMessageFor(model => model.Alt)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                    </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                    <div class="form-group"> 
+                        <div class="col-md-10">
+                            <input type="hidden" name="ProductFK" value="@ViewBag.Id" /> 
+                            @Html.ValidationMessageFor(model => model.ProductFK)
+                        </div>
+                    </div>
+
+                    <div class="demo-section">
+                        @(Html.Kendo().Upload()
+            .Name("files")
+            .Async(a => a
+                .Save("Save", "Upload")
+                .Remove("Remove", "Upload")
+                .AutoUpload(true)
+            )
+             .Events(c => c
+        .Upload("onUpload"))
+                        )
+                    </div>
+
+                    <script>
+                        function onUpload(e) {
+                            // Handle the upload event
+                            $("#Url").val($('span.k-filename').html());
+                        }
+
+                        function onSuccess(e) {
+                            // Handle the success event
+                            $("#Url").val(e.response.status);
+                        }
+                    </script>
+                     
+                    <div class="modal-footer"> 
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            }
+       
+ <!--  javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.rtl.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.mobile.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
+

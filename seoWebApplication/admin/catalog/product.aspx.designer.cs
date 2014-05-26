@@ -328,6 +328,15 @@ namespace seoWebApplication.admin {
         protected global::System.Web.UI.WebControls.View view8;
         
         /// <summary>
+        /// AdminPictures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::seoWebApplication.UserControls.AdminPictures AdminPictures;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

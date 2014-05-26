@@ -13,13 +13,13 @@ namespace seoWebApplication {
     public partial class Product {
         
         /// <summary>
-        /// titleLabel control.
+        /// Pictures control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titleLabel;
+        protected global::seoWebApplication.UserControls.Pictures Pictures;
         
         /// <summary>
         /// productImage control.
@@ -29,6 +29,15 @@ namespace seoWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image productImage;
+        
+        /// <summary>
+        /// titleLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label titleLabel;
         
         /// <summary>
         /// descriptionLabel control.
@@ -74,5 +83,14 @@ namespace seoWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::seoWebApplication.UserControls.ProductAttributesRadio ProductAttributesRadio1;
+        
+        /// <summary>
+        /// PicturesModals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::seoWebApplication.UserControls.PicturesModals PicturesModals;
     }
 }

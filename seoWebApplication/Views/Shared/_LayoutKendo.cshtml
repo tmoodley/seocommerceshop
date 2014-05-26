@@ -1,0 +1,73 @@
+﻿@using Kendo.Mvc.UI 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.common.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.default.min.css")">
+
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js"></script>
+    <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>
+    </head>
+<body>
+    
+     
+
+<style scoped="scoped">
+
+    #menu h2 {
+        font-size: 1em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+    }
+    #template img {
+        margin: 5px 20px 0 0;
+        float: left;
+    }
+    #template {
+        width: 380px;
+    }
+    #template ol {
+        float: left;
+        margin: 0;
+        padding: 10px 10px 0 10px;
+    }
+    #template:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    #template .k-button {
+        float: left;
+        clear: left;
+        margin: 5px 0 5px 12px;
+    }
+
+</style>
+    @(Html.Kendo().Splitter()
+    .Name("splitter") //The name of the splitter is mandatory. It specifies the "id" attribute of the widget.
+    .Panes(panes =>
+    {
+        panes.Add().Content("Item 1"); //Add pane
+        panes.Add().Content("Item 2"); //Add pane
+    })
+ )
+    <script>
+        $(function () {
+            // Notice that the Name() of the splitter is used to get its client-side instance
+            var splitter = $("#splitter").data("kendoSplitter");
+        });
+</script>
+    
+ 
+    @RenderBody()
+   
+    @RenderSection("scripts", required: false)
+</body>
+</html>

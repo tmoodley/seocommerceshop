@@ -12,6 +12,7 @@ namespace seoWebApplication.admin
 {
     public partial class product : BaseEditPage<productEO>
     {
+        public string Id;
         private const string VIEW_STATE_KEY_product = "product";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -95,6 +96,7 @@ namespace seoWebApplication.admin
 
         protected override void LoadScreenFromObject(productEO baseEO)
         {
+            
 
             txtwebstore_id.Text = Convert.ToString(dBHelper.GetWebstoreId());
 
@@ -121,6 +123,8 @@ namespace seoWebApplication.admin
             loadGrid();
             loadDdlCat(ddlCategory, 0);
             loadCatGrid();
+            this.AdminPictures.LoadProductPictures(baseEO.product_id);
+            this.Id = baseEO.product_id.ToString();
         }
 
         protected override void LoadControls()

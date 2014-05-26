@@ -1,0 +1,18 @@
+﻿@model seoWebApplication.Data.Picture
+
+<div>
+    <h4>Picture</h4>
+	<hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt> 
+            <img width="225" border="0" src="@Html.DisplayFor(model => model.Url)" alt="@Html.DisplayFor(model => model.Alt)" class="product-image"> 
+            
+        </dt> 
+
+    </dl>
+</div>
+<p> 
+    @Html.ActionLink("Back to List", "Index")
+</p>

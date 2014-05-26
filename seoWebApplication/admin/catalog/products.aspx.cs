@@ -233,5 +233,10 @@ namespace seoWebApplication.admin
             }
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("product.aspx" + EncryptQueryString("id=0&newRec=true"));
+        }
+
     }
 }

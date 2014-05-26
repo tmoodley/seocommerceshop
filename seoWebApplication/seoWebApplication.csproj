@@ -465,6 +465,7 @@
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
+    <Content Include="css\Dashboard.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\pages\dashboard.css" />
     <Content Include="css\pages\plans.css" />
@@ -506,6 +507,7 @@
     <Content Include="Images\5-Stars.png" />
     <Content Include="Images\BANNER.png" />
     <Content Include="Images\button-bg2.gif" />
+    <Content Include="Images\featureproducts.jpg" />
     <Content Include="Images\GSA.jpg" />
     <Content Include="Images\houseofwings_logo.gif" />
     <Content Include="Images\loading.gif" />
@@ -514,6 +516,7 @@
     <Content Include="Images\my-dinner-2go.png" />
     <Content Include="Images\nav-bg.png" />
     <Content Include="Images\pattern.jpg" />
+    <Content Include="Images\productbackground.png" />
     <Content Include="Images\shoppersZimLogo.png" />
     <Content Include="Images\TXMAS_logo.jpg" />
     <Content Include="Images\wings.jpg" />
@@ -550,6 +553,7 @@
     <Content Include="js\libs\jquery-ui-1.10.0.custom.min.js" />
     <Content Include="js\libs\jquery.ui.touch-punch.min.js" />
     <Content Include="js\libs\less-1.3.0.min.js" />
+    <Content Include="js\navigator.init.js" />
     <Content Include="js\plugins\cirque\cirque.css" />
     <Content Include="js\plugins\cirque\cirque.js" />
     <Content Include="js\plugins\easing\jquery.easing.js" />
@@ -744,6 +748,7 @@
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
     <Content Include="content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
+    <Content Include="defaultproduct.master" />
     <None Include="Properties\PublishProfiles\dancliveelectrical.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\gentlemensmarttechnology.shoppersparadise.co.zw - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ocasalesmotors.shoppersparadise.co.zw - Web Deploy.pubxml" />
@@ -772,6 +777,113 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.twitterbootstrap.js" />
+    <Content Include="Scripts\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\jquery.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.all-vsdoc.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.all.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.xml.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.dataviz-vsdoc.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.barcode.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.canvas.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.funnel.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.polar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.core.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.diagram.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.gauge.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.map.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.dataviz.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.qrcode.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.sparkline.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.stock.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.svg.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.themes.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.vml.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.menu.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.mobile-vsdoc.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.loader.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.mobile.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.web-vsdoc.js" />
+    <None Include="Scripts\kendo\2014.1.318\kendo.web.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js" />
     <Content Include="Scripts\TableTools.js" />
     <Content Include="Scripts\viewbinder.js" />
     <Content Include="Scripts\viewbinder.min.js" />
@@ -781,7 +893,7 @@
     <Content Include="Styles\bootstrap.min.js" />
     <Content Include="Styles\fontface.css" />
     <Content Include="Styles\joomla15.css" />
-    <Content Include="Styles\jquery-1.8.1.min.js" />
+    <Content Include="Styles\jquery-1.8.3.min.js" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
     <Content Include="Styles\modernizr-2.6.2.min.js" />
@@ -798,7 +910,10 @@
     <Content Include="UserControls\DeptCategoriesList.ascx" />
     <Content Include="UserControls\MapLocation.ascx" />
     <Content Include="UserControls\MenuList.ascx" />
+    <Content Include="UserControls\AdminPictures.ascx" />
+    <Content Include="UserControls\PicturesModals.ascx" />
     <Content Include="UserControls\ProductRecommendations.ascx" />
+    <Content Include="UserControls\Pictures.ascx" />
     <Content Include="UserControls\ProductSpecials.ascx" />
     <Content Include="UserControls\ProductsList.ascx" />
     <Content Include="UserControls\RestaurantDeliveryMap.ascx" />
@@ -1083,6 +1198,7 @@
     <Compile Include="Controllers\PCategoryController.cs" />
     <Compile Include="Controllers\PCategoryProductController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\ViewBindRouteController.cs" />
     <Compile Include="Controllers\WebstoreController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -1091,6 +1207,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="defaultproduct.master.cs">
+      <DependentUpon>defaultproduct.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="defaultproduct.master.designer.cs">
+      <DependentUpon>defaultproduct.master</DependentUpon>
     </Compile>
     <Compile Include="Default2.aspx.cs">
       <DependentUpon>Default2.aspx</DependentUpon>
@@ -1366,12 +1489,33 @@
     <Compile Include="UserControls\MenuList.ascx.designer.cs">
       <DependentUpon>MenuList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminPictures.ascx.cs">
+      <DependentUpon>AdminPictures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminPictures.ascx.designer.cs">
+      <DependentUpon>AdminPictures.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PicturesModals.ascx.cs">
+      <DependentUpon>PicturesModals.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PicturesModals.ascx.designer.cs">
+      <DependentUpon>PicturesModals.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ProductRecommendations.ascx.cs">
       <DependentUpon>ProductRecommendations.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\ProductRecommendations.ascx.designer.cs">
       <DependentUpon>ProductRecommendations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pictures.ascx.cs">
+      <DependentUpon>Pictures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Pictures.ascx.designer.cs">
+      <DependentUpon>Pictures.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProductSpecials.ascx.cs">
       <DependentUpon>ProductSpecials.ascx</DependentUpon>
@@ -1641,6 +1785,102 @@
     <None Include="Properties\PublishProfiles\topcarauto.asp-fanatics.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\topcarauto.shoppersparadisezim.com - Web Deploy.pubxml" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Scripts\kendo\2014.1.318\jquery.min.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.barcode.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.canvas.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.funnel.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.chart.polar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.core.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.diagram.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.gauge.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.map.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.qrcode.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.sparkline.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.stock.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.svg.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.themes.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dataviz.vml.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js.map" />
     <None Include="seowebapp.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>seowebapp.designer.cs</LastGenOutput>
@@ -1804,6 +2044,10 @@
     <Content Include="Views\Picture\Details.cshtml" />
     <Content Include="Views\Picture\Edit.cshtml" />
     <Content Include="Views\Picture\Index.cshtml" />
+    <Content Include="Views\Picture\Products.cshtml" />
+    <Content Include="Views\Picture\Product.cshtml" />
+    <Content Include="Views\Shared\_LayoutKendo.cshtml" />
+    <Content Include="Views\Shared\_BasePartial.cshtml" />
     <None Include="Web References\com.shade4sale\authenticateUser.disco" />
     <None Include="Web References\com.shade4sale\authenticateUser.wsdl" />
     <None Include="Web References\com.shade4sale\Product.datasource">
@@ -1839,7 +2083,7 @@
     <Folder Include="factoryClasses\" />
     <Folder Include="js\libs\bootstrap\" />
     <Folder Include="Models\" />
-    <Folder Include="NewFolder1\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="st.SharkTankDAL\seowebappDataContext.dbml.layout">

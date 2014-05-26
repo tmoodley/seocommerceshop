@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DepartmentsList.ascx.cs" Inherits="seoWebApplication.UserControls.DepartmentsList" %>
 <%@ Register src="CategoriesList.ascx" tagname="CategoriesList" tagprefix="uc1" %>
-<div id="custom-links"> 
-<ul class="nav nav-stacked">
+ 
+
     <li>
     <a href="/">Home</a>
     </li>  
@@ -13,4 +13,4 @@
 </itemtemplate>
 </asp:Repeater> 
 </ul>
-</div> 
+ 

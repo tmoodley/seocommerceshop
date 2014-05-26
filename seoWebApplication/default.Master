@@ -1,189 +1,314 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.Master.cs" Inherits="seoWebApplication._default" %>
-<%@ Register src="UserControls/SearchBox.ascx" tagname="SearchBox" tagprefix="uc3" %>  
-<%@ Register src="UserControls/CartSummary.ascx" tagname="CartSummary" tagprefix="uc4" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default2.master.cs" Inherits="seoWebApplication._default2" %>
+<%@ Register Src="UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="uc3" %>
+<%@ Register Src="UserControls/CartSummary.ascx" TagName="CartSummary" TagPrefix="uc4" %>
 <%@ Register Src="~/UserControls/DepartmentsList.ascx" TagPrefix="uc3" TagName="DepartmentsList" %>
 <%@ Register Src="~/UserControls/SearchBox.ascx" TagPrefix="uc4" TagName="SearchBox" %>
 <%@ Register Src="~/UserControls/CartSummary.ascx" TagPrefix="uc3" TagName="CartSummary" %>
 <%@ Register Src="~/UserControls/CategoriesList.ascx" TagPrefix="uc3" TagName="CategoriesList" %>
 <%@ Register Src="~/UserControls/DeptCategoriesList.ascx" TagPrefix="uc3" TagName="DeptCategoriesList" %>
- 
+<%@ Register Src="~/UserControls/ProductSpecials.ascx" TagPrefix="uc3" TagName="ProductSpecials" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head id="Head1" runat="server">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><%=seoTitle + " at " + storeName%></title>
+    <meta name="description" content="<%= "" + seoDesc %>">
+    <meta name="keywords" content="<%= "" + seoKeywords %>">
+    
+	
+    <meta name="robots" content="INDEX,FOLLOW">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=McLaren">
+    <link href="style.css" rel="stylesheet" />
+    <link href="Styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="Styles/boostrap.css" rel="stylesheet" /> 
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="Styles/modernizr-2.6.2.min.js"></script>
+    <script src="Styles/bootstrap.min.js"></script>
+    <script src="Styles/respond.min.js"></script>
+     <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.silver.mobile.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Shopping Paradise Zim">
-<meta name="keywords" content="Shopping Paradise Zim">
-<meta name="robots" content="INDEX,FOLLOW">
- 
+   
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.416/js/kendo.timezones.min.js"></script>
 
-    <link rel="stylesheet" href="http://www.kule.tw/css/kule.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-addons.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-widgets.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-collector-fonts.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-collector-iconfonts.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-grid.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-responsive.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-jquery-ui.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/kule-jquery-plugins.css" />
-        <link rel="stylesheet" href="http://www.kule.tw/css/layout.css" />
-		<link rel="stylesheet" href="http://www.kule.tw/css/kule-hacks.css" />
-		<link rel="stylesheet" href="http://www.kule.tw/css/prism.css" />
-        <link href="style.css" rel="stylesheet" />
-        <script type="text/javascript" src="http://www.kule.tw/js/jquery/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="http://www.kule.tw/js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
-        <script type="text/javascript" src="http://www.kule.tw/js/prism.js"></script>
- <asp:ContentPlaceHolder id="head" runat="server">
-</asp:ContentPlaceHolder>
+
+     <!--[if IE 7]>
+<link href="http://www.shoppersparadisezim.com/Themes/Bootstrap/Styles/font-awesome-ie7.min.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+   
+    <!--[if lt IE 9]>
+<script src="http://www.shoppersparadisezim.com/Themes/Bootstrap/scripts/html5shiv.js" type="text/javascript"></script>
+<![endif]-->
+    <!--[if lt IE 9]>
+<script src="http://www.shoppersparadisezim.com/Themes/Bootstrap/scripts/respond.min.js" type="text/javascript"></script>
+<![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-<form id="form1" runat="server"> 
-    <%--<div id="wrap" class="column12">
-    <div class="row-fluid">
-        <header class="span12">  
-            <div class="column12">
-            <div class="row-mix">
-    <div class="navbar navbar-fixed-top navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button data-target="#main-menu" data-toggle="collapse" type="button" class="navbar-toggle">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-<div class="zone zone-header">
+    <form id="form1" runat="server">
 
-    <a href="/" class="navbar-brand">Shoppers Paradise Zim</a>
-</div>                </div>
-                <div class="navbar-collapse collapse" id="main-menu">
-<div class="zone zone-navigation">
-<article class="widget-navigation widget-menu-widget widget">
+        <!-- Facebook div for like button -->
+         
+            <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=741995452511167";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+            
+       
 
+        <!-- Div for shade line -->
+        <div class="header-shadow"></div>
 
-<ul class="nav navbar-nav menu menu-main-menu">
+        <!-- Use class "container-fluid" on the following div for making complete website fluid -->
+        <div class="container">
 
-
-<li class="active first">
-
-    <a href="/">Home</a> 
-</li>
-<li><a href="http://catalog.shoppersparadisezim.com">Catalog</a>
-</li>
-<li><a href="/about-us">About Us</a>
-</li>
-<li><a href="/contact-us">Contact Us</a>
-</li>
-<li class="last"><a href="/shoppingparadisezimbabwe">Blog</a>
-</li>
-</ul>
-
-</article>&#65279;
-
-
-<ul style="margin-top: 0" class="nav navbar-nav pull-right">
-        <li><a rel="nofollow" href="/Users/Account/LogOn?ReturnUrl=%2F">Sign In</a></li>
-</ul>
-&#65279;
-<form method="get" class="navbar-form navbar-right" action="">    <div class="form-group">
-        <input type="text" value="" placeholder="Search" name="q" id="q" class="form-control">
-    </div>
-</form></div>                </div>
-            </div>
-        </div>
-            </div>
-            </div>
-        </header>
-    </div>
-    </div>--%>
-    <div id="wrap" class="column12">
-    <div class="row-fluid">
-        <header class="span12">  
-            <div class="column12">
-            <div class="row-mix">
-            <div class="span4">
-            <div class="logo">
-	            <a href="http://www.Shoppersparadisezim.com/" id="logo">LOGO</a> 
-            </div>
-            </div>
-            <div class="span3">
-            <div id="top-commerce"> 
-           
-             </div>
-            </div>
-            <div class="span5">
-            <div id="top-search">
-                    <uc4:SearchBox runat="server" id="SearchBox1" />
-                </div>   
-            </div>
+            <div class="row-fluid print-show">
+                <div class="span12">
+                    Alternate header for print version
                 </div>
             </div>
-        </header>
-        <aside class="span3">
-            <div id="leftbox">
-            <ul id="topnav" class="sf-menu">  
-                <uc3:DepartmentsList runat="server" ID="DepartmentsList1" />         
-                <uc3:CategoriesList runat="server" id="CategoriesList2" />
-            </ul>
-            </div> 
-        </aside>
-        <div class="span9 cleargutter">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder> 
-        </div>
-     </div>
-        
-           <!--.container-->
-		<footer id="footer">
-                <div id="wrap" class="column12">
-                <div class="row-fluid">
-                <div class="span3">  
-			    <h3>Contact</h3>
 
-<!-- 123ContactForm.com script begins here -->
-        
-<script type="text/javascript">var servicedomain = "www.123contactform.com"; var frmRef = window.top.location.href; var cfJsHost = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/includes/easyXDM.min.js' type='text/javascript'%3E%3C/script%3E")); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/jsform-318838.js?ref=" + frmRef + "' type='text/javascript'%3E%3C/script%3E")); </script>
-<!-- 123ContactForm.com script ends here -->
-
+            <div class="row-fluid print-hide">
+                <div class="span4">
+                    <div class="header-action">
+                        <span class="label label-info"><%=address%>, <%=city2%> Phone: <%=phone%></span>
+                    </div>
                 </div>
+                <div class="span8"> 
+                            <div class="social-icons pull-right">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderSoMed" runat="server">
+                                </asp:ContentPlaceHolder> 
+                            </div> 
+                </div>
+            </div>
+
+            <div class="row-fluid print-hide">
                 <div class="span3">
-                    <h3>Address</h3> 
-                    <dl class="address">
-                    <dt>Location:</dt>  
-                    <dt>Bloemendal Shoppers Paradise<br />
-                        310 Woodlands Drive<br />
-                        Msasa<br />
-                        Harare<br /></dt>
-                     <dt><a href="mailto:info@shoppersparadisezim.com">info@shoppersparadisezim.com</a><br />
-                     <span>Tel: Phone: 04-487250-9</span><br />
-                     <span>Cel: Geri: 0772 991 941</span><br />                       
-                    </dt>
-                    </dl>
+                     <%if(imgLogo.Length > 0) %>
+                     <%{%>
+                   <img src="<%=imgLogo%>" alt="<%=seoTitle%> at <%=storeName %>" />    
+                     <%}%>  
+                    <%else%>  
+                     <%{%> 
+                   <span class="label label-info"><h1><%=storeName %> </h1> </span>
+                   <span class="label label-info"><%=seoTitle%></span>
+                     <%}%> 
                 </div>
- 
-                <div class="span3">
-	             <h3>About Us</h3>
-                 Shoppersparadisezim is a Zimbabwean company that specializes in Sourcing the best products for consumption in Zimbabwe.
+                <div class="span4">
+                    <div class="row-fluid print-hide">
+                        <div class="span12">
+                        </div>
+                    </div>
+                    <div class="row-fluid print-hide">
+                        <div class="span12">
+                        </div>
+                    </div>
+                    <br>
                 </div>
-                <div class="span3">
-		        <h3>Locations</h3>
-                Shoppersparadisezim.co can supply to the following countries: Zimbabwe, Zambia, Botswana, South Africa, Mozambique, Angola, Kenya, Tanzania, Uganda, and Nigeria.&nbsp; Contact us if you would like to be our representative in your country. 
-		        </div>
+                <div class="span5">
+                    <uc4:SearchBox runat="server" ID="SearchBox" />
                 </div>
-                </div>
-                <div id="wrap" class="column12">
-                <div class="row-fluid">
-                <div class="span12">  
-	            <div id="copyright" class="prefix_1 suffix_1">
-        	        		        
-		      		        <a href="http://Shoppersparadisezim.com/#">Home</a> |<a href="http://Shoppersparadisezim.com/site-map/">Site Map</a> | <a href="/terms-and-conditions/">Terms and Conditions</a> | <a href="http://SEO-Zimbabwe.com">Designed By SEO-Zimbabwe</a> | <a href="http://SeoCommerceShop.com">Powered By SeoCommerceShop</a> 		      		      		      		      
-        </div>
-	            </div>
+            </div>
 
-			</div>
-                </div> 
-        </footer>
-    </div> 
-</form>
+            <div class="row-fluid print-hide">
+                <div class="span12">
+                    <div class="navbar main-nav">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">menu</a>
+                                <div class="nav-collapse">
+                                    <ul class="nav"> 
+                                        <uc3:DepartmentsList runat="server" ID="DepartmentsList1" />
+                                    <%--    <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">other pages <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="column1.html">1 column page</a></li>
+                                                <li><a href="column2.html">2 column page</a></li>
+                                                <li><a href="column3.html">3 column page</a></li>
+                                            </ul>
+                                        </li>--%>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8">
+
+                    <div class="row-fluid">
+                        <div class="span9">
+                            <h2>Special selection</h2>
+                        </div>
+                      
+                    </div>
+
+                    <uc3:ProductSpecials runat="server" ID="ProductSpecials" />
+
+
+
+                </div>
+                <div class="span4">
+
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span12 well well-small"> 
+                            <uc3:CategoriesList runat="server" ID="CategoriesList" />
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <hr>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+             <div class="row-fluid">
+                 <div class="span12 well well-small">
+            <div class="fb-comments" data-href="<%= "" + url %>" data-numposts="5" data-colorscheme="light"></div>
+                </div>
+            </div>
+                 <div class="row-fluid">
+                <div class="span12 well well-small">
+                    &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    - Powered By - <a href="http://www.Shoppersparadise.co.zw">Shoppersparadise.co.zw <i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <div class="footer">
+
+                <div class="row-fluid print-hide">
+
+                  <%--  <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 1</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 2</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                            <li><a href="detail.html">Short E</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 3</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 4</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 5</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 6</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 7</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                            <li><a href="detail.html">Short E</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 8</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                            <li><a href="detail.html">Short E</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 9</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                            <li><a href="detail.html">Short E</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 10</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                            <li><a href="detail.html">Product D</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span2">
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 11</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                        </ul>
+                        <ul class="unstyled">
+                            <li class="footer-title"><a href="category.html">Category 12</a></li>
+                            <li><a href="detail.html">Product item A</a></li>
+                            <li><a href="detail.html">Product B</a></li>
+                            <li><a href="detail.html">Large product C</a></li>
+                        </ul>
+                    </div>--%>
+
+                </div>
+
+                <div class="row-fluid print-show">
+                    <div class="span12">
+           <%--             Alternate footer for print version--%>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
 
 </body>
 </html>

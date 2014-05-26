@@ -1,0 +1,35 @@
+﻿@model IEnumerable<seoWebApplication.Data.Picture>
+
+
+<div id="featuredProducts"> 
+
+    <div id="featuredProductsList" class="group" style="display: block;">
+
+
+        @foreach (var item in Model)
+        {
+
+           
+            
+            <article class="collectionProduct productOne" itemscope="" itemtype="http://schema.org/Product">
+                <a href="/products/@Html.DisplayFor(modelItem => item.Name)" title="@Html.DisplayFor(modelItem => item.Name)">
+                    <div class=" collectionproductimagewrapper">
+                        <img width="225" border="0" src="@Html.DisplayFor(modelItem => item.Url)" alt="@Html.DisplayFor(modelItem => item.Alt)" class="product-image">
+                    </div><!-- collectionProductImageWrapper -->
+                    <header>
+                        <h2 itemprop="name">@Html.DisplayFor(modelItem => item.Name)</h2>
+                        <div class="group">
+
+                        </div><!-- group -->
+                    </header>
+                </a>
+            </article><!-- collectionProductFeatured -->
+        }
+
+
+    </div><!-- featuredProductsList -->
+
+
+
+
+</div>

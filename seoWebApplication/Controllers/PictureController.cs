@@ -21,6 +21,36 @@ namespace seoWebApplication.Controllers
             return View(pictures.ToList());
         }
 
+        // GET: /Picture/Product/5
+        public ActionResult Product(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Picture picture = db.Pictures.Find(id);
+            if (picture == null)
+            {
+                return HttpNotFound();
+            }
+            return View(picture);
+        }
+
+        // GET: /Picture/Products/5
+        public ActionResult Products(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var picture = (from p in db.Pictures where p.ProductFK == id select p).ToList();
+            if (picture == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(picture);
+        }
+
         // GET: /Picture/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,10 +67,10 @@ namespace seoWebApplication.Controllers
         }
 
         // GET: /Picture/Create
-        public ActionResult Create()
-        {
-            ViewBag.ProductFK = new SelectList(db.products, "product_id", "name");
-            return View();
+        public ActionResult Create(int? Id)
+        { 
+            ViewBag.Id = Id;
+            return PartialView();
         }
 
         // POST: /Picture/Create
@@ -52,13 +82,14 @@ namespace seoWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                picture.Url = "/productimages/" + picture.Url;
                 db.Pictures.Add(picture);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/admin/catalog/products.aspx");
             }
 
             ViewBag.ProductFK = new SelectList(db.products, "product_id", "name", picture.ProductFK);
-            return View(picture);
+            return PartialView(picture);
         }
 
         // GET: /Picture/Edit/5
@@ -74,7 +105,7 @@ namespace seoWebApplication.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProductFK = new SelectList(db.products, "product_id", "name", picture.ProductFK);
-            return View(picture);
+            return PartialView(picture);
         }
 
         // POST: /Picture/Edit/5
@@ -91,7 +122,7 @@ namespace seoWebApplication.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProductFK = new SelectList(db.products, "product_id", "name", picture.ProductFK);
-            return View(picture);
+            return PartialView(picture);
         }
 
         // GET: /Picture/Delete/5
@@ -106,7 +137,7 @@ namespace seoWebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            return View(picture);
+            return PartialView(picture);
         }
 
         // POST: /Picture/Delete/5
@@ -117,7 +148,7 @@ namespace seoWebApplication.Controllers
             Picture picture = db.Pictures.Find(id);
             db.Pictures.Remove(picture);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/admin/catalog/products.aspx");
         }
 
         protected override void Dispose(bool disposing)

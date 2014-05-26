@@ -1,17 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MenuList.ascx.cs" Inherits="seoWebApplication.UserControls.MenuList" %>
  
  
-     <ul class="mainnavddl">   
+ 
         <asp:Repeater ID="outerRep" runat="server" OnItemDataBound="outerRep_ItemDataBound">
              <ItemTemplate> 
-                 <li class="dropdown active">					
-						<a href="javascript:;" class="btn" data-toggle="dropdown">                             
-							<span> 
-                               <asp:Literal ID="litText" runat="server"></asp:Literal>  
-                            </span> 
-						</a>	    
-					
-						<ul class="dropdown-menu">  
+             <li class="dropdown"> 
+                  <a id="drop4" role="button" data-toggle="dropdown" href="#">  <asp:Literal ID="litText" runat="server"></asp:Literal>   <b class="caret"></b></a>					
+					 <ul class="dropdown-menu">  
                            
                 <asp:Repeater ID="innerRep" runat="server" OnItemDataBound="innerRep_ItemDataBound">
                 
@@ -23,12 +18,10 @@
                 </ItemTemplate>
                
                 </asp:Repeater>
-                            </li> 
-                       </ul> 				
-					
-                     
-                
+                            
+                       </ul>  
+             </li>   
              </ItemTemplate>
        </asp:Repeater>
-    </ul>
+    
  

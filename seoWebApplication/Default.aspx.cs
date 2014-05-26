@@ -15,6 +15,7 @@ using seoWebApplication.st.SharkTankDAL;
 using seoWebApplication.st.SharkTankDAL.dataObject;
 using seoWebApplication.st.SharkTankDAL.Framework;
 using seoWebApplication.Data;
+using System.Collections.Generic;
 
 
 namespace seoWebApplication
@@ -74,9 +75,16 @@ namespace seoWebApplication
             string pagerFormat = "";
             // If browsing a category...
 
+            List<seoWebApplication.Data.product> products;
+            int wid = dBHelper.GetWebstoreId();
+            using (var dc = new SeoWebAppEntities())
+            {
+                products = (from p in dc.products where p.webstore_id == wid && p.promofront == true select p).Take(4).ToList();
+            }
+           
 
             // Retrieve list of products on department promotion             
-            list.DataSource = catalogAccesor.GetProductsOnFrontPromo(page, out howManyPages);
+            list.DataSource = products;
             list.DataBind();
 
             // have the current page as integer
@@ -89,12 +97,12 @@ namespace seoWebApplication
             int i = 0;
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-                if (e.Item.ItemIndex % 4 == 0)
+                if (e.Item.ItemIndex % 5 == 0)
                 {
                     Literal lblDivStart = (Literal)e.Item.FindControl("lblDivStart");
                     Literal lblDivEnd = (Literal)e.Item.FindControl("lblDivEnd");
 
-                    lblDivStart.Text = "<div class='row-fluid'><div class='span12'><ul class='thumbnails product-list-inline-large'>";
+                    lblDivStart.Text = "<div class='row-fluid'><div class='span12'><ul class='thumbnails product-list-inline-large'>" + i.ToString();
                     i++;
                     if (i == 4)
                     {
